@@ -21,7 +21,7 @@ const isOpen = ref(false)
 
         <!-- welcome section -->
         <section :class="['min-h-screen flex flex-col justify-end bg-primary py-28 px-10 items-center absolute w-full left-1/2 -translate-x-1/2 max-w-lg transition-all duration-1000 z-50 shadow-2xl', isOpen ? '-translate-y-full' : '']">
-            <img src="/javanese/cloud-100.jpg" alt="background" class="absolute size-full object-cover opacity-15 top-0 lef-0 z-0 pointer-events-none"/>
+            <img src="/javanese/cloud-100.jpg" alt="background" class="mix-blend-multiply opacity-75 absolute size-full object-cover top-0 lef-0 z-0 pointer-events-none"/>
             
             <div class="h-full flex flex-col justify-end items-center z-10">
                 <img src="/javanese/logo_emblem.svg" alt="logo" class="absolute w-80 top-18 mask-b-from-30% mask-b-to-100% z-50 pointer-events-none"/>
@@ -104,32 +104,32 @@ const isOpen = ref(false)
 
         <!-- section countdown -->
          <section class="bg-primary relative">
-            <img src="/javanese/cloud-100.jpg" alt="background" class="absolute size-full object-cover opacity-15 top-0 lef-0 z-0 pointer-events-none"/>
+            <img src="/javanese/cloud-100.jpg" alt="background" class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none"/>
 
             <div class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center]"></div>
 
-            <div class="flex flex-col itesm-center px-14 py-20 font-forum">
-                <h4 class="text-center text-2xl mb-2">Menuju Hari Bahagia</h4>
+            <div class="flex flex-col items-center px-14 py-20 font-forum relative z-10">
+                <h4 class="text-center text-2xl mb-4">Menuju Hari Bahagia</h4>
 
-                <div class="flex justify-between px-20 mb-6">
+                <div class="flex justify-between w-full px-16 mb-6">
                     <div class="flex flex-col items-center">
-                        <p class="leading-none font-semibold text-2xl font-sans">00</p>
+                        <p class="leading-none font-semibold text-3xl font-sans">00</p>
                         <p class="leading-none">Hari</p>
                     </div>
                     <div class="flex flex-col items-center">
-                        <p class="leading-none font-semibold text-2xl font-sans">00</p>
+                        <p class="leading-none font-semibold text-3xl font-sans">00</p>
                         <p class="leading-none">Jam</p>
                     </div>
                     <div class="flex flex-col items-center">
-                        <p class="leading-none font-semibold text-2xl font-sans">00</p>
+                        <p class="leading-none font-semibold text-3xl font-sans">00</p>
                         <p class="leading-none">Menit</p>
                     </div>  
                     <div class="flex flex-col items-center">
-                        <p class="leading-none font-semibold text-2xl font-sans">00</p>
+                        <p class="leading-none font-semibold text-3xl font-sans">00</p>
                         <p class="leading-none">Detik</p>
                     </div>  
                 </div>
-                <p>MINGGU, 01 JUNI 2025</p>
+                <p class="mb-2">MINGGU, 01 JUNI 2025</p>
 
                 <UButton class="mx-auto rounded-full">Save The Date</UButton>
             </div>
