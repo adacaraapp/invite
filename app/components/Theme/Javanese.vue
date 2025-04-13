@@ -27,7 +27,7 @@ const isOpen = ref(false)
 
         <!-- welcome section -->
         <section
-            :class="['min-h-screen flex flex-col justify-end bg-primary py-28 px-10 items-center absolute w-full left-1/2 -translate-x-1/2 max-w-lg transition-all duration-1000 z-50 shadow-2xl', isOpen ? '-translate-y-full' : '']">
+            :class="['min-h-screen flex flex-col justify-end bg-primary py-28 px-10 items-center absolute w-full left-1/2 -translate-x-1/2 max-w-lg transition-all duration-1000 z-50 shadow-2xl text-gold', isOpen ? '-translate-y-full' : '']">
             <img src="/javanese/cloud-100.jpg" alt="background"
                 class="mix-blend-multiply opacity-75 absolute size-full object-cover top-0 lef-0 z-0 pointer-events-none" />
 
@@ -35,7 +35,7 @@ const isOpen = ref(false)
                 <img src="/javanese/logo_emblem.svg" alt="logo"
                     class="absolute w-80 top-18 mask-b-from-30% mask-b-to-100% z-50 pointer-events-none" />
                 <p class="mb-2 font-forum">WALIMATUL ‘URSY</p>
-                <h1 class="flex items-center gap-2 mb-8 font-black uppercase font-serif">
+                <h1 class="flex items-center gap-2 mb-8 font-black uppercase font-serif text-white">
                     <span class="text-4xl">{{ data.groom.name }}</span>
                     <span class="text-2xl">&</span>
                     <span class="text-4xl">{{ data.bride.name }}</span>
@@ -53,22 +53,25 @@ const isOpen = ref(false)
         <!-- end welcome section -->
 
         <!-- section home -->
-        <section class="bg-primary min-h-screen">
+        <section class="bg-primary min-h-[800px] h-screen relative text-gold font-forum overflow-hidden">
+            <img src="/javanese/cloud-100.jpg" alt="background"
+                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
             <div class="flex flex-col justify-end items-center py-28 px-10 relative">
-                <p class="mb-2 font-forum">WALIMATUL ‘URSY</p>
-                <h1 class="flex items-center gap-2 mb-1 font-black uppercase font-serif">
-                    <span class="text-4xl">{{ data.groom.name }}</span>
-                    <span class="text-2xl">&</span>
-                    <span class="text-4xl">{{ data.bride.name }}</span>
-                </h1>
-                <p class="font-forum">Ahad, 29 Desember 2024</p>
+                <p class="mb-2">THE WEDDING OF</p>
+                <img src="/javanese/logo.svg" class="w-80 mb-5" alt="logo">
+
+                <p class="mb-2 text-white font-bold text-xl">MINGGU, 01 JUNI 2025</p>
+
+                <p class="mb-32">Ahad, 29 Desember 2024</p>
+
+                <img src="/javanese/logo_emblem.svg" alt="logo emblem">
             </div>
         </section>
         <!-- end section home -->
 
         <!-- section qoute & wedding -->
         <section class="min-h-screen bg-white relative flex flex-col text-black">
-            <div class="h-4 bg-primary"></div>
+            <div class="h-4 bg-gold"></div>
             <!-- <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div> -->
 
             <div class="grow  py-20 px-14 font-forum">
