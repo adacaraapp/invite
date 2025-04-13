@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+
 const data = {
     groom: {
         name: 'Budi',
@@ -13,7 +14,7 @@ const data = {
     },
 }
 
-const items = ref<RadioGroupItem[]>(['Hadir', 'Tidak Hadir'])
+const items = ref(['Hadir', 'Tidak Hadir'])
 const confimation = ref('')
 
 const tamuOption = ref([1, 2, 3, 4])
@@ -23,30 +24,38 @@ const isOpen = ref(false)
 </script>
 
 <template>
-    <main class="light">
+    <main :class="['light', isOpen ? '' : 'h-screen overflow-hidden']">
 
-        <!-- welcome section -->
+        <!-- welcome</main> section -->
         <section
-            :class="['min-h-screen flex flex-col justify-end bg-primary py-28 px-10 items-center absolute w-full left-1/2 -translate-x-1/2 max-w-lg transition-all duration-1000 z-50 shadow-2xl text-gold', isOpen ? '-translate-y-full' : '']">
-            <img src="/javanese/cloud-100.jpg" alt="background"
-                class="mix-blend-multiply opacity-75 absolute size-full object-cover top-0 lef-0 z-0 pointer-events-none" />
+            :class="['absolute w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-lg left-1/2 -translate-x-1/2 transition-all duration-1000 z-50 shadow-2xl text-gold', isOpen ? '-translate-y-full' : '']">
+            <div class="min-h-screen w-full bg-primary flex flex-col justify-end items-center relative py-28 px-10">
+                <img 
+                    src="/javanese/cloud-100.jpg" 
+                    alt="background"
+                    class="mix-blend-multiply opacity-75 absolute size-full object-cover top-0 left-0 z-0 pointer-events-none"
+                >
 
-            <div class="h-full flex flex-col justify-end items-center z-10">
-                <img src="/javanese/logo_emblem.svg" alt="logo"
-                    class="absolute w-80 top-18 mask-b-from-30% mask-b-to-100% z-50 pointer-events-none" />
-                <p class="mb-2 font-forum">WALIMATUL ‘URSY</p>
-                <h1 class="flex items-center gap-2 mb-8 font-black uppercase font-serif text-white">
-                    <span class="text-4xl">{{ data.groom.name }}</span>
-                    <span class="text-2xl">&</span>
-                    <span class="text-4xl">{{ data.bride.name }}</span>
-                </h1>
-                <div class="space-y-4">
-                    <div class="flex flex-col text-center mb-3 font-forum">
-                        <span>Kepada Yth.</span>
-                        <span>Bapak/Ibu/Saudara/i</span>
-                        <span><strong>{{ data.recipient.name }}</strong></span>
+                <div class="h-full flex flex-col justify-end items-center z-10">
+                    <img 
+                        src="/javanese/logo_emblem.svg" 
+                        alt="logo"
+                        class="absolute w-80 top-18 mask-b-from-30% mask-b-to-100% z-50 pointer-events-none"
+                    >
+                    <p class="mb-2 font-forum">WALIMATUL ‘URSY</p>
+                    <h1 class="flex items-center gap-2 mb-8 font-black uppercase font-serif text-white">
+                        <span class="text-4xl">{{ data.groom.name }}</span>
+                        <span class="text-2xl">&</span>
+                        <span class="text-4xl">{{ data.bride.name }}</span>
+                    </h1>
+                    <div class="space-y-4">
+                        <div class="flex flex-col text-center mb-3 font-forum">
+                            <span>Kepada Yth.</span>
+                            <span>Bapak/Ibu/Saudara/i</span>
+                            <span><strong>{{ data.recipient.name }}</strong></span>
+                        </div>
+                        <UButton class="mx-auto rounded-full" block @click="()=>{isOpen = true}">Open invitation</UButton>
                     </div>
-                    <UButton class="mx-auto rounded-full" block @click="() => isOpen = true">Open invitation</UButton>
                 </div>
             </div>
         </section>
@@ -54,8 +63,11 @@ const isOpen = ref(false)
 
         <!-- section home -->
         <section class="bg-primary min-h-[800px] h-screen relative text-gold font-forum overflow-hidden">
-            <img src="/javanese/cloud-100.jpg" alt="background"
-                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
+            <img 
+                src="/javanese/cloud-100.jpg" 
+                alt="background"
+                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" 
+            >
             <div class="flex flex-col justify-end items-center py-28 px-10 relative">
                 <p class="mb-2">THE WEDDING OF</p>
                 <img src="/javanese/logo.svg" class="w-80 mb-5" alt="logo">
@@ -71,7 +83,7 @@ const isOpen = ref(false)
 
         <!-- section qoute & wedding -->
         <section class="min-h-screen bg-white relative flex flex-col text-black">
-            <div class="h-4 bg-gold"></div>
+            <div class="h-4 bg-gold"/>
             <!-- <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div> -->
 
             <img src="/javanese/pattern_corner.svg" class="absolute top-6 left-2 w-28">
@@ -124,10 +136,13 @@ const isOpen = ref(false)
 
         <!-- section countdown -->
         <section class="bg-primary relative">
-            <img src="/javanese/cloud-100.jpg" alt="background"
-                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
+            <img 
+                src="/javanese/cloud-100.jpg" 
+                alt="background"
+                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none"
+            >
 
-            <div class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center]"></div>
+            <div class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center]"/>
 
             <div class="flex flex-col items-center px-14 py-20 font-forum relative z-10">
                 <h4 class="text-center text-2xl mb-4">Menuju Hari Bahagia</h4>
@@ -159,7 +174,7 @@ const isOpen = ref(false)
 
         <!-- section location -->
         <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden">
-            <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div>
+            <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"/>
 
             <div class="flex flex-col py-20 px-10 text-center">
                 <div class="flex items-center mb-4">
@@ -198,8 +213,11 @@ const isOpen = ref(false)
 
         <!-- section ucapan & rsvp -->
         <section class="bg-primary relative font-forum">
-            <img src="/javanese/cloud-100.jpg" alt="background"
-                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
+            <img 
+                src="/javanese/cloud-100.jpg" 
+                alt="background"
+                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" 
+            >
 
             <div
                 class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center">
@@ -209,7 +227,7 @@ const isOpen = ref(false)
                 </div>
             </div>
 
-            <div class="flex flex-col items-center px-14 pt-4 pb-10 relative z-10 text-center text-white">
+            <div class="flex flex-col items-center px-10 pt-4 pb-10 relative z-10 text-center text-white">
                 <p class="mb-4">Berikan ucapan terbaik untuk Kedua Mempelai & Konfirmasi Kehadiran</p>
 
                 <div class="space-y-2 w-full mb-4">
@@ -222,15 +240,21 @@ const isOpen = ref(false)
                     </UFormField>
 
                     <UFormField label="Konfirmasi Kehadiran" required :ui="{ label: '!text-white', root: 'w-full' }">
-                        <URadioGroup v-model="confimation" orientation="horizontal" indicator="hidden" variant="card"
-                            :items="items" :ui="{ label: '!text-white' }" />
+                        <URadioGroup 
+                            v-model="confimation" 
+                            orientation="horizontal" 
+                            indicator="hidden" 
+                            variant="card"
+                            :items="items" 
+                            :ui="{ label: '!text-white' }" />
                     </UFormField>
 
                     <UFormField v-if="confimation === 'Hadir'" required :ui="{ label: '!text-white', root: 'w-full' }">
                         <UButtonGroup class="w-full">
-                            <USelect color="neutral" variant="subtle" v-model="tamu" :items="tamuOption" class="w-full"
-                                :ui="{ root: 'w-full', base: 'pl-[100px]', leading: 'pointer-events-none bg-gold rounded-l-md px-2' }"
-                                default-value="1">
+                            <USelect 
+                                v-model="tamu" color="neutral" variant="subtle" :items="tamuOption" class="w-full"
+                                :ui="{ base: 'pl-[100px]', leading: 'pointer-events-none bg-gold rounded-l-md px-2' }"
+                                :default-value="1">
                                 <template #leading>
                                     <p class="text-sm">
                                         Jumlah Tamu
@@ -242,13 +266,38 @@ const isOpen = ref(false)
                 </div>
 
                 <UButton class="mx-auto rounded-full" block>Kirim</UButton>
+
+                <div class="mt-4 overflow-y-auto h-48 w-full flex flex-col space-y-2">
+                    <div class="flex gap-2 font-sans">
+                        <UIcon name="i-lucide-user-circle" class="size-8 shrink-0"/>
+                        <div class="text-left">
+                            <h5 class="font-bold">Test</h5>
+                            <p class="text-xs">13-04-2025 17:45</p>
+                            <p class="text-sm">
+                                Selamat fida dan calon suami Semoga dilancarkan segala rangkaian acaranya besok Dijadikan keluarga yang sakinah mawadah warahmah wabarokah, enggal diparingi momongan 🤲🏻🤲🏻🤲🏻🤭
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 font-sans">
+                        <UIcon name="i-lucide-user-circle" class="size-8 shrink-0"/>
+                        <div class="text-left">
+                            <h5 class="font-bold">Test</h5>
+                            <p class="text-xs">13-04-2025 17:45</p>
+                            <p class="text-sm">
+                                Selamat fida dan calon suami Semoga dilancarkan segala rangkaian acaranya besok Dijadikan keluarga yang sakinah mawadah warahmah wabarokah, enggal diparingi momongan 🤲🏻🤲🏻🤲🏻🤭
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
         </section>
         <!-- end section ucapan & rsvp -->
 
         <!-- section wedding gift -->
         <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden">
-            <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div>
+            <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"/>
 
             <div class="flex flex-col py-20 px-10 text-center">
                 <div class="flex items-center mb-4">
@@ -273,8 +322,9 @@ const isOpen = ref(false)
 
         <!-- section thanks -->
         <section class="bg-primary relative font-forum text-gold">
-            <img src="/javanese/cloud-100.jpg" alt="background"
-                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
+            <img 
+                src="/javanese/cloud-100.jpg" alt="background"
+                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" >
 
             <div class="relative z-10 py-16 px-14 text-center">
                 <img src="/javanese/logo_emblem.svg" alt="logo">
@@ -303,8 +353,8 @@ const isOpen = ref(false)
             </div>
 
             <div
-                class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center">
-            </div>
+                class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center"
+            />
         </section>
         <!-- end section thanks -->
 
