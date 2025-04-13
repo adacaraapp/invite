@@ -62,7 +62,7 @@ const isOpen = ref(false)
 
                 <p class="mb-2 text-white font-bold text-xl">MINGGU, 01 JUNI 2025</p>
 
-                <p class="mb-32">Ahad, 29 Desember 2024</p>
+                <p class="mb-32">Ballroom Hotel Harper</p>
 
                 <img src="/javanese/logo_emblem.svg" alt="logo emblem">
             </div>
@@ -74,43 +74,47 @@ const isOpen = ref(false)
             <div class="h-4 bg-gold"></div>
             <!-- <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div> -->
 
-            <div class="grow  py-20 px-14 font-forum">
-                <div class="flex flex-col items-center mb-20">
-                    <img src="/javanese/logo2.svg" alt="logo" class="mb-4">
-                    <p class="text-sm text-center text-pretty">
-                        "Dan nikahkanlah orang-orang yang sendirian di antara kamu, dan orang-orang yang layak
-                        (berkawin) dari hamba-hamba sahayamu yang lelaki dan hamba-hamba sahayamu yang perempuan. Jika
-                        mereka miskin, Allah akan memampukan mereka dengan karunia-Nya. dan Allah Maha Luas
-                        (pemberian-Nya) lagi Maha mengetahui."
-                    </p>
-                    <p class="text-primary font-bold">QS An-Nur: 32</p>
-                </div>
+            <img src="/javanese/pattern_corner.svg" class="absolute top-6 left-2 w-28">
+            <img src="/javanese/pattern_corner.svg" class="absolute top-6 right-2 w-28 rotate-90">
+            <img src="/javanese/pattern_corner.svg" class="absolute bottom-2 left-2 w-28 scale-y-[-1]" >
+            <img src="/javanese/pattern_corner.svg" class="absolute bottom-2 right-2 w-28 rotate-90 scale-x-[-1]">
 
-                <div class="flex flex-col items-center text-center">
-                    <p class="text-primary">Bismillahirrahmanirrahim</p>
-                    <p class="text-lg font-semibold">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                    <p>
-                        Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara pernikahan
-                        putra-putri kami:
-                    </p>
-                    <img src="/javanese/logo2.svg" alt="logo" class="mb-4">
+            <div class="grow py-20 px-14 font-forum space-y-16 text-center">
+                    <div>
+                        <p class="text-pretty">
+                            "Dan nikahkanlah orang-orang yang sendirian di antara kamu, dan orang-orang yang layak
+                            (berkawin) dari hamba-hamba sahayamu yang lelaki dan hamba-hamba sahayamu yang perempuan. Jika
+                            mereka miskin, Allah akan memampukan mereka dengan karunia-Nya. dan Allah Maha Luas
+                            (pemberian-Nya) lagi Maha mengetahui."
+                        </p>
+                        <p class="text-primary font-bold">QS An-Nur: 32</p>
+                    </div>
 
-                    <p class="font-bold text-lg text-primary">
-                        FITRI CHAIRUNNISA, S.T.P., M.Si.
-                    </p>
-                    <p>
-                        Putri dari Bapak Ir. H. Rahmadsyah & Ibu Hj. Prihatin Rahayu, S.H.
-                    </p>
+                    <div>
+                        <p class="text-primary">Bismillahirrahmanirrahim</p>
+                        <p class="text-lg font-semibold">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                        <p class="text-pretty">
+                            Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
+                        </p>
+                    </div>
 
-                    <p class="text-primary font-bold text-4xl my-4">&</p>
+                    <div>
+                        <p class="font-bold text-xl text-primary">
+                            FITRI CHAIRUNNISA, S.T.P., M.Si.
+                        </p>
+                        <p>
+                            Putri dari Bapak Ir. H. Rahmadsyah & Ibu Hj. Prihatin Rahayu, S.H.
+                        </p>
 
-                    <p class="font-bold text-lg text-primary">
-                        M. RIDWAN DWI ASTANTO, S.T.P., M.T.
-                    </p>
-                    <p>
-                        Putra dari Bapak H. Tugimin, S.Pd. & Ibu Hj. Netti Dewita, A.Ma.Pd.
-                    </p>
-                </div>
+                        <p class="text-primary font-bold text-4xl my-2">&</p>
+
+                        <p class="font-bold text-xl text-primary">
+                            M. RIDWAN DWI ASTANTO, S.T.P., M.T.
+                        </p>
+                        <p>
+                            Putra dari Bapak H. Tugimin, S.Pd. & Ibu Hj. Netti Dewita, A.Ma.Pd.
+                        </p>
+                    </div>
             </div>
 
             <img src="/javanese/pattern2.svg" class="w-80 opacity-20 absolute top-1/2 left-1/2 -translate-1/2">
@@ -167,7 +171,7 @@ const isOpen = ref(false)
                 </div>
 
                 <p class="font-bold text-primary text-xl mb-2">Minggu, 01 Juni 2025</p>
-                <div class="grid grid-cols-2 divide-x mb-4">
+                <div class="grid grid-cols-2 divide-x mb-10">
                     <div>
                         <p class="text-primary">Akad Nikah</p>
                         <p>08:00 WIB - Selesai</p>
@@ -177,6 +181,8 @@ const isOpen = ref(false)
                         <p>10:00 WIB - Selesai</p>
                     </div>
                 </div>
+
+                <img src="/javanese/qr_loc.svg" alt="qr location" class="w-16 mx-auto mb-2">
 
                 <p class="font-bold">di Ballroom Hotel Harper</p>
                 <p class="text-pretty mb-6">JI. R. Sukamto No. 20, 20 Ilir D II, Kec. Kemuning, Kota Palembang, Sumatera
