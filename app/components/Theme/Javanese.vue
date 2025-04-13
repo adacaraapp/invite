@@ -230,18 +230,31 @@ const isOpen = ref(false)
 
         <!-- section countdown -->
         <section class="bg-primary relative">
-            <img 
+            <motion.img 
+                :initial="{opacity: 0}" 
+                :while-in-view="{opacity: 1}" 
+                :transition="{duration: 1}" 
                 src="/javanese/cloud-100.jpg" 
                 alt="background"
                 class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none"
-            >
+            />
 
             <div class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center]"/>
 
             <div class="flex flex-col items-center px-14 py-20 font-forum relative z-10">
-                <h4 class="text-center text-2xl mb-4">Menuju Hari Bahagia</h4>
+                <motion.h4 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="text-center text-2xl mb-4">
+                    Menuju Hari Bahagia
+                </motion.h4>
 
-                <div class="flex justify-between w-full px-16 mb-6">
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="flex justify-between w-full px-16 mb-6">
                     <div class="flex flex-col items-center">
                         <p class="leading-none font-semibold text-3xl font-sans">00</p>
                         <p class="leading-none">Hari</p>
@@ -258,10 +271,22 @@ const isOpen = ref(false)
                         <p class="leading-none font-semibold text-3xl font-sans">00</p>
                         <p class="leading-none">Detik</p>
                     </div>
-                </div>
-                <p class="mb-2">MINGGU, 01 JUNI 2025</p>
+                </motion.div>
 
-                <UButton class="mx-auto rounded-full">Save The Date</UButton>
+                <motion.p 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="mb-2">
+                    MINGGU, 01 JUNI 2025
+                </motion.p>
+
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}">
+                    <UButton class="mx-auto rounded-full">Save The Date</UButton>
+                </motion.div>
             </div>
         </section>
         <!-- end section countdown -->
@@ -271,16 +296,31 @@ const isOpen = ref(false)
             <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"/>
 
             <div class="flex flex-col py-20 px-10 text-center">
-                <div class="flex items-center mb-4">
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="flex items-center mb-4">
                     <img src="/javanese/divider_part.svg" class="w-28 rotate-180">
                     <h4 class="text-3xl font-semibold text-nowrap">
                         Denah Lokasi
                     </h4>
                     <img src="/javanese/divider_part.svg" class="w-28">
-                </div>
+                </motion.div>
 
-                <p class="font-bold text-primary text-xl mb-2">Minggu, 01 Juni 2025</p>
-                <div class="grid grid-cols-2 divide-x mb-10">
+                <motion.p 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="font-bold text-primary text-xl mb-2">
+                    Minggu, 01 Juni 2025
+                </motion.p>
+
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="grid grid-cols-2 divide-x mb-10">
                     <div>
                         <p class="text-primary">Akad Nikah</p>
                         <p>08:00 WIB - Selesai</p>
@@ -289,42 +329,78 @@ const isOpen = ref(false)
                         <p class="text-primary">Resepsi</p>
                         <p>10:00 WIB - Selesai</p>
                     </div>
-                </div>
+                </motion.div>
 
-                <img src="/javanese/qr_loc.svg" alt="qr location" class="w-16 mx-auto mb-2">
+                <motion.img 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    src="/javanese/qr_loc.svg" 
+                    alt="qr location" 
+                    class="w-16 mx-auto mb-2">
+                </motion.img>
 
-                <p class="font-bold">di Ballroom Hotel Harper</p>
-                <p class="text-pretty mb-6">JI. R. Sukamto No. 20, 20 Ilir D II, Kec. Kemuning, Kota Palembang, Sumatera
-                    Selatan 30128</p>
-                <UButton class="mx-auto rounded-full">Lihat Maps</UButton>
+                <motion.p 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="font-bold">
+                    di Ballroom Hotel Harper
+                </motion.p>
+                <motion.p 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="text-pretty mb-6">
+                    JI. R. Sukamto No. 20, 20 Ilir D II, Kec. Kemuning, Kota Palembang, Sumatera Selatan 30128
+                </motion.p>
 
-                <img src="/javanese/pattern2.svg" class="absolute top-1/2 left-0 -translate-1/2 opacity-20 w-56">
-                <img src="/javanese/pattern2.svg"
-                    class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 opacity-20 w-56">
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}">
+                    <UButton class="mx-auto rounded-full">Lihat Maps</UButton>
+                </motion.div>
             </div>
         </section>
         <!-- end section location -->
 
         <!-- section ucapan & rsvp -->
         <section class="bg-primary relative font-forum">
-            <img 
+            <motion.img 
+                :initial="{opacity: 0}" 
+                :while-in-view="{opacity: 1}" 
+                :transition="{duration: 1}" 
                 src="/javanese/cloud-100.jpg" 
                 alt="background"
                 class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" 
-            >
+            />
 
-            <div
+            <motion.div 
+                :initial="{opacity: 0, y: 50}" 
+                :while-in-view="{opacity: 1, y: 0}" 
+                :transition="{duration: 1}" 
                 class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center">
                 <div
                     class="uppercase bg-primary font-bold relative z-50 px-4 py-1 text-lg rounded-full border-gold border-3">
                     ucapan & rsvp
                 </div>
-            </div>
+            </motion.div>
 
             <div class="flex flex-col items-center px-10 pt-4 pb-10 relative z-10 text-center text-white">
-                <p class="mb-4">Berikan ucapan terbaik untuk Kedua Mempelai & Konfirmasi Kehadiran</p>
+                <motion.p 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="mb-4">
+                    Berikan ucapan terbaik untuk Kedua Mempelai & Konfirmasi Kehadiran
+                </motion.p>
 
-                <div class="space-y-2 w-full mb-4">
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="space-y-2 w-full mb-4">
                     <UFormField label="Nama" required :ui="{ label: '!text-white', root: 'w-full' }">
                         <UInput placeholder="Masukkan nama kamu" class="w-full" />
                     </UFormField>
@@ -357,11 +433,20 @@ const isOpen = ref(false)
                             </USelect>
                         </UButtonGroup>
                     </UFormField>
-                </div>
+                </motion.div>
 
-                <UButton class="mx-auto rounded-full" block>Kirim</UButton>
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}">
+                    <UButton class="rounded-full w-full" block>Kirim</UButton>
+                </motion.div>
 
-                <div class="mt-4 overflow-y-auto h-48 w-full flex flex-col space-y-2">
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="mt-4 overflow-y-auto h-48 w-full flex flex-col space-y-2">
                     <div class="flex gap-2 font-sans">
                         <UIcon name="i-lucide-user-circle" class="size-8 shrink-0"/>
                         <div class="text-left">
@@ -382,10 +467,8 @@ const isOpen = ref(false)
                             </p>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
-
-
         </section>
         <!-- end section ucapan & rsvp -->
 
@@ -393,7 +476,11 @@ const isOpen = ref(false)
         <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden">
             <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"/>
 
-            <div class="flex flex-col py-20 px-10 text-center">
+            <motion.div 
+                :initial="{opacity: 0, y: 50}" 
+                :while-in-view="{opacity: 1, y: 0}" 
+                :transition="{duration: 1}" 
+                class="flex flex-col py-20 px-10 text-center">
                 <div class="flex items-center mb-4">
                     <img src="/javanese/divider_part.svg" class="w-28 rotate-180">
                     <h4 class="text-3xl font-semibold text-nowrap">
@@ -402,53 +489,103 @@ const isOpen = ref(false)
                     <img src="/javanese/divider_part.svg" class="w-28">
                 </div>
 
-                <p class="text-pretty mb-6">Mungkin karena jarak, waktu ataupun keadaan yang menghalangi untuk ikut
-                    hadir dalam
-                    momen bahagia kami, Silakan klik tombol di bawah untuk mengirimkan kado/hadiah.</p>
-                <UButton class="mx-auto rounded-full">Amplop Digital</UButton>
+                <motion.p 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="text-pretty mb-6">
+                    Mungkin karena jarak, waktu ataupun keadaan yang menghalangi untuk ikut hadir dalam
+                    momen bahagia kami, Silakan klik tombol di bawah untuk mengirimkan kado/hadiah.
+                </motion.p>
 
-                <img src="/javanese/pattern2.svg" class="absolute top-1/2 left-0 -translate-1/2 opacity-20 w-56">
-                <img src="/javanese/pattern2.svg"
-                    class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 opacity-20 w-56">
-            </div>
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}">
+                    <UButton class="mx-auto rounded-full">Amplop Digital</UButton>
+                </motion.div>
+
+                <motion.img 
+                    :initial="{opacity: 0, scale: 0.8}" 
+                    :while-in-view="{opacity: 0.2, scale: 1}" 
+                    :transition="{duration: 1}" 
+                    src="/javanese/pattern2.svg" 
+                    class="absolute top-1/2 left-0 -translate-1/2 opacity-20 w-56 z-0"/>
+                <motion.img 
+                    :initial="{opacity: 0, scale: 0.8}" 
+                    :while-in-view="{opacity: 0.2, scale: 1}" 
+                    :transition="{duration: 1}" 
+                    src="/javanese/pattern2.svg"
+                    class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 opacity-20 w-56 z-0"/>
+            </motion.div>
         </section>
         <!-- end section wedding gift -->
 
         <!-- section thanks -->
         <section class="bg-primary relative font-forum text-gold">
-            <img 
-                src="/javanese/cloud-100.jpg" alt="background"
-                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" >
+            <motion.img 
+                :initial="{opacity: 0}" 
+                :while-in-view="{opacity: 1}" 
+                :transition="{duration: 1}" 
+                src="/javanese/cloud-100.jpg" 
+                alt="background"
+                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" 
+            />
 
             <div class="relative z-10 py-16 px-14 text-center">
-                <img src="/javanese/logo_emblem.svg" alt="logo">
+                <motion.img 
+                    :initial="{opacity: 0, scale: 0.8}" 
+                    :while-in-view="{opacity: 1, scale: 1}" 
+                    :transition="{duration: 1}" 
+                    src="/javanese/logo_emblem.svg" 
+                    alt="logo"
+                    class="mb-8"
+                />
 
-                <div class="mb-16">
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                    class="mb-16">
                     <p class="mb-1 text-pretty">
-                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa rest kepada putra-putri kami.
+                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada putra-putri kami.
                     </p>
                     <p class="font-bold text-xl text-white">Wassalamu’alaikum Wr. Wb.</p>
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}">
                     <p class="mb-4">Kami yang mengundang</p>
 
                     <div class="grid grid-cols-2">
-                        <div class="text-center">
+                        <motion.div 
+                            :initial="{opacity: 0, y: 50}" 
+                            :while-in-view="{opacity: 1, y: 0}" 
+                            :transition="{duration: 1}" 
+                            class="text-center">
                             <p class="text-sm mb-1">Keluarga Besar</p>
-                            <p class="font-bold">Ir. H. Rahmadsyah <br>Hj. Prihatin Rahayu, S.H.</p>
-                        </div>
-                        <div class="text-center">
+                            <p class="font-bold">Ir. H. Rahmadsyah <br> Hj. Prihatin Rahayu, S.H.</p>
+                        </motion.div>
+                        <motion.div 
+                            :initial="{opacity: 0, y: 50}" 
+                            :while-in-view="{opacity: 1, y: 0}" 
+                            :transition="{duration: 1}" 
+                            class="text-center">
                             <p class="text-sm mb-1">Keluarga Besar</p>
                             <p class="font-bold">H. Tugimin, S.Pd. <br> Hj. Netti Dewita, A.Ma.Pd.</p>
-                        </div>
+                        </motion.div>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
-            <div
-                class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center"
-            />
+            <motion.div 
+                :initial="{opacity: 0, y: 50}" 
+                :while-in-view="{opacity: 1, y: 0}" 
+                :transition="{duration: 1}" 
+                class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center">
+            </motion.div>
         </section>
         <!-- end section thanks -->
 
