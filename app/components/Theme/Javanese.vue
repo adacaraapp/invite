@@ -26,11 +26,14 @@ const isOpen = ref(false)
     <main class="light">
 
         <!-- welcome section -->
-        <section :class="['min-h-screen flex flex-col justify-end bg-primary py-28 px-10 items-center absolute w-full left-1/2 -translate-x-1/2 max-w-lg transition-all duration-1000 z-50 shadow-2xl', isOpen ? '-translate-y-full' : '']">
-            <img src="/javanese/cloud-100.jpg" alt="background" class="mix-blend-multiply opacity-75 absolute size-full object-cover top-0 lef-0 z-0 pointer-events-none"/>
-            
+        <section
+            :class="['min-h-screen flex flex-col justify-end bg-primary py-28 px-10 items-center absolute w-full left-1/2 -translate-x-1/2 max-w-lg transition-all duration-1000 z-50 shadow-2xl', isOpen ? '-translate-y-full' : '']">
+            <img src="/javanese/cloud-100.jpg" alt="background"
+                class="mix-blend-multiply opacity-75 absolute size-full object-cover top-0 lef-0 z-0 pointer-events-none" />
+
             <div class="h-full flex flex-col justify-end items-center z-10">
-                <img src="/javanese/logo_emblem.svg" alt="logo" class="absolute w-80 top-18 mask-b-from-30% mask-b-to-100% z-50 pointer-events-none"/>
+                <img src="/javanese/logo_emblem.svg" alt="logo"
+                    class="absolute w-80 top-18 mask-b-from-30% mask-b-to-100% z-50 pointer-events-none" />
                 <p class="mb-2 font-forum">WALIMATUL ‘URSY</p>
                 <h1 class="flex items-center gap-2 mb-8 font-black uppercase font-serif">
                     <span class="text-4xl">{{ data.groom.name }}</span>
@@ -43,7 +46,7 @@ const isOpen = ref(false)
                         <span>Bapak/Ibu/Saudara/i</span>
                         <span><strong>{{ data.recipient.name }}</strong></span>
                     </div>
-                    <UButton class="mx-auto rounded-full" block @click="()=>isOpen=true">Open invitation</UButton>
+                    <UButton class="mx-auto rounded-full" block @click="() => isOpen = true">Open invitation</UButton>
                 </div>
             </div>
         </section>
@@ -64,7 +67,7 @@ const isOpen = ref(false)
         <!-- end section home -->
 
         <!-- section qoute & wedding -->
-         <section class="min-h-screen bg-white relative flex flex-col text-black">
+        <section class="min-h-screen bg-white relative flex flex-col text-black">
             <div class="h-4 bg-primary"></div>
             <!-- <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div> -->
 
@@ -72,7 +75,10 @@ const isOpen = ref(false)
                 <div class="flex flex-col items-center mb-20">
                     <img src="/javanese/logo2.svg" alt="logo" class="mb-4">
                     <p class="text-sm text-center text-pretty">
-                        "Dan nikahkanlah orang-orang yang sendirian di antara kamu, dan orang-orang yang layak (berkawin) dari hamba-hamba sahayamu yang lelaki dan hamba-hamba sahayamu yang perempuan. Jika mereka miskin, Allah akan memampukan mereka dengan karunia-Nya. dan Allah Maha Luas (pemberian-Nya) lagi Maha mengetahui."
+                        "Dan nikahkanlah orang-orang yang sendirian di antara kamu, dan orang-orang yang layak
+                        (berkawin) dari hamba-hamba sahayamu yang lelaki dan hamba-hamba sahayamu yang perempuan. Jika
+                        mereka miskin, Allah akan memampukan mereka dengan karunia-Nya. dan Allah Maha Luas
+                        (pemberian-Nya) lagi Maha mengetahui."
                     </p>
                     <p class="text-primary font-bold">QS An-Nur: 32</p>
                 </div>
@@ -81,7 +87,8 @@ const isOpen = ref(false)
                     <p class="text-primary">Bismillahirrahmanirrahim</p>
                     <p class="text-lg font-semibold">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
                     <p>
-                        Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
+                        Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara pernikahan
+                        putra-putri kami:
                     </p>
                     <img src="/javanese/logo2.svg" alt="logo" class="mb-4">
 
@@ -102,15 +109,16 @@ const isOpen = ref(false)
                     </p>
                 </div>
             </div>
-            
-            <img src="/javanese/pattern2.svg" class="w-80 opacity-20 absolute top-1/2 left-1/2 -translate-1/2"  >
+
+            <img src="/javanese/pattern2.svg" class="w-80 opacity-20 absolute top-1/2 left-1/2 -translate-1/2">
             <!-- <div class="h-4 bg-primary"></div> -->
-         </section>
+        </section>
         <!-- end section qoute & wedding -->
 
         <!-- section countdown -->
-         <section class="bg-primary relative">
-            <img src="/javanese/cloud-100.jpg" alt="background" class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none"/>
+        <section class="bg-primary relative">
+            <img src="/javanese/cloud-100.jpg" alt="background"
+                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
 
             <div class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center]"></div>
 
@@ -129,21 +137,21 @@ const isOpen = ref(false)
                     <div class="flex flex-col items-center">
                         <p class="leading-none font-semibold text-3xl font-sans">00</p>
                         <p class="leading-none">Menit</p>
-                    </div>  
+                    </div>
                     <div class="flex flex-col items-center">
                         <p class="leading-none font-semibold text-3xl font-sans">00</p>
                         <p class="leading-none">Detik</p>
-                    </div>  
+                    </div>
                 </div>
                 <p class="mb-2">MINGGU, 01 JUNI 2025</p>
 
                 <UButton class="mx-auto rounded-full">Save The Date</UButton>
             </div>
-         </section>
+        </section>
         <!-- end section countdown -->
 
-         <!-- section location -->
-         <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden">
+        <!-- section location -->
+        <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden">
             <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div>
 
             <div class="flex flex-col py-20 px-10 text-center">
@@ -168,21 +176,26 @@ const isOpen = ref(false)
                 </div>
 
                 <p class="font-bold">di Ballroom Hotel Harper</p>
-                <p class="text-pretty mb-6">JI. R. Sukamto No. 20, 20 Ilir D II, Kec. Kemuning, Kota Palembang, Sumatera Selatan 30128</p>
+                <p class="text-pretty mb-6">JI. R. Sukamto No. 20, 20 Ilir D II, Kec. Kemuning, Kota Palembang, Sumatera
+                    Selatan 30128</p>
                 <UButton class="mx-auto rounded-full">Lihat Maps</UButton>
 
                 <img src="/javanese/pattern2.svg" class="absolute top-1/2 left-0 -translate-1/2 opacity-20 w-56">
-                <img src="/javanese/pattern2.svg" class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 opacity-20 w-56">
+                <img src="/javanese/pattern2.svg"
+                    class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 opacity-20 w-56">
             </div>
-         </section>
-         <!-- end section location -->
+        </section>
+        <!-- end section location -->
 
-         <!-- section ucapan & rsvp -->
-         <section class="bg-primary relative font-forum">
-            <img src="/javanese/cloud-100.jpg" alt="background" class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none"/>
+        <!-- section ucapan & rsvp -->
+        <section class="bg-primary relative font-forum">
+            <img src="/javanese/cloud-100.jpg" alt="background"
+                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
 
-            <div class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center">
-                <div class="uppercase bg-primary font-bold relative z-50 px-4 py-1 text-lg rounded-full border-gold border-3">
+            <div
+                class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center">
+                <div
+                    class="uppercase bg-primary font-bold relative z-50 px-4 py-1 text-lg rounded-full border-gold border-3">
                     ucapan & rsvp
                 </div>
             </div>
@@ -191,21 +204,24 @@ const isOpen = ref(false)
                 <p class="mb-4">Berikan ucapan terbaik untuk Kedua Mempelai & Konfirmasi Kehadiran</p>
 
                 <div class="space-y-2 w-full mb-4">
-                    <UFormField label="Nama" required :ui="{label:'!text-white', root: 'w-full'}">
+                    <UFormField label="Nama" required :ui="{ label: '!text-white', root: 'w-full' }">
                         <UInput placeholder="Masukkan nama kamu" class="w-full" />
                     </UFormField>
 
-                    <UFormField label="Ucapan & Doa" required :ui="{label:'!text-white', root: 'w-full'}">
+                    <UFormField label="Ucapan & Doa" required :ui="{ label: '!text-white', root: 'w-full' }">
                         <UTextarea placeholder="Masukkan ucapan & kamu" class="w-full" />
                     </UFormField>
 
-                    <UFormField label="Konfirmasi Kehadiran" required :ui="{label:'!text-white', root: 'w-full'}">
-                        <URadioGroup v-model="confimation" orientation="horizontal" indicator="hidden" variant="card" :items="items" :ui="{ label:'!text-white'}" />
+                    <UFormField label="Konfirmasi Kehadiran" required :ui="{ label: '!text-white', root: 'w-full' }">
+                        <URadioGroup v-model="confimation" orientation="horizontal" indicator="hidden" variant="card"
+                            :items="items" :ui="{ label: '!text-white' }" />
                     </UFormField>
 
-                    <UFormField v-if="confimation === 'Hadir'" required :ui="{label:'!text-white', root: 'w-full'}">
+                    <UFormField v-if="confimation === 'Hadir'" required :ui="{ label: '!text-white', root: 'w-full' }">
                         <UButtonGroup class="w-full">
-                            <USelect color="neutral" variant="subtle" v-model="tamu" :items="tamuOption" class="w-full" :ui="{ root:'w-full', base: 'pl-[100px]', leading: 'pointer-events-none bg-gold rounded-l-md px-2'}" default-value="1">
+                            <USelect color="neutral" variant="subtle" v-model="tamu" :items="tamuOption" class="w-full"
+                                :ui="{ root: 'w-full', base: 'pl-[100px]', leading: 'pointer-events-none bg-gold rounded-l-md px-2' }"
+                                default-value="1">
                                 <template #leading>
                                     <p class="text-sm">
                                         Jumlah Tamu
@@ -218,8 +234,70 @@ const isOpen = ref(false)
 
                 <UButton class="mx-auto rounded-full" block>Kirim</UButton>
             </div>
-         </section>
-         <!-- end section ucapan & rsvp -->
+        </section>
+        <!-- end section ucapan & rsvp -->
+
+        <!-- section wedding gift -->
+        <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden">
+            <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div>
+
+            <div class="flex flex-col py-20 px-10 text-center">
+                <div class="flex items-center mb-4">
+                    <img src="/javanese/divider_part.svg" class="w-28 rotate-180">
+                    <h4 class="text-3xl font-semibold text-nowrap">
+                        Wedding Gift
+                    </h4>
+                    <img src="/javanese/divider_part.svg" class="w-28">
+                </div>
+
+                <p class="text-pretty mb-6">Mungkin karena jarak, waktu ataupun keadaan yang menghalangi untuk ikut
+                    hadir dalam
+                    momen bahagia kami, Silakan klik tombol di bawah untuk mengirimkan kado/hadiah.</p>
+                <UButton class="mx-auto rounded-full">Amplop Digital</UButton>
+
+                <img src="/javanese/pattern2.svg" class="absolute top-1/2 left-0 -translate-1/2 opacity-20 w-56">
+                <img src="/javanese/pattern2.svg"
+                    class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 opacity-20 w-56">
+            </div>
+        </section>
+        <!-- end section wedding gift -->
+
+        <!-- section thanks -->
+        <section class="bg-primary relative font-forum text-gold">
+            <img src="/javanese/cloud-100.jpg" alt="background"
+                class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
+
+            <div class="relative z-10 py-16 px-14 text-center">
+                <img src="/javanese/logo_emblem.svg" alt="logo">
+
+                <div class="mb-16">
+                    <p class="mb-1 text-pretty">
+                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa rest kepada putra-putri kami.
+                    </p>
+                    <p class="font-bold text-xl text-white">Wassalamu’alaikum Wr. Wb.</p>
+                </div>
+
+                <div>
+                    <p class="mb-4">Kami yang mengundang</p>
+
+                    <div class="grid grid-cols-2">
+                        <div class="text-center">
+                            <p class="text-sm mb-1">Keluarga Besar</p>
+                            <p class="font-bold">Ir. H. Rahmadsyah <br>Hj. Prihatin Rahayu, S.H.</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm mb-1">Keluarga Besar</p>
+                            <p class="font-bold">H. Tugimin, S.Pd. <br> Hj. Netti Dewita, A.Ma.Pd.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center">
+            </div>
+        </section>
+        <!-- end section thanks -->
 
     </main>
 </template>
