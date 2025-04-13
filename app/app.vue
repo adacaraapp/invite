@@ -1,6 +1,6 @@
 <template>
   <UApp>
-    <UContainer class="max-w-lg dark:bg-neutral-950">
+    <UContainer class="max-w-lg">
       <NuxtPage />
     </UContainer>
   </UApp>
