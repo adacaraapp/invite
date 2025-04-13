@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { motion } from "motion-v"
 
 const data = {
     groom: {
@@ -26,7 +27,7 @@ const isOpen = ref(false)
 <template>
     <main :class="['light', isOpen ? '' : 'h-screen overflow-hidden']">
 
-        <!-- welcome</main> section -->
+        <!-- welcome section -->
         <section
             :class="['absolute w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-lg left-1/2 -translate-x-1/2 transition-all duration-1000 z-50 shadow-2xl text-gold', isOpen ? '-translate-y-full' : '']">
             <div class="min-h-screen w-full bg-primary flex flex-col justify-end items-center relative py-28 px-10">
@@ -37,25 +38,40 @@ const isOpen = ref(false)
                 >
 
                 <div class="h-full flex flex-col justify-end items-center z-10">
-                    <img 
+                    <motion.img 
+                        :initial="{opacity:0}" 
+                        :transition="{duration: 1}" 
+                        :while-in-view="{opacity:1, y: 0}" 
                         src="/javanese/logo_emblem.svg" 
                         alt="logo"
                         class="absolute w-80 top-18 mask-b-from-30% mask-b-to-100% z-50 pointer-events-none"
-                    >
-                    <p class="mb-2 font-forum">WALIMATUL ‘URSY</p>
-                    <h1 class="flex items-center gap-2 mb-8 font-black uppercase font-serif text-white">
+                    />
+                    <motion.p 
+                        :initial="{opacity:0, y: 50}" 
+                        :transition="{duration: 1}" 
+                        :while-in-view="{opacity:1, y: 0}" 
+                        class="mb-2 font-forum">WALIMATUL ‘URSY</motion.p>
+                    <motion.h1 
+                        :initial="{opacity:0, y: 50}" 
+                        :transition="{duration: 1}" 
+                        :while-in-view="{opacity:1, y: 0}" 
+                        class="flex items-center gap-2 mb-8 font-black uppercase font-serif text-white">
                         <span class="text-4xl">{{ data.groom.name }}</span>
                         <span class="text-2xl">&</span>
                         <span class="text-4xl">{{ data.bride.name }}</span>
-                    </h1>
-                    <div class="space-y-4">
+                    </motion.h1>
+                    <motion.div 
+                        :initial="{opacity:0, y: 50}" 
+                        :transition="{duration: 1}" 
+                        :while-in-view="{opacity:1, y: 0}" 
+                        class="space-y-4">
                         <div class="flex flex-col text-center mb-3 font-forum">
                             <span>Kepada Yth.</span>
                             <span>Bapak/Ibu/Saudara/i</span>
                             <span><strong>{{ data.recipient.name }}</strong></span>
                         </div>
                         <UButton class="mx-auto rounded-full" block @click="()=>{isOpen = true}">Open invitation</UButton>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
@@ -63,20 +79,45 @@ const isOpen = ref(false)
 
         <!-- section home -->
         <section class="bg-primary min-h-[800px] h-screen relative text-gold font-forum overflow-hidden">
-            <img 
+            <motion.img 
+                :initial="{opacity: 0}" 
+                :while-in-view="{opacity: 1}" 
+                :transition="{duration: 1}" 
                 src="/javanese/cloud-100.jpg" 
                 alt="background"
                 class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" 
-            >
+            />
             <div class="flex flex-col justify-end items-center py-28 px-10 relative">
-                <p class="mb-2">THE WEDDING OF</p>
-                <img src="/javanese/logo.svg" class="w-80 mb-5" alt="logo">
-
-                <p class="mb-2 text-white font-bold text-xl">MINGGU, 01 JUNI 2025</p>
-
-                <p class="mb-32">Ballroom Hotel Harper</p>
-
-                <img src="/javanese/logo_emblem.svg" alt="logo emblem">
+                <motion.p 
+                    :initial="{opacity:0, y: 50}" 
+                    :transition="{duration: 1}" 
+                    :while-in-view="{opacity:1, y: 0}" 
+                    class="mb-2">THE WEDDING OF</motion.p>
+                <motion.img 
+                    :initial="{opacity:0, scale: 0.8}" 
+                    :transition="{duration: 1}" 
+                    :while-in-view="{opacity:1, scale: 1}" 
+                    src="/javanese/logo.svg" 
+                    class="w-80 mb-5" 
+                    alt="logo">
+                </motion.img>
+                <motion.p 
+                    :initial="{opacity:0, y: 50}" 
+                    :transition="{duration: 1}" 
+                    :while-in-view="{opacity:1, y: 0}" 
+                    class="mb-2 text-white font-bold text-xl">MINGGU, 01 JUNI 2025</motion.p>
+                <motion.p 
+                    :initial="{opacity:0, y: 50}" 
+                    :transition="{duration: 1}" 
+                    :while-in-view="{opacity:1, y: 0}" 
+                    class="mb-32">Ballroom Hotel Harper</motion.p>
+                <motion.img 
+                    :initial="{opacity:0, scale: 0.8}" 
+                    :transition="{duration: 1}" 
+                    :while-in-view="{opacity:1, scale: 1}" 
+                    src="/javanese/logo_emblem.svg" 
+                    alt="logo emblem">
+                </motion.img>
             </div>
         </section>
         <!-- end section home -->
@@ -86,51 +127,104 @@ const isOpen = ref(false)
             <div class="h-4 bg-gold"/>
             <!-- <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div> -->
 
-            <img src="/javanese/pattern_corner.svg" class="absolute top-6 left-2 w-28">
-            <img src="/javanese/pattern_corner.svg" class="absolute top-6 right-2 w-28 rotate-90">
-            <img src="/javanese/pattern_corner.svg" class="absolute bottom-2 left-2 w-28 scale-y-[-1]" >
-            <img src="/javanese/pattern_corner.svg" class="absolute bottom-2 right-2 w-28 rotate-90 scale-x-[-1]">
+            <motion.img 
+                :initial="{opacity: 0, y: -50}" 
+                :while-in-view="{opacity: 1, y: 0}" 
+                :transition="{duration: 1}" 
+                src="/javanese/pattern_corner.svg" 
+                class="absolute top-6 left-2 w-28"/>
+            <motion.img 
+                :initial="{opacity: 0, x: -50, y: 0}" 
+                :while-in-view="{opacity: 1, x: 0, y: 0}" 
+                :transition="{duration: 1}" 
+                src="/javanese/pattern_corner.svg" 
+                class="absolute top-6 right-2 w-28 rotate-90"/>
+            <motion.img 
+                :initial="{opacity: 0, y: 50}" 
+                :while-in-view="{opacity: 1, y: 0}" 
+                :transition="{duration: 1}" 
+                src="/javanese/pattern_corner.svg" 
+                class="absolute bottom-2 left-2 w-28 scale-y-[-1]"/>
+            <motion.img 
+                :initial="{opacity: 0, y: 50}" 
+                :while-in-view="{opacity: 1, y: 0}" 
+                :transition="{duration: 1}" 
+                src="/javanese/pattern_corner.svg" 
+                class="absolute bottom-2 right-2 w-28 rotate-90 scale-x-[-1]"/>
 
-            <div class="grow py-20 px-14 font-forum space-y-16 text-center">
-                    <div>
-                        <p class="text-pretty">
-                            "Dan nikahkanlah orang-orang yang sendirian di antara kamu, dan orang-orang yang layak
-                            (berkawin) dari hamba-hamba sahayamu yang lelaki dan hamba-hamba sahayamu yang perempuan. Jika
-                            mereka miskin, Allah akan memampukan mereka dengan karunia-Nya. dan Allah Maha Luas
-                            (pemberian-Nya) lagi Maha mengetahui."
-                        </p>
-                        <p class="text-primary font-bold">QS An-Nur: 32</p>
-                    </div>
+            <div class="grow py-20 px-14 font-forum space-y-16 text-center relative z-10">
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                >
+                    <p class="text-pretty">
+                        "Dan nikahkanlah orang-orang yang sendirian di antara kamu, dan orang-orang yang layak
+                        (berkawin) dari hamba-hamba sahayamu yang lelaki dan hamba-hamba sahayamu yang perempuan. Jika
+                        mereka miskin, Allah akan memampukan mereka dengan karunia-Nya. dan Allah Maha Luas
+                        (pemberian-Nya) lagi Maha mengetahui."
+                    </p>
+                    <motion.p class="text-primary font-bold">QS An-Nur: 32</motion.p>
+                </motion.div>
 
-                    <div>
-                        <p class="text-primary">Bismillahirrahmanirrahim</p>
-                        <p class="text-lg font-semibold">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                        <p class="text-pretty">
-                            Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
-                        </p>
-                    </div>
+                <motion.div 
+                    :initial="{opacity: 0, y: 50}" 
+                    :while-in-view="{opacity: 1, y: 0}" 
+                    :transition="{duration: 1}" 
+                >
+                    <p class="text-primary">Bismillahirrahmanirrahim</p>
+                    <p class="text-lg font-semibold">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                    <p class="text-pretty">
+                        Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
+                    </p>
+                </motion.div>
 
-                    <div>
-                        <p class="font-bold text-xl text-primary">
-                            FITRI CHAIRUNNISA, S.T.P., M.Si.
-                        </p>
-                        <p>
-                            Putri dari Bapak Ir. H. Rahmadsyah & Ibu Hj. Prihatin Rahayu, S.H.
-                        </p>
+                <div>
+                    <motion.p 
+                        :initial="{opacity: 0, y: 50}" 
+                        :while-in-view="{opacity: 1, y: 0}" 
+                        :transition="{duration: 1}" 
+                        class="font-bold text-xl text-primary">
+                        FITRI CHAIRUNNISA, S.T.P., M.Si.
+                    </motion.p>
+                    <motion.p 
+                        :initial="{opacity: 0, y: 50}" 
+                        :while-in-view="{opacity: 1, y: 0}" 
+                        :transition="{duration: 1}">
+                        Putri dari Bapak Ir. H. Rahmadsyah & Ibu Hj. Prihatin Rahayu, S.H.
+                    </motion.p>
 
-                        <p class="text-primary font-bold text-4xl my-2">&</p>
+                    <motion.p 
+                        :initial="{opacity: 0, y: 50}" 
+                        :while-in-view="{opacity: 1, y: 0}" 
+                        :transition="{duration: 1}" 
+                        class="text-primary font-bold text-4xl my-2">
+                        &
+                    </motion.p>
 
-                        <p class="font-bold text-xl text-primary">
-                            M. RIDWAN DWI ASTANTO, S.T.P., M.T.
-                        </p>
-                        <p>
-                            Putra dari Bapak H. Tugimin, S.Pd. & Ibu Hj. Netti Dewita, A.Ma.Pd.
-                        </p>
-                    </div>
+                    <motion.p 
+                        :initial="{opacity: 0, y: 50}" 
+                        :while-in-view="{opacity: 1, y: 0}" 
+                        :transition="{duration: 1}" 
+                        class="font-bold text-xl text-primary">
+                        M. RIDWAN DWI ASTANTO, S.T.P., M.T.
+                    </motion.p>
+                    <motion.p 
+                        :initial="{opacity: 0, y: 50}" 
+                        :while-in-view="{opacity: 1, y: 0}" 
+                        :transition="{duration: 1}">
+                        Putra dari Bapak H. Tugimin, S.Pd. & Ibu Hj. Netti Dewita, A.Ma.Pd.
+                    </motion.p>
+                </div>
             </div>
 
-            <img src="/javanese/pattern2.svg" class="w-80 opacity-20 absolute top-1/2 left-1/2 -translate-1/2">
-            <!-- <div class="h-4 bg-primary"></div> -->
+            <motion.img 
+                :initial="{opacity: 0, scale: 0.8}" 
+                :while-in-view="{opacity: 0.2, scale: 1}" 
+                :transition="{duration: 1}" 
+                src="/javanese/pattern2.svg" 
+                class="w-80 opacity-20 absolute top-1/2 left-1/2 -translate-1/2 z-0"
+            />
         </section>
         <!-- end section qoute & wedding -->
 
