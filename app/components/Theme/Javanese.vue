@@ -99,8 +99,7 @@ const isOpen = ref(false)
                     :while-in-view="{opacity:1, scale: 1}" 
                     src="/javanese/logo.svg" 
                     class="w-80 mb-5" 
-                    alt="logo">
-                </motion.img>
+                    alt="logo"/>
                 <motion.p 
                     :initial="{opacity:0, y: 50}" 
                     :transition="{duration: 1}" 
@@ -116,8 +115,7 @@ const isOpen = ref(false)
                     :transition="{duration: 1}" 
                     :while-in-view="{opacity:1, scale: 1}" 
                     src="/javanese/logo_emblem.svg" 
-                    alt="logo emblem">
-                </motion.img>
+                    alt="logo emblem"/>
             </div>
         </section>
         <!-- end section home -->
@@ -337,8 +335,7 @@ const isOpen = ref(false)
                     :transition="{duration: 1}" 
                     src="/javanese/qr_loc.svg" 
                     alt="qr location" 
-                    class="w-16 mx-auto mb-2">
-                </motion.img>
+                    class="w-16 mx-auto mb-2"/>
 
                 <motion.p 
                     :initial="{opacity: 0, y: 50}" 
@@ -584,8 +581,7 @@ const isOpen = ref(false)
                 :initial="{opacity: 0, y: 50}" 
                 :while-in-view="{opacity: 1, y: 0}" 
                 :transition="{duration: 1}" 
-                class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center">
-            </motion.div>
+                class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center"/>
         </section>
         <!-- end section thanks -->
 
