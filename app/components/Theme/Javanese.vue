@@ -136,6 +136,41 @@ const isOpen = ref(false)
          </section>
         <!-- end section countdown -->
 
+         <!-- section location -->
+         <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden">
+            <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div>
+
+            <div class="flex flex-col py-20 px-10 text-center">
+                <div class="flex items-center mb-4">
+                    <img src="/javanese/divider_part.svg" class="w-28 rotate-180">
+                    <h4 class="text-3xl font-semibold text-nowrap">
+                        Denah Lokasi
+                    </h4>
+                    <img src="/javanese/divider_part.svg" class="w-28">
+                </div>
+
+                <p class="font-bold text-primary text-xl mb-2">Minggu, 01 Juni 2025</p>
+                <div class="grid grid-cols-2 divide-x mb-4">
+                    <div>
+                        <p class="text-primary">Akad Nikah</p>
+                        <p>08:00 WIB - Selesai</p>
+                    </div>
+                    <div>
+                        <p class="text-primary">Resepsi</p>
+                        <p>10:00 WIB - Selesai</p>
+                    </div>
+                </div>
+
+                <p class="font-bold">di Ballroom Hotel Harper</p>
+                <p class="text-pretty mb-6">JI. R. Sukamto No. 20, 20 Ilir D II, Kec. Kemuning, Kota Palembang, Sumatera Selatan 30128</p>
+                <UButton class="mx-auto rounded-full">Lihat Maps</UButton>
+
+                <img src="/javanese/pattern2.svg" class="absolute top-1/2 left-0 -translate-1/2 opacity-20 w-56">
+                <img src="/javanese/pattern2.svg" class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 opacity-20 w-56">
+            </div>
+         </section>
+         <!-- end section location -->
+
 
     </main>
 </template>
