@@ -13,11 +13,17 @@ const data = {
     },
 }
 
+const items = ref<RadioGroupItem[]>(['Hadir', 'Tidak Hadir'])
+const confimation = ref('')
+
+const tamuOption = ref([1, 2, 3, 4])
+const tamu = ref(1)
+
 const isOpen = ref(false)
 </script>
 
 <template>
-    <main>
+    <main class="light">
 
         <!-- welcome section -->
         <section :class="['min-h-screen flex flex-col justify-end bg-primary py-28 px-10 items-center absolute w-full left-1/2 -translate-x-1/2 max-w-lg transition-all duration-1000 z-50 shadow-2xl', isOpen ? '-translate-y-full' : '']">
@@ -171,6 +177,49 @@ const isOpen = ref(false)
          </section>
          <!-- end section location -->
 
+         <!-- section ucapan & rsvp -->
+         <section class="bg-primary relative font-forum">
+            <img src="/javanese/cloud-100.jpg" alt="background" class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none"/>
+
+            <div class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center">
+                <div class="uppercase bg-primary font-bold relative z-50 px-4 py-1 text-lg rounded-full border-gold border-3">
+                    ucapan & rsvp
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center px-14 pt-4 pb-10 relative z-10 text-center text-white">
+                <p class="mb-4">Berikan ucapan terbaik untuk Kedua Mempelai & Konfirmasi Kehadiran</p>
+
+                <div class="space-y-2 w-full mb-4">
+                    <UFormField label="Nama" required :ui="{label:'!text-white', root: 'w-full'}">
+                        <UInput placeholder="Masukkan nama kamu" class="w-full" />
+                    </UFormField>
+
+                    <UFormField label="Ucapan & Doa" required :ui="{label:'!text-white', root: 'w-full'}">
+                        <UTextarea placeholder="Masukkan ucapan & kamu" class="w-full" />
+                    </UFormField>
+
+                    <UFormField label="Konfirmasi Kehadiran" required :ui="{label:'!text-white', root: 'w-full'}">
+                        <URadioGroup v-model="confimation" orientation="horizontal" indicator="hidden" variant="card" :items="items" :ui="{ label:'!text-white'}" />
+                    </UFormField>
+
+                    <UFormField v-if="confimation === 'Hadir'" required :ui="{label:'!text-white', root: 'w-full'}">
+                        <UButtonGroup class="w-full">
+                            <USelect color="neutral" variant="subtle" v-model="tamu" :items="tamuOption" class="w-full" :ui="{ root:'w-full', base: 'pl-[100px]', leading: 'pointer-events-none bg-gold rounded-l-md px-2'}" default-value="1">
+                                <template #leading>
+                                    <p class="text-sm">
+                                        Jumlah Tamu
+                                    </p>
+                                </template>
+                            </USelect>
+                        </UButtonGroup>
+                    </UFormField>
+                </div>
+
+                <UButton class="mx-auto rounded-full" block>Kirim</UButton>
+            </div>
+         </section>
+         <!-- end section ucapan & rsvp -->
 
     </main>
 </template>
