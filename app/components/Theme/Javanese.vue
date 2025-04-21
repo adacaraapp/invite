@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { motion } from "motion-v"
+// const dayjs = useDayjs()
 
 const data = {
     groom: {
@@ -18,6 +19,58 @@ const data = {
     },
     date: '2025-06-01'
 }
+
+// countdown refs
+const days    = ref('00')
+const hours   = ref('00')
+const minutes = ref('00')
+const seconds = ref('00')
+
+// format tanggal (opsional uppercase)
+const formattedDate = computed(() => {
+  // misal "MINGGU, 01 JUNI 2025"
+  const d = new Date(data.date)
+  const opts: Intl.DateTimeFormatOptions = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' }
+  return d.toLocaleDateString('id-ID', opts).toUpperCase()
+})
+
+// hitung waktu target sekali
+const targetTime = new Date(data.date).getTime()
+
+let timerId: ReturnType<typeof setInterval>
+
+// fungsi update
+function updateCountdown() {
+  const now      = Date.now()
+  const distance = targetTime - now
+
+  if (distance <= 0) {
+    // sudah lewat
+    days.value = hours.value = minutes.value = seconds.value = '00'
+    clearInterval(timerId)
+    return
+  }
+
+  const d = Math.floor(distance / (1000 * 60 * 60 * 24))
+  const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+  const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+  const s = Math.floor((distance % (1000 * 60)) / 1000)
+
+  days.value    = String(d).padStart(2, '0')
+  hours.value   = String(h).padStart(2, '0')
+  minutes.value = String(m).padStart(2, '0')
+  seconds.value = String(s).padStart(2, '0')
+}
+
+onMounted(() => {
+  updateCountdown()  // hitung segera
+  timerId = setInterval(updateCountdown, 1000)
+})
+
+onUnmounted(() => {
+  clearInterval(timerId)
+})
+
 
 const items = ref(['Hadir', 'Tidak Hadir'])
 
@@ -40,10 +93,50 @@ async function addToCalendarAction() {
     )
 }
 
+const { data: messages, refresh } = await useFetch(`/api/messages/${state.value.code}`, {
+  key: `messages-${state.value.code}`,
+});
+
+
 async function submitMessage() {
-    // save to json in "icha-ridwan".json
-    console.log(state)
+  try {
+    const payload = {
+      name: state.value.name,
+      message: state.value.message,
+      confirmation: state.value.confirmation,
+      tamu: state.value.confirmation === 'Hadir' ? state.value.tamu : 0,
+    };
+
+    const { data, error } = await useFetch(`/api/messages/${state.value.code}`, {
+      method: 'POST',
+      body: payload,
+    });
+
+    if (error.value) {
+      throw new Error(error.value.message || 'Gagal mengirim ucapan');
+    }
+
+    alert('Ucapan berhasil dikirim! 🎉');
+    await refresh();
+
+    // Reset form
+    state.value.name = '';
+    state.value.message = '';
+    state.value.confirmation = '';
+    state.value.tamu = 1;
+
+    // Tutup modal (jika ada)
+    isOpen.value = false;
+
+    // Optional: bisa fetch ulang messages setelah submit
+    // await refreshNuxtData() atau re-fetch manual
+
+  } catch (err) {
+    console.error('Submit gagal:', err);
+    alert('Terjadi kesalahan saat mengirim ucapan');
+  }
 }
+
 </script>
 
 <template>
@@ -155,20 +248,20 @@ async function submitMessage() {
 
                 <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="flex justify-between w-full px-16 mb-6">
                     <div class="flex flex-col items-center">
-                        <p class="leading-none font-semibold text-3xl font-sans">00</p>
-                        <p class="leading-none">Hari</p>
+                    <p class="leading-none font-semibold text-3xl font-sans">{{ days }}</p>
+                    <p class="leading-none">Hari</p>
                     </div>
                     <div class="flex flex-col items-center">
-                        <p class="leading-none font-semibold text-3xl font-sans">00</p>
-                        <p class="leading-none">Jam</p>
+                    <p class="leading-none font-semibold text-3xl font-sans">{{ hours }}</p>
+                    <p class="leading-none">Jam</p>
                     </div>
                     <div class="flex flex-col items-center">
-                        <p class="leading-none font-semibold text-3xl font-sans">00</p>
-                        <p class="leading-none">Menit</p>
+                    <p class="leading-none font-semibold text-3xl font-sans">{{ minutes }}</p>
+                    <p class="leading-none">Menit</p>
                     </div>
                     <div class="flex flex-col items-center">
-                        <p class="leading-none font-semibold text-3xl font-sans">00</p>
-                        <p class="leading-none">Detik</p>
+                    <p class="leading-none font-semibold text-3xl font-sans">{{ seconds }}</p>
+                    <p class="leading-none">Detik</p>
                     </div>
                 </motion.div>
 
@@ -177,7 +270,7 @@ async function submitMessage() {
                 </motion.p>
 
                 <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
-                    <UButton class="mx-auto rounded-full">Save The Date</UButton>
+                    <UButton class="mx-auto rounded-full" @click="addToCalendarAction">Save The Date</UButton>
                 </motion.div>
             </div>
         </section>
@@ -269,30 +362,22 @@ async function submitMessage() {
                 </motion.div>
 
                 <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
-                    <UButton class="rounded-full w-full" block>Kirim</UButton>
+                    <UButton class="rounded-full w-full" block :loading="loading" @click="submitMessage">Kirim</UButton>
                 </motion.div>
 
                 <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="mt-4 overflow-y-auto h-48 w-full flex flex-col space-y-2">
-                    <div class="flex gap-2 font-sans">
-                        <UIcon name="i-lucide-user-circle" class="size-8 shrink-0" />
-                        <div class="text-left">
-                            <h5 class="font-bold">Test</h5>
-                            <p class="text-xs">13-04-2025 17:45</p>
-                            <p class="text-sm">
-                                Selamat fida dan calon suami Semoga dilancarkan segala rangkaian acaranya besok Dijadikan keluarga yang sakinah mawadah warahmah wabarokah, enggal diparingi momongan 🤲🏻🤲🏻🤲🏻🤭
-                            </p>
+                    <template v-for="(message, index) in messages.messages" :key="index">
+                        <div class="flex gap-2 font-sans border-b border-b-gray-200 py-2">
+                            <UIcon name="i-lucide-user-circle" class="size-8 shrink-0" />
+                            <div class="text-left">
+                                <h5 class="font-bold">{{ message.name }}</h5>
+                                <p class="text-xs">{{ new Date(message.created_at).toLocaleString('id-ID', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }) }}</p>
+                                <p class="text-sm">
+                                    {{ message.message }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex gap-2 font-sans">
-                        <UIcon name="i-lucide-user-circle" class="size-8 shrink-0" />
-                        <div class="text-left">
-                            <h5 class="font-bold">Test</h5>
-                            <p class="text-xs">13-04-2025 17:45</p>
-                            <p class="text-sm">
-                                Selamat fida dan calon suami Semoga dilancarkan segala rangkaian acaranya besok Dijadikan keluarga yang sakinah mawadah warahmah wabarokah, enggal diparingi momongan 🤲🏻🤲🏻🤲🏻🤭
-                            </p>
-                        </div>
-                    </div>
+                    </template>
                 </motion.div>
             </div>
         </section>
