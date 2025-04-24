@@ -28,9 +28,9 @@ const isOpen = ref(false)
 <template>
     <main :class="['light', isOpen ? '' : 'h-screen overflow-hidden']">
 
-        <UButton @click="() => {
+        <!-- <UButton @click="() => {
             isOpen = false
-        }" class="fixed bottom-10 right-1/4">reset</UButton>
+        }" class="fixed bottom-10 right-1/4">reset</UButton> -->
 
         <!-- welcome section -->
         <section
