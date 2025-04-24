@@ -22,6 +22,7 @@ const tamuOption = ref([1, 2, 3, 4])
 const tamu = ref(1)
 
 const isOpen = ref(false)
+
 </script>
 
 <template>
@@ -33,7 +34,7 @@ const isOpen = ref(false)
 
         <!-- welcome section -->
         <section
-            :class="['absolute w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-lg left-1/2 -translate-x-1/2 transition-all duration-[2000ms] z-50 shadow-2xl text-gold', isOpen ? '-translate-y-full opacity-0' : 'opacity-100']">
+            :class="['absolute w-full mx-auto sm:px-6 lg:px-8 max-w-lg left-1/2 -translate-x-1/2 transition-all duration-[2000ms] z-50 shadow-2xl text-gold', isOpen ? '-translate-y-full opacity-0' : 'opacity-100']">
             <div class="min-h-screen w-full bg-primary flex flex-col justify-end items-center relative py-28 px-10">
                 <img src="/javanese/cloud-100.jpg" alt="background"
                     class="mix-blend-multiply opacity-75 absolute size-full object-cover top-0 left-0 z-0 pointer-events-none">
@@ -68,7 +69,7 @@ const isOpen = ref(false)
 
 
         <!-- section home -->
-        <section class="bg-primary min-h-[800px] h-screen relative text-gold font-forum overflow-hidden">
+        <section class="bg-primary min-h-[600px] h-screen relative text-gold font-forum overflow-hidden">
 
             <div
                 :class="['absolute h-full z-40 left-0 top-0 size-full transition-all duration-1000 delay-500 ease-in-out', isOpen ? ' animate-entrance' : '']">
@@ -85,9 +86,10 @@ const isOpen = ref(false)
             <div class="flex flex-col justify-end items-center py-28 px-10 relative">
 
                 <motion.p :initial="{ opacity: 0, y: 50 }" :transition="{ duration: 1 }"
-                    :while-in-view="{ opacity: 1, y: 0 }" class="mb-2">THE WEDDING OF</motion.p>
+                    :while-in-view="{ opacity: 1, y: 0 }" class="mb-2 relative z-30">THE WEDDING OF</motion.p>
                 <motion.img :initial="{ opacity: 0, scale: 0.8 }" :transition="{ duration: 1 }"
-                    :while-in-view="{ opacity: 1, scale: 1 }" src="/javanese/logo.svg" class="w-80 mb-5" alt="logo" />
+                    :while-in-view="{ opacity: 1, scale: 1 }" src="/javanese/logo.svg" class="w-80 mb-5 relative z-30"
+                    alt="logo" />
                 <motion.p :initial="{ opacity: 0, y: 50 }" :transition="{ duration: 1 }"
                     :while-in-view="{ opacity: 1, y: 0 }" class="mb-2 text-white font-bold text-xl">MINGGU, 01 JUNI 2025
                 </motion.p>
@@ -95,6 +97,33 @@ const isOpen = ref(false)
                     :while-in-view="{ opacity: 1, y: 0 }" class="mb-32">Ballroom Hotel Harper</motion.p>
                 <motion.img :initial="{ opacity: 0, scale: 0.8 }" :transition="{ duration: 1 }"
                     :while-in-view="{ opacity: 1, scale: 1 }" src="/javanese/logo_emblem.svg" alt="logo emblem" />
+            </div>
+
+            <div class="absolute bottom-0 left-0 size-full z-20">
+                <motion.img :animate="{ rotate: [-45, -30, -45] }" :transition="{
+                    duration: 5,
+                    repeat: Infinity,
+                    easing: 'easeInOut'
+                }" src="/javanese/flowers/1.png" alt=""
+                    class="size-60 object-contain absolute -top-64 -left-20 scale-y-[-1] origin-bottom -rotate-45" />
+                <motion.img :animate="{ rotate: [-3, 3, -3] }" :transition="{
+                    duration: 3,
+                    repeat: Infinity,
+                    easing: 'easeInOut'
+                }" src="/javanese/flowers/2.png" alt=""
+                    class="size-60 object-contain origin-bottom-left absolute -bottom-10 -left-10 scale-125" />
+                <motion.img :animate="{ rotate: [3, -3, 3] }" :transition="{
+                    duration: 3,
+                    repeat: Infinity,
+                    easing: 'easeInOut'
+                }" src="/javanese/flowers/2-flip.png" alt=""
+                    class="size-60 object-contain absolute -bottom-10 -right-10 origin-bottom scale-125" />
+                <motion.img :animate="{ rotate: [-25, -20, -25] }" :transition="{
+                    duration: 5,
+                    repeat: Infinity,
+                    easing: 'easeInOut'
+                }" src="/javanese/flowers/3.png" alt=""
+                    class="size-60 object-contain absolute -top-0 -right-32 origin-bottom-right" />
             </div>
         </section>
         <!-- end section home -->
