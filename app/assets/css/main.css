@@ -24,4 +24,17 @@
   --color-green-800: #016538;
   --color-green-900: #0a5331;
   --color-green-950: #052e16;
+
+  --animate-entrance: entrance 2.5s ease-in-out forwards;
+  @keyframes entrance {
+    0%{
+      transform: scale(1.8);
+    }
+    70%{
+      transform: scale(1);
+    }
+    100%{
+      transform: scale(4);
+    }
+  }
 }
