@@ -221,17 +221,17 @@ function toggleAudio() {
                     duration: 5,
                     repeat: Infinity,
                     easing: 'easeInOut'
-                }" src="/javanese/flowers/1.png" alt="" class="size-60 object-contain absolute -top-64 -left-20 scale-y-[-1] origin-bottom -rotate-45" />
+                }" src="/javanese/flowers/2.png" alt="" class="size-60 object-contain absolute -top-64 -left-20 scale-y-[-1] origin-bottom-left -rotate-45" />
                 <motion.img :animate="{ rotate: [-3, 3, -3] }" :transition="{
                     duration: 3,
                     repeat: Infinity,
                     easing: 'easeInOut'
-                }" src="/javanese/flowers/2.png" alt="" class="size-60 object-contain origin-bottom-left absolute -bottom-10 -left-10 scale-125" />
+                }" src="/javanese/flowers/1-flip.png" alt="" class="size-48 object-contain origin-bottom-left absolute -bottom-10 -left-10 scale-125" />
                 <motion.img :animate="{ rotate: [3, -3, 3] }" :transition="{
                     duration: 3,
                     repeat: Infinity,
                     easing: 'easeInOut'
-                }" src="/javanese/flowers/2-flip.png" alt="" class="size-60 object-contain absolute -bottom-10 -right-10 origin-bottom scale-125" />
+                }" src="/javanese/flowers/1.png" alt="" class="size-48 object-contain absolute -bottom-10 -right-10 origin-bottom-right scale-125" />
                 <motion.img :animate="{ rotate: [-25, -20, -25] }" :transition="{
                     duration: 5,
                     repeat: Infinity,
