@@ -240,13 +240,13 @@ function toggleAudio() {
             </div>
 
             <div class="absolute bottom-0 left-0 size-full z-20">
-                <!-- <motion.img :animate="{ rotate: [-45, -30, -45] }" :transition="{duration: 5,repeat: Infinity,easing: 'easeInOut'}" src="/javanese/flowers/2.png" alt="" class="size-60 object-contain absolute -top-64 -left-20 scale-y-[-1] origin-bottom-left -rotate-45" />
+                <motion.img :animate="{ rotate: [-45, -30, -45] }" :transition="{duration: 5,repeat: Infinity,easing: 'easeInOut'}" src="/javanese/flowers/2.png" alt="" class="size-60 object-contain absolute -top-64 -left-20 scale-y-[-1] origin-bottom-left -rotate-45" />
 
                 <motion.img :animate="{ rotate: [-3, 3, -3] }" :transition="{duration: 3, repeat: Infinity, easing:'easeInOut'}" src="/javanese/flowers/1-flip.png" alt="" class="size-48 object-contain origin-bottom-left absolute -bottom-10 -left-10 scale-125" />
 
                 <motion.img :animate="{ rotate: [3, -3, 3] }" :transition="{duration: 3, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/1.png" alt="" class="size-48 object-contain absolute -bottom-10 -right-10 origin-bottom-right scale-125" />
 
-                <motion.img :animate="{ rotate: [-25, -20, -25] }" :transition="{ duration: 5, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/3.png" alt="" class="size-60 object-contain absolute -top-0 -right-32 origin-bottom-right" /> -->
+                <motion.img :animate="{ rotate: [-25, -20, -25] }" :transition="{ duration: 5, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/3.png" alt="" class="size-60 object-contain absolute -top-0 -right-32 origin-bottom-right" />
             </div>
         </section>
         <!-- end section home -->
