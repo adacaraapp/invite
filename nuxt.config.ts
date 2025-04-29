@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     '@nuxt/eslint',
-    'motion-v/nuxt'
+    'motion-v/nuxt',
+    'nuxt-easy-lightbox'
   ],
 
   css: ['~/assets/css/main.css'],

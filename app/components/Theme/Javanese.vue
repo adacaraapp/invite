@@ -100,6 +100,29 @@ const { data: messages, refresh } = await useFetch(`/api/messages/${state.value.
     key: `messages-${state.value.code}`,
 });
 
+const images = [
+    'https://picsum.photos/id/22/600/900',
+    'https://picsum.photos/id/24/600/900',
+    'https://picsum.photos/id/29/600/900',
+    'https://picsum.photos/id/36/600/900',
+    'https://picsum.photos/id/42/600/900',
+    'https://picsum.photos/id/48/600/900',
+    'https://picsum.photos/id/64/600/900',
+    'https://picsum.photos/id/65/600/900',
+    'https://picsum.photos/id/75/600/900',
+    'https://picsum.photos/id/77/600/900',
+    'https://picsum.photos/id/87/600/900',
+    'https://picsum.photos/id/96/600/900'
+]
+
+const visibleRef = ref(false);
+const indexRef = ref(0);
+const showImg = (index) => {
+  indexRef.value = index;
+  visibleRef.value = true;
+};
+const onHide = () => (visibleRef.value = false);
+
 
 async function submitMessage() {
     try {
@@ -217,13 +240,13 @@ function toggleAudio() {
             </div>
 
             <div class="absolute bottom-0 left-0 size-full z-20">
-                <motion.img :animate="{ rotate: [-45, -30, -45] }" :transition="{duration: 5,repeat: Infinity,easing: 'easeInOut'}" src="/javanese/flowers/2.png" alt="" class="size-60 object-contain absolute -top-64 -left-20 scale-y-[-1] origin-bottom-left -rotate-45" />
+                <!-- <motion.img :animate="{ rotate: [-45, -30, -45] }" :transition="{duration: 5,repeat: Infinity,easing: 'easeInOut'}" src="/javanese/flowers/2.png" alt="" class="size-60 object-contain absolute -top-64 -left-20 scale-y-[-1] origin-bottom-left -rotate-45" />
 
                 <motion.img :animate="{ rotate: [-3, 3, -3] }" :transition="{duration: 3, repeat: Infinity, easing:'easeInOut'}" src="/javanese/flowers/1-flip.png" alt="" class="size-48 object-contain origin-bottom-left absolute -bottom-10 -left-10 scale-125" />
 
                 <motion.img :animate="{ rotate: [3, -3, 3] }" :transition="{duration: 3, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/1.png" alt="" class="size-48 object-contain absolute -bottom-10 -right-10 origin-bottom-right scale-125" />
 
-                <motion.img :animate="{ rotate: [-25, -20, -25] }" :transition="{ duration: 5, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/3.png" alt="" class="size-60 object-contain absolute -top-0 -right-32 origin-bottom-right" />
+                <motion.img :animate="{ rotate: [-25, -20, -25] }" :transition="{ duration: 5, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/3.png" alt="" class="size-60 object-contain absolute -top-0 -right-32 origin-bottom-right" /> -->
             </div>
         </section>
         <!-- end section home -->
@@ -403,6 +426,24 @@ function toggleAudio() {
             </div>
         </section>
         <!-- end section location -->
+
+        <!-- section gallery -->
+         <section class="bg-white min-h-screen relative overflow-hidden font-forum">
+            <div class="py-16 px-4">
+                <h3 class="text-3xl font-bold text-primary text-center mb-6">Our Gallery</h3>
+
+                <div class="grid grid-cols-3 gap-3">
+                    <img v-for="(src, index) in images" :key="index+src" class="aspect-[9/16] rounded-lg object-cover object-center" :src="src" alt="" @click="() => showImg(index)"> 
+                </div>
+                <VueEasyLightbox
+                    :visible="visibleRef"
+                    :imgs="images"
+                    :index="indexRef"
+                    @hide="onHide"
+                />
+            </div>
+         </section>
+        <!-- end section gallery -->
 
         <!-- section wedding gift -->
         <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden flex flex-col">
