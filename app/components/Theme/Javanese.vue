@@ -193,9 +193,9 @@ function toggleAudio() {
 <template>
     <main :class="['light', isOpen ? '' : 'h-screen overflow-hidden']">
 
-        <UButton @click="() => {
+        <!-- <UButton @click="() => {
             isOpen = false
-        }" class="fixed bottom-10 right-1/4">reset</UButton>
+        }" class="fixed bottom-10 right-1/4">reset</UButton> -->
 
         <!-- welcome section -->
         <section :class="['absolute w-full mx-auto sm:px-6 lg:px-8 max-w-lg left-1/2 -translate-x-1/2 transition-all duration-[2000ms] z-50 shadow-2xl text-gold', isOpen ? '-translate-y-full opacity-0' : 'opacity-100']">
