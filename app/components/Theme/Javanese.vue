@@ -101,18 +101,23 @@ const { data: messages, refresh } = await useFetch(`/api/messages/${state.value.
 });
 
 const images = [
-    'https://picsum.photos/id/22/600/900',
-    'https://picsum.photos/id/24/600/900',
-    'https://picsum.photos/id/29/600/900',
-    'https://picsum.photos/id/36/600/900',
-    'https://picsum.photos/id/42/600/900',
-    'https://picsum.photos/id/48/600/900',
-    'https://picsum.photos/id/64/600/900',
-    'https://picsum.photos/id/65/600/900',
-    'https://picsum.photos/id/75/600/900',
-    'https://picsum.photos/id/77/600/900',
-    'https://picsum.photos/id/87/600/900',
-    'https://picsum.photos/id/96/600/900'
+    '/javanese/clients/IMG_0004.JPG',
+    '/javanese/clients/IMG_0063.JPG',
+
+    '/javanese/clients/IMG_0052.JPG',
+    '/javanese/clients/IMG_0054.JPG',
+
+    '/javanese/clients/XT300072.JPG',
+    '/javanese/clients/XT300088.JPG',
+
+    '/javanese/clients/XT300130.JPG',
+    '/javanese/clients/XT300146.JPG',
+
+    '/javanese/clients/XT300160.JPG',
+    '/javanese/clients/IMG_0147.JPG',
+
+    '/javanese/clients/IMG_0116.JPG',
+    '/javanese/clients/IMG_0201.JPG'
 ]
 
 const visibleRef = ref(false);
@@ -188,9 +193,9 @@ function toggleAudio() {
 <template>
     <main :class="['light', isOpen ? '' : 'h-screen overflow-hidden']">
 
-        <!-- <UButton @click="() => {
+        <UButton @click="() => {
             isOpen = false
-        }" class="fixed bottom-10 right-1/4">reset</UButton> -->
+        }" class="fixed bottom-10 right-1/4">reset</UButton>
 
         <!-- welcome section -->
         <section :class="['absolute w-full mx-auto sm:px-6 lg:px-8 max-w-lg left-1/2 -translate-x-1/2 transition-all duration-[2000ms] z-50 shadow-2xl text-gold', isOpen ? '-translate-y-full opacity-0' : 'opacity-100']">
@@ -240,13 +245,13 @@ function toggleAudio() {
             </div>
 
             <div class="absolute bottom-0 left-0 size-full z-20">
-                <motion.img :animate="{ rotate: [-45, -30, -45] }" :transition="{duration: 5,repeat: Infinity,easing: 'easeInOut'}" src="/javanese/flowers/2.png" alt="" class="size-60 object-contain absolute -top-64 -left-20 scale-y-[-1] origin-bottom-left -rotate-45" />
+                <!-- <motion.img :animate="{ rotate: [-45, -30, -45] }" :transition="{duration: 5,repeat: Infinity,easing: 'easeInOut'}" src="/javanese/flowers/2.png" alt="" class="size-60 object-contain absolute -top-64 -left-20 scale-y-[-1] origin-bottom-left -rotate-45" />
 
                 <motion.img :animate="{ rotate: [-3, 3, -3] }" :transition="{duration: 3, repeat: Infinity, easing:'easeInOut'}" src="/javanese/flowers/1-flip.png" alt="" class="size-48 object-contain origin-bottom-left absolute -bottom-10 -left-10 scale-125" />
 
                 <motion.img :animate="{ rotate: [3, -3, 3] }" :transition="{duration: 3, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/1.png" alt="" class="size-48 object-contain absolute -bottom-10 -right-10 origin-bottom-right scale-125" />
 
-                <motion.img :animate="{ rotate: [-25, -20, -25] }" :transition="{ duration: 5, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/3.png" alt="" class="size-60 object-contain absolute -top-0 -right-32 origin-bottom-right" />
+                <motion.img :animate="{ rotate: [-25, -20, -25] }" :transition="{ duration: 5, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/3.png" alt="" class="size-60 object-contain absolute -top-0 -right-32 origin-bottom-right" /> -->
             </div>
         </section>
         <!-- end section home -->
@@ -263,7 +268,8 @@ function toggleAudio() {
             <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute bottom-2 right-2 w-28 rotate-90 scale-x-[-1]" />
 
             <div class="grow py-20 px-4 sm:px-6 md:px-14 font-forum space-y-10 text-center relative z-10">
-                <UCard class="text-center text-sm text-muted h-56 w-full" variant="soft"/>
+                <!-- <UCard class="text-center text-sm text-muted h-56 w-full" variant="soft"/> -->
+                <img src="/javanese/wedding-photos/with-love.JPG" alt="with love image" class="h-56 w-full rounded-lg">
 
                 <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
                     <h3 class="text-3xl font-bold text-primary">With Love</h3>
@@ -295,7 +301,6 @@ function toggleAudio() {
             <div class="grow py-20 px-4 sm:px-6 md:px-14 font-forum space-y-16 text-center relative z-10">
 
                 <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
-                    <h3 class="text-3xl font-bold text-primary">Bride & Groom</h3>
                     <p class="text-primary">Bismillahirrahmanirrahim</p>
                     <p class="text-lg font-semibold">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
                     <p class="text-pretty">
@@ -305,6 +310,7 @@ function toggleAudio() {
                 </motion.div>
 
                 <div>
+                    <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/wedding-photos/women.jpg" alt="women" class="h-72 mx-auto rounded-full mb-5"/>
                     <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="font-bold text-xl text-primary">
                         FITRI CHAIRUNNISA, S.T.P., M.Si.
                     </motion.p>
@@ -316,6 +322,7 @@ function toggleAudio() {
                         &
                     </motion.p>
 
+                    <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/wedding-photos/man.jpg" alt="man" class="h-72 mx-auto rounded-full mb-5"/>
                     <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="font-bold text-xl text-primary">
                         M. RIDWAN DWI ASTANTO, S.T.P., M.T.
                     </motion.p>
@@ -376,52 +383,75 @@ function toggleAudio() {
 
             <div class="flex flex-col py-20 px-10 space-y-10 text-center">
                 <!-- akad nikah -->
-                <div>
-                    <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="flex items-center justify-between px-5 mb-4">
-                        <img src="/javanese/divider_part.svg" class="w-16 sm:w-28 rotate-180">
-                        <h4 class="text-2xl font-semibold text-nowrap">
+                <div class="rounded-full border-2 border-gold shadow-lg py-28 px-8 relative">
+                    <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="flex items-center justify-center px-5 mb-4 gap-2">
+                        <img src="/javanese/divider_part.svg" class="w-18 rotate-180">
+                        <h4 class="text-2xl font-semibold text-nowrap text-center">
                             Akad Nikah
                         </h4>
-                        <img src="/javanese/divider_part.svg" class="w-16 sm:w-28">
+                        <img src="/javanese/divider_part.svg" class="w-18">
                     </motion.div>
 
-                    <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
-                        <p class="font-bold text-primary text-xl mb-1"> Minggu, 01 Juni 2025</p>
+                    <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="mb-4">
+                        <p class="font-bold text-primary text-xl mb-1"> Minggu</p>
+                        <p class="text-6xl">01</p>
+                        <p>Juni 2025</p>
                         <p>08:00 WIB - Selesai</p>
                     </motion.div>
+
+                    <div>
+                        <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="font-bold">
+                            di Ballroom Hotel Harper
+                        </motion.p>
+                        <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="text-pretty mb-2">
+                            JI. R. Sukamto No. 20, 20 Ilir D II, Kec. Kemuning, Kota Palembang, Sumatera Selatan 30128
+                        </motion.p>
+
+                        <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/qr_loc.svg" alt="qr location" class="w-16 mx-auto mb-6" />
+
+                        <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
+                            <UButton class="mx-auto rounded-full" :to="data.venue.link" external target="_blank">Lihat Maps</UButton>
+                        </motion.div>
+
+                    </div>
+
+                    <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.2, scale: 1 }" :transition="{ duration: 1 }" src="/javanese/pattern2.svg" class="w-64 opacity-20 absolute top-1/2 left-1/2 -translate-1/2 z-0" />
                 </div>
 
-
-                <!-- resepsi -->
-                <div>
-                    <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="flex items-center justify-between px-5 mb-4">
-                        <img src="/javanese/divider_part.svg" class="w-16 sm:w-28 rotate-180">
-                        <h4 class="text-2xl font-semibold text-nowrap">
+                <!-- resepti -->
+                <div class="rounded-full border-2 border-gold shadow-lg py-28 px-8 relative">
+                    <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="flex items-center justify-center px-5 mb-4 gap-2">
+                        <img src="/javanese/divider_part.svg" class="w-18 rotate-180">
+                        <h4 class="text-2xl font-semibold text-nowrap text-center">
                             Resepsi
                         </h4>
-                        <img src="/javanese/divider_part.svg" class="w-16 sm:w-28">
+                        <img src="/javanese/divider_part.svg" class="w-18">
                     </motion.div>
 
-                    <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
-                        <p class="font-bold text-primary text-xl mb-1"> Minggu, 01 Juni 2025</p>
+                    <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="mb-4">
+                        <p class="font-bold text-primary text-xl mb-1"> Minggu</p>
+                        <p class="text-6xl">01</p>
+                        <p>Juni 2025</p>
                         <p>10:00 WIB - Selesai</p>
                     </motion.div>
-                </div>
 
+                    <div>
+                        <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="font-bold">
+                            di Ballroom Hotel Harper
+                        </motion.p>
+                        <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="text-pretty mb-2">
+                            JI. R. Sukamto No. 20, 20 Ilir D II, Kec. Kemuning, Kota Palembang, Sumatera Selatan 30128
+                        </motion.p>
 
-                <div>
-                    <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/qr_loc.svg" alt="qr location" class="w-16 mx-auto mb-2" />
+                        <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/qr_loc.svg" alt="qr location" class="w-16 mx-auto mb-6" />
 
-                    <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="font-bold">
-                        di Ballroom Hotel Harper
-                    </motion.p>
-                    <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="text-pretty mb-6">
-                        JI. R. Sukamto No. 20, 20 Ilir D II, Kec. Kemuning, Kota Palembang, Sumatera Selatan 30128
-                    </motion.p>
+                        <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
+                            <UButton class="mx-auto rounded-full" :to="data.venue.link" external target="_blank">Lihat Maps</UButton>
+                        </motion.div>
 
-                    <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
-                        <UButton class="mx-auto rounded-full" :to="data.venue.link" external target="_blank">Lihat Maps</UButton>
-                    </motion.div>
+                    </div>
+
+                    <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.2, scale: 1 }" :transition="{ duration: 1 }" src="/javanese/pattern2.svg" class="w-64 opacity-20 absolute top-1/2 left-1/2 -translate-1/2 z-0" />
                 </div>
             </div>
         </section>
@@ -432,7 +462,7 @@ function toggleAudio() {
             <div class="py-16 px-4">
                 <h3 class="text-3xl font-bold text-primary text-center mb-6">Our Gallery</h3>
 
-                <div class="grid grid-cols-3 gap-3">
+                <div class="grid grid-cols-2 gap-3">
                     <img v-for="(src, index) in images" :key="index+src" class="aspect-[9/16] rounded-lg object-cover object-center" :src="src" alt="" @click="() => showImg(index)"> 
                 </div>
                 <VueEasyLightbox
