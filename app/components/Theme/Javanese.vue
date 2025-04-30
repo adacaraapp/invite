@@ -107,7 +107,7 @@ const images = [
     '/javanese/clients/IMG_0052.JPG',
     '/javanese/clients/IMG_0054.JPG',
 
-    '/javanese/clients/XT300072.JPG',
+    '/javanese/clients/XT300072.jpg',
     '/javanese/clients/XT300088.JPG',
 
     '/javanese/clients/XT300130.JPG',
@@ -231,6 +231,18 @@ function toggleAudio() {
                 <div class=" bg-gold mask-subtract mask-[url(/javanese/background-transition.png),url(/javanese/logo-background.svg)] absolute left-0 top-0 w-full h-screen mask-size-[100%] z-50 mask-center mask-no-repeat" />
                 <div class="bg-gold absolute top-0 left-0 w-full h-1/5 z-50" />
                 <div class="bg-gold absolute bottom-0 left-0 w-full h-1/5 z-50" />
+
+
+                <!-- flowers -->
+                <!-- <div class="absolute bottom-0 left-0 size-full z-50">
+                    <motion.img :animate="{ rotate: [-45, -30, -45] }" :transition="{duration: 5,repeat: Infinity,easing: 'easeInOut'}" src="/javanese/flowers/2.png" alt="" class="size-60 object-contain absolute -top-64 -left-20 scale-y-[-1] origin-bottom-left -rotate-45" />
+
+                    <motion.img :animate="{ rotate: [-3, 3, -3] }" :transition="{duration: 3, repeat: Infinity, easing:'easeInOut'}" src="/javanese/flowers/1-flip.png" alt="" class="size-48 object-contain origin-bottom-left absolute -bottom-10 -left-10 scale-125" />
+
+                    <motion.img :animate="{ rotate: [3, -3, 3] }" :transition="{duration: 3, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/1.png" alt="" class="size-48 object-contain absolute -bottom-10 -right-10 origin-bottom-right scale-125" />
+
+                    <motion.img :animate="{ rotate: [-25, -20, -25] }" :transition="{ duration: 5, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/3.png" alt="" class="size-60 object-contain absolute -top-0 -right-32 origin-bottom-right" />
+                </div> -->
             </div>
 
             <motion.img :initial="{ opacity: 0 }" :while-in-view="{ opacity: 1 }" :transition="{ duration: 1 }" src="/javanese/cloud-100.jpg" alt="background" class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
@@ -244,15 +256,7 @@ function toggleAudio() {
                 <motion.img :initial="{ opacity: 0, scale: 0.8 }" :transition="{ duration: 1 }" :while-in-view="{ opacity: 1, scale: 1 }" src="/javanese/logo_emblem.svg" class="w-42" alt="logo emblem" />
             </div>
 
-            <div class="absolute bottom-0 left-0 size-full z-20">
-                <!-- <motion.img :animate="{ rotate: [-45, -30, -45] }" :transition="{duration: 5,repeat: Infinity,easing: 'easeInOut'}" src="/javanese/flowers/2.png" alt="" class="size-60 object-contain absolute -top-64 -left-20 scale-y-[-1] origin-bottom-left -rotate-45" />
-
-                <motion.img :animate="{ rotate: [-3, 3, -3] }" :transition="{duration: 3, repeat: Infinity, easing:'easeInOut'}" src="/javanese/flowers/1-flip.png" alt="" class="size-48 object-contain origin-bottom-left absolute -bottom-10 -left-10 scale-125" />
-
-                <motion.img :animate="{ rotate: [3, -3, 3] }" :transition="{duration: 3, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/1.png" alt="" class="size-48 object-contain absolute -bottom-10 -right-10 origin-bottom-right scale-125" />
-
-                <motion.img :animate="{ rotate: [-25, -20, -25] }" :transition="{ duration: 5, repeat: Infinity, easing: 'easeInOut'}" src="/javanese/flowers/3.png" alt="" class="size-60 object-contain absolute -top-0 -right-32 origin-bottom-right" /> -->
-            </div>
+            
         </section>
         <!-- end section home -->
 
@@ -310,7 +314,7 @@ function toggleAudio() {
                 </motion.div>
 
                 <div>
-                    <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/wedding-photos/women.jpg" alt="women" class="h-72 mx-auto rounded-full mb-5"/>
+                    <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/wedding-photos/women.JPG" alt="women" class="h-72 mx-auto rounded-full mb-5"/>
                     <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="font-bold text-xl text-primary">
                         FITRI CHAIRUNNISA, S.T.P., M.Si.
                     </motion.p>
@@ -322,7 +326,7 @@ function toggleAudio() {
                         &
                     </motion.p>
 
-                    <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/wedding-photos/man.jpg" alt="man" class="h-72 mx-auto rounded-full mb-5"/>
+                    <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/wedding-photos/man.JPG" alt="man" class="h-72 mx-auto rounded-full mb-5"/>
                     <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="font-bold text-xl text-primary">
                         M. RIDWAN DWI ASTANTO, S.T.P., M.T.
                     </motion.p>
@@ -459,6 +463,8 @@ function toggleAudio() {
 
         <!-- section gallery -->
          <section class="bg-white min-h-screen relative overflow-hidden font-forum">
+            <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]" />
+
             <div class="py-16 px-4">
                 <h3 class="text-3xl font-bold text-primary text-center mb-6">Our Gallery</h3>
 
