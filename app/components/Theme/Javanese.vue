@@ -107,7 +107,7 @@ const images = [
     '/javanese/clients/10.JPG',
     '/javanese/clients/9.JPG',
 
-    '/javanese/clients/3.jpg',
+    '/javanese/clients/3.JPG',
     '/javanese/clients/4.JPG',
 
     '/javanese/clients/11.JPG',
