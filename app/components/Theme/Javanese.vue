@@ -101,23 +101,23 @@ const { data: messages, refresh } = await useFetch(`/api/messages/${state.value.
 });
 
 const images = [
-    '/javanese/clients/IMG_0004.JPG',
-    '/javanese/clients/IMG_0063.JPG',
+    '/javanese/clients/1.JPG',
+    '/javanese/clients/12.JPG',
 
-    '/javanese/clients/IMG_0052.JPG',
-    '/javanese/clients/IMG_0054.JPG',
+    '/javanese/clients/10.JPG',
+    '/javanese/clients/9.JPG',
 
-    '/javanese/clients/XT300072.jpg',
-    '/javanese/clients/XT300088.JPG',
+    '/javanese/clients/3.jpg',
+    '/javanese/clients/4.JPG',
 
-    '/javanese/clients/XT300130.JPG',
-    '/javanese/clients/XT300146.JPG',
+    '/javanese/clients/11.JPG',
+    '/javanese/wedding-photos/with-love.JPG',
 
-    '/javanese/clients/XT300160.JPG',
-    '/javanese/clients/IMG_0147.JPG',
+    '/javanese/clients/7.JPG',
+    '/javanese/clients/8.JPG',
 
-    '/javanese/clients/IMG_0116.JPG',
-    '/javanese/clients/IMG_0201.JPG'
+    '/javanese/clients/5.JPG',
+    '/javanese/clients/6.JPG'
 ]
 
 const visibleRef = ref(false);
@@ -228,7 +228,8 @@ function toggleAudio() {
             <UButton @click="() => { toggleAudio() }" class="fixed z-40 right-4 bottom-4" :icon="!audioPaused ? 'i-lucide-volume-2' : 'i-lucide-volume-off'" />
 
             <div :class="['absolute h-full z-40 left-0 top-0 size-full transition-all duration-1000 delay-500 ease-in-out', isOpen ? ' animate-entrance' : '']">
-                <div class=" bg-gold mask-subtract mask-[url(/javanese/background-transition.png),url(/javanese/logo-background.svg)] absolute left-0 top-0 w-full h-screen mask-size-[100%] z-50 mask-center mask-no-repeat" />
+                <div class=" bg-gold mask-subtract mask-[url(/javanese/background-transition-old.png),url(/javanese/logo-background.svg)] absolute left-0 top-0 w-full h-screen mask-size-[100%] z-50 mask-center mask-no-repeat" />
+                <!-- <img src="/javanese/background-transition.png" class="h-screen w-full absolute top-0 left-0 object-cover object-center" alt=""> -->
                 <div class="bg-gold absolute top-0 left-0 w-full h-1/5 z-50" />
                 <div class="bg-gold absolute bottom-0 left-0 w-full h-1/5 z-50" />
 
@@ -263,7 +264,6 @@ function toggleAudio() {
         <!-- section qoute & wedding -->
         <section class="min-h-screen bg-white relative flex flex-col text-black">
             <div class="h-4 bg-gold" />
-            <div class="h-4 bg-gold" />
             <!-- <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div> -->
 
             <motion.img :initial="{ opacity: 0, y: -50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute top-6 left-2 w-28" />
@@ -273,7 +273,7 @@ function toggleAudio() {
 
             <div class="grow py-20 px-4 sm:px-6 md:px-14 font-forum space-y-10 text-center relative z-10">
                 <!-- <UCard class="text-center text-sm text-muted h-56 w-full" variant="soft"/> -->
-                <img src="/javanese/wedding-photos/with-love.JPG" alt="with love image" class="h-56 w-full rounded-lg">
+                <img src="/javanese/clients/12.jpg" alt="with love image" class="h-56 w-full rounded-lg">
 
                 <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
                     <h3 class="text-3xl font-bold text-primary">With Love</h3>
@@ -293,7 +293,6 @@ function toggleAudio() {
 
         <!-- section qoute & wedding -->
         <section class="min-h-screen bg-white relative flex flex-col text-black">
-            <div class="h-4 bg-gold" />
             <div class="h-4 bg-gold" />
             <!-- <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div> -->
 
@@ -343,6 +342,7 @@ function toggleAudio() {
         <!-- section countdown -->
         <section class="bg-primary relative">
             <motion.img :initial="{ opacity: 0 }" :while-in-view="{ opacity: 1 }" :transition="{ duration: 1 }" src="/javanese/cloud-100.jpg" alt="background" class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
+            <motion.img :initial="{ opacity: 0 }" :while-in-view="{ opacity: 1 }" :transition="{ duration: 1 }" src="/javanese/wedding-photos/with-love.JPG" alt="background" class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
 
             <div class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center]" />
 
@@ -383,7 +383,13 @@ function toggleAudio() {
 
         <!-- section location -->
         <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden">
-            <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]" />
+            <div class="h-4 bg-gold" />
+            <!-- <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div> -->
+
+            <motion.img :initial="{ opacity: 0, y: -50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute top-6 left-2 w-28" />
+            <motion.img :initial="{ opacity: 0, x: -50, y: 0 }" :while-in-view="{ opacity: 1, x: 0, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute top-6 right-2 w-28 rotate-90" />
+            <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute bottom-2 left-2 w-28 scale-y-[-1]" />
+            <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute bottom-2 right-2 w-28 rotate-90 scale-x-[-1]" />
 
             <div class="flex flex-col py-20 px-10 space-y-10 text-center">
                 <!-- akad nikah -->
@@ -421,8 +427,23 @@ function toggleAudio() {
 
                     <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.2, scale: 1 }" :transition="{ duration: 1 }" src="/javanese/pattern2.svg" class="w-64 opacity-20 absolute top-1/2 left-1/2 -translate-1/2 z-0" />
                 </div>
+            </div>
+        </section>
+        <!-- end section location -->
+        <!-- section location 2 -->
+        <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden">
+            <div class="h-4 bg-gold" />
+            <!-- <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]"></div> -->
 
-                <!-- resepti -->
+            <motion.img :initial="{ opacity: 0, y: -50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute top-6 left-2 w-28" />
+            <motion.img :initial="{ opacity: 0, x: -50, y: 0 }" :while-in-view="{ opacity: 1, x: 0, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute top-6 right-2 w-28 rotate-90" />
+            <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute bottom-2 left-2 w-28 scale-y-[-1]" />
+            <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute bottom-2 right-2 w-28 rotate-90 scale-x-[-1]" />
+
+            <div class="flex flex-col py-20 px-10 space-y-10 text-center">
+                
+
+                <!-- resepsi -->
                 <div class="rounded-full border-2 border-gold shadow-lg py-28 px-8 relative">
                     <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="flex items-center justify-center px-5 mb-4 gap-2">
                         <img src="/javanese/divider_part.svg" class="w-18 rotate-180">
@@ -463,9 +484,16 @@ function toggleAudio() {
 
         <!-- section gallery -->
          <section class="bg-white min-h-screen relative overflow-hidden font-forum">
-            <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]" />
+            <!-- <div class="h-[32px] bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]" /> -->
 
-            <div class="py-16 px-4">
+            <div class="h-4 bg-gold" />
+
+            <motion.img :initial="{ opacity: 0, y: -50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute top-6 left-2 w-28" />
+            <motion.img :initial="{ opacity: 0, x: -50, y: 0 }" :while-in-view="{ opacity: 1, x: 0, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute top-6 right-2 w-28 rotate-90" />
+            <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute bottom-2 left-2 w-28 scale-y-[-1]" />
+            <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute bottom-2 right-2 w-28 rotate-90 scale-x-[-1]" />
+
+            <div class="py-32 px-4">
                 <h3 class="text-3xl font-bold text-primary text-center mb-6">Our Gallery</h3>
 
                 <div class="grid grid-cols-2 gap-3">
@@ -483,6 +511,12 @@ function toggleAudio() {
 
         <!-- section wedding gift -->
         <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden flex flex-col">
+
+            <div class="h-4 bg-gold" />
+            <!-- <motion.img :initial="{ opacity: 0, y: -50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute top-6 left-2 w-28" />
+            <motion.img :initial="{ opacity: 0, x: -50, y: 0 }" :while-in-view="{ opacity: 1, x: 0, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute top-6 right-2 w-28 rotate-90" />
+            <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute bottom-2 left-2 w-28 scale-y-[-1]" />
+            <motion.img :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" src="/javanese/pattern_corner.svg" class="absolute bottom-2 right-2 w-28 rotate-90 scale-x-[-1]" /> -->
 
             <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="flex flex-col py-20 px-10 text-center">
                 <div class="flex items-center gap-2 justify-center mb-4">
@@ -518,12 +552,14 @@ function toggleAudio() {
             </motion.div>
 
 
-            <div class="h-[32px] mt-auto bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]" />
+            <!-- <div class="h-[32px] mt-auto bg-[url('/javanese/part_pattern_border.svg')] bg-repeat-x bg-size-[auto_32px]" /> -->
         </section>
         <!-- end section wedding gift -->
 
         <!-- section ucapan & rsvp -->
         <section class="bg-primary relative font-forum overflow-hidden">
+
+            <!-- <div class="h-4 bg-gold" /> -->
             <motion.img :initial="{ opacity: 0 }" :while-in-view="{ opacity: 1 }" :transition="{ duration: 1 }" src="/javanese/cloud-100.jpg" alt="background" class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
 
             <motion.div :initial="{ opacity: 0, y: -50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="h-24 bg-[url(/javanese/pattern1.svg)] bg-size-[400px] bg-[bottom_center] flex flex-col items-center justify-center">
