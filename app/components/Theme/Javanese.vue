@@ -102,7 +102,7 @@ const { data: messages, refresh } = await useFetch(`/api/messages/${state.value.
 
 const images = [
     '/javanese/clients/1.jpg',
-    '/javanese/clients/12.jpg',
+    '/javanese/clients/14.jpg',
 
     '/javanese/clients/10.jpg',
     '/javanese/clients/9.jpg',
@@ -274,7 +274,7 @@ function toggleAudio() {
             <div class="grow py-20 px-4 sm:px-6 md:px-14 font-forum space-y-10 text-center relative z-10">
                 <!-- <UCard class="text-center text-sm text-muted h-56 w-full" variant="soft"/> -->
                 <div class="pt-12">
-                    <img src="/javanese/clients/12.jpg" alt="with love image" class="object-cover object-center w-full rounded-lg">
+                    <img src="/javanese/clients/14.jpg" alt="with love image" class="object-cover object-center w-full rounded-lg">
                 </div>
 
                 <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
