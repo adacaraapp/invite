@@ -507,7 +507,7 @@ function toggleAudio() {
         <!-- end section gallery -->
 
         <!-- section wedding gift -->
-        <!--section class="bg-white min-h-96 font-forum text-black relative overflow-hidden flex flex-col">
+        <section class="bg-white min-h-96 font-forum text-black relative overflow-hidden flex flex-col">
             <div class="h-4 bg-gold" />
             <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="flex flex-col py-20 px-10 text-center">
                 <div class="flex items-center gap-2 justify-center mb-4">
@@ -519,30 +519,43 @@ function toggleAudio() {
                 </div>
 
                 <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="text-pretty mb-6">
-                    Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.
+                    Doa restu Bapak/Ibu merupakan karunia yang sangat berarti bagi kami, dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless
                 </motion.p>
 
                 <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">
                     <UModal title="Wedding Gift">
                         <UButton class="mx-auto rounded-full">Amplop Digital</UButton>
                         <template #body>
+                            <div class="flex items-center gap-8 mb-8">
+                                <div class="w-24">
+                                    <img class="block w-full aspect-auto" src="/logos/bca.png" alt="">
+                                </div>
+                                <div>
+                                    <div class="text-lg font-semibold">FITRI CHAIRUNNISA</div>
+                                    <div class="text-(--ui-text-muted)">Bank Central Asia (BCA)</div>
+                                    <div class="font-semibold">0954438038</div>
+                                    <UButton class="mx-auto rounded-full" @click="copyToClipboard('0954438038')">Copy</UButton>
+                                </div>
+                            </div>
                             <div class="flex items-center gap-8">
-                                <img class="block h-12 aspect-auto" src="/logos/mandiri.png" alt="">
+                                <div class="w-24">
+                                    <img class="block w-full aspect-auto" src="/logos/mandiri.png" alt="">
+                                </div>
                                 <div>
                                     <div class="text-lg font-semibold">M RIDWAN DWI ASTANTO</div>
                                     <div class="text-(--ui-text-muted)">Bank Mandiri</div>
                                     <div class="font-semibold">1080021475729</div>
+                                    <UButton class="mx-auto rounded-full" @click="copyToClipboard('1080021475729')">Copy</UButton>
                                 </div>
                             </div>
                         </template>
-</UModal>
-</motion.div>
+                    </UModal>
+                </motion.div>
 
-<motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.2, scale: 1 }" :transition="{ duration: 1 }" src="/javanese/pattern2.svg" class="absolute top-1/2 left-0 -translate-1/2 opacity-20 w-56 z-0" />
-<motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.2, scale: 1 }" :transition="{ duration: 1 }" src="/javanese/pattern2.svg" class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 opacity-20 w-56 z-0" />
-</motion.div>
-</section-->
-        <!-- end section wedding gift -->
+                <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.2, scale: 1 }" :transition="{ duration: 1 }" src="/javanese/pattern2.svg" class="absolute top-1/2 left-0 -translate-1/2 opacity-20 w-56 z-0" />
+                <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.2, scale: 1 }" :transition="{ duration: 1 }" src="/javanese/pattern2.svg" class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 opacity-20 w-56 z-0" />
+            </motion.div>
+        </section <!-- end section wedding gift -->
 
         <!-- section ucapan & rsvp -->
         <section class="bg-primary relative font-forum overflow-hidden">
