@@ -257,6 +257,9 @@ function toggleAudio() {
                 <motion.img :initial="{ opacity: 0, scale: 0.8 }" :transition="{ duration: 1 }" :while-in-view="{ opacity: 1, scale: 1 }" src="/javanese/logo_emblem.svg" class="w-42" alt="logo emblem" />
             </div>
 
+            <div class="grid place-items-center">
+                <UBadge icon="lucide-arrow-down" class="mx-auto mb-5 z-50 text-center" size="lg" color="neutral" label="Geser ke atas atau scroll up" />
+            </div>
 
         </section>
         <!-- end section home -->
