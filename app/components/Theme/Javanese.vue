@@ -258,7 +258,7 @@ function toggleAudio() {
             </div>
 
             <div class="grid place-items-center">
-                <UBadge icon="lucide-arrow-down" class="mx-auto mb-5 z-10 text-center" size="lg" color="neutral" label="Geser ke atas atau scroll up" />
+                <UBadge icon="lucide-arrow-down" class="mx-auto mb-5 z-10 text-center" size="lg" color="primary" label="Geser ke atas atau scroll up" />
             </div>
 
         </section>
