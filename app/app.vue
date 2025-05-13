@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-useHead({
-  title: 'Icha & Ridwan - Wedding Invitation',
-})
+
 </script>
 
 <template>
