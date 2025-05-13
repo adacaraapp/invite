@@ -2,8 +2,9 @@
 import { ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
 
-const colorMode = useColorMode()
-colorMode.preference = 'light'
+definePageMeta({
+    colorMode: 'light',
+})
 
 const guestName = ref('')
 const baseLink = 'https://icha-ridwan.sekeco.work?kepada='
@@ -66,6 +67,11 @@ const shareToMedia = () => {
 <template>
     <div class="absolute bg-white inset-0">
         <UContainer class="py-10 max-w-xl mx-auto text-center">
+
+            <div class="bg-primary p-4 size-36 rounded-full mx-auto mb-6">
+                <img src="/javanese/logo_emblem.svg" alt="" class="w-full h-full">
+            </div>
+
             <h2 class="text-2xl font-bold text-primary mb-4">Icha & Ridwan</h2>
 
             <UForm @submit.prevent="generateLink" :state="{}">
