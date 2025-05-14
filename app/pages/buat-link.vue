@@ -21,30 +21,28 @@ const generateLink = () => {
 }
 
 const generatedShareText = computed(() => {
-    return `Assalamu'alaikum Wr. Wb
+    return `*Assalamu'alaikum Wr. Wb*
 
 Yth. ${guestName.value.trim()}
 
 Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami:
 
-Fitri Chairunnisa, S.T.P., M.Si. (Icha)
-&
-M Ridwan Dwi Astanto, S.T.P., M.T. (Ridwan)
+_*Fitri Chairunnisa, S.T.P., M.Si. (Icha)*_
+_*&*_ 
+_*M Ridwan Dwi Astanto, S.T.P., M.T. (Ridwan)*_
 
-Berikut link undangan kami untuk info lengkap dari acara bisa kunjungi:
- 
+Berikut link undangan kami:
 ${generatedLink.value}
 
-Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.
+Suatu kebahagiaan bagi kami, atas segala doa restu dan perkenan Bapak/Ibu/Saudara/i untuk hadir.
 
-Mohon maaf perihal undangan hanya di bagikan melalui pesan ini. Terima kasih banyak atas perhatiannya.
+Terima kasih banyak atas perhatiannya.
 
-Wassalamu'alaikum Wr. Wb.
-Terima Kasih.
+*Wassalamu'alaikum Wr. Wb.*
 
-Salam,
-Icha & Ridwan 
-Keluarga Bapak Ir. H. Rahmadsyah & Bapak H. Tugimin, S.Pd.`
+Hormat kami,
+*Icha & Ridwan*
+*Keluarga Bapak Ir. H. Rahmadsyah & Bapak H. Tugimin, S.Pd.*`;
 })
 
 const copyLink = () => {
