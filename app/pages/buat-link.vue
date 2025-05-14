@@ -34,7 +34,7 @@ _*M Ridwan Dwi Astanto, S.T.P., M.T. (Ridwan)*_
 Berikut link undangan kami:
 ${generatedLink.value}
 
-Suatu kebahagiaan bagi kami, atas segala doa restu dan perkenan Bapak/Ibu/Saudara/i untuk hadir.
+Suatu kebahagiaan bagi kami, atas segala doa restu dan perkenan Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan ini.
 
 Terima kasih banyak atas perhatiannya.
 
@@ -42,7 +42,7 @@ Terima kasih banyak atas perhatiannya.
 
 Hormat kami,
 *Icha & Ridwan*
-*Keluarga Bapak Ir. H. Rahmadsyah & Bapak H. Tugimin, S.Pd.*`;
+*Keluarga Bapak Ir. H. Rahmadsyah & Bapak H. Tugimin, S.Pd.*`
 })
 
 const copyLink = () => {
