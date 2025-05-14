@@ -27,7 +27,9 @@ Yth. ${guestName.value.trim()}
 
 Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami:
 
-Icha & Ridwan
+Fitri Chairunnisa, S.T.P., M.Si. (Icha)
+&
+M Ridwan Dwi Astanto, S.T.P., M.T. (Ridwan)
 
 Berikut link undangan kami untuk info lengkap dari acara bisa kunjungi:
  
@@ -38,7 +40,11 @@ Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk
 Mohon maaf perihal undangan hanya di bagikan melalui pesan ini. Terima kasih banyak atas perhatiannya.
 
 Wassalamu'alaikum Wr. Wb.
-Terima Kasih.`
+Terima Kasih.
+
+Salam,
+Icha & Ridwan 
+Keluarga Bapak Ir. H. Rahmadsyah & Bapak H. Tugimin, S.Pd.`
 })
 
 const copyLink = () => {

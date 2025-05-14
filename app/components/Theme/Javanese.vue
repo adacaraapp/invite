@@ -223,7 +223,7 @@ function toggleAudio() {
 
 
         <!-- section home -->
-        <section class="bg-primary min-h-[600px] h-screen relative text-gold font-forum overflow-hidden">
+        <section class="bg-primary h-screen relative text-gold font-forum overflow-hidden">
 
             <UButton @click="() => { toggleAudio() }" class="fixed z-40 right-4 bottom-4" :icon="!audioPaused ? 'i-lucide-volume-2' : 'i-lucide-volume-off'" />
 
@@ -248,18 +248,20 @@ function toggleAudio() {
 
             <motion.img :initial="{ opacity: 0 }" :while-in-view="{ opacity: 1 }" :transition="{ duration: 1 }" src="/javanese/cloud-100.jpg" alt="background" class="mix-blend-multiply absolute size-full object-cover opacity-75 top-0 lef-0 z-0 pointer-events-none" />
 
-            <div class="flex flex-col justify-end items-center py-28 px-10 relative">
+            <div class="flex flex-col justify-between h-full items-center py-12 px-10 relative">
                 <motion.p :initial="{ opacity: 0, y: 50 }" :transition="{ duration: 1 }" :while-in-view="{ opacity: 1, y: 0 }" class="mb-2 relative z-30">THE WEDDING OF</motion.p>
                 <motion.img :initial="{ opacity: 0, scale: 0.8 }" :transition="{ duration: 1 }" :while-in-view="{ opacity: 1, scale: 1 }" src="/javanese/logo.svg" class="w-80 mb-5 relative z-30" alt="logo" />
-                <motion.p :initial="{ opacity: 0, y: 50 }" :transition="{ duration: 1 }" :while-in-view="{ opacity: 1, y: 0 }" class="mb-2 text-white font-bold text-xl">MINGGU, 01 JUNI 2025
-                </motion.p>
-                <motion.p :initial="{ opacity: 0, y: 50 }" :transition="{ duration: 1 }" :while-in-view="{ opacity: 1, y: 0 }" class="mb-12">Ballroom Hotel Harper Palembang</motion.p>
-                <motion.img :initial="{ opacity: 0, scale: 0.8 }" :transition="{ duration: 1 }" :while-in-view="{ opacity: 1, scale: 1 }" src="/javanese/logo_emblem.svg" class="w-42" alt="logo emblem" />
+                <div class="text-center">
+                    <motion.p :initial="{ opacity: 0, y: 50 }" :transition="{ duration: 1 }" :while-in-view="{ opacity: 1, y: 0 }" class="mb-2 text-white font-bold text-xl">MINGGU, 01 JUNI 2025
+                    </motion.p>
+                    <motion.p :initial="{ opacity: 0, y: 50 }" :transition="{ duration: 1 }" :while-in-view="{ opacity: 1, y: 0 }" class="mb-4">Ballroom Hotel Harper Palembang</motion.p>
+                </div>
+                <motion.img :initial="{ opacity: 0, scale: 0.8 }" :transition="{ duration: 1 }" :while-in-view="{ opacity: 1, scale: 1 }" src="/javanese/logo_emblem.svg" class="w-42 py-8" alt="logo emblem" />
+                <div class="grid place-items-center">
+                    <UBadge icon="lucide-arrow-up" class="mx-auto mb-5 z-10 text-center" size="lg" color="primary" label="Geser ke atas atau scroll up" />
+                </div>
             </div>
 
-            <div class="grid place-items-center">
-                <UBadge icon="lucide-arrow-up" class="mx-auto mb-5 z-10 text-center" size="lg" color="primary" label="Geser ke atas atau scroll up" />
-            </div>
 
         </section>
         <!-- end section home -->
