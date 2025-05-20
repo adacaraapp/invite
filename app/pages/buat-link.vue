@@ -7,7 +7,7 @@ definePageMeta({
 })
 
 const guestName = ref('')
-const baseLink = `${window?.location?.hostname}?kepada=`
+const baseLink = `https://${window?.location?.hostname}?kepada=`
 
 const generatedLink = ref('')
 
