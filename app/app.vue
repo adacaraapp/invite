@@ -8,7 +8,7 @@ useSeoMeta({
   ogTitle: 'The Wedding of Icha & Ridwan',
   description: 'Minggu, 01 Juni 2025',
   ogDescription: 'Minggu, 01 Juni 2025',
-  ogImage: 'https://icha-ridwan.sekeco.work/javanese/wedding-photos/with-love.jpg',
+  ogImage: 'https://icha-ridwan.pages.dev/javanese/wedding-photos/with-love.jpg',
   twitterCard: 'summary_large_image',
 })
 </script>

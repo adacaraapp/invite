@@ -3,10 +3,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: [
+    '@nuxthub/core',
     '@nuxt/ui',
     '@nuxt/eslint',
     'motion-v/nuxt',
-    'nuxt-easy-lightbox'
+    'nuxt-easy-lightbox',
+    '@nuxthub/core'
   ],
 
   css: ['~/assets/css/main.css'],
