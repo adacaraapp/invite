@@ -96,9 +96,11 @@ async function addToCalendarAction() {
     )
 }
 
-const { data: messages, refresh } = await useFetch(`/api/messages/${state.value.code}`, {
-    key: `messages-${state.value.code}`,
-});
+const { data: messages, refresh } = await useFetch('https://db.sekeco.work/api/database/rows/table/689/?user_field_names=true', {
+    headers: {
+        Authorization: `Token zvrWD5DD2LbRjddJADoiKN2aIWIJLG7u`
+    }
+})
 
 const images = [
     '/javanese/clients/1.jpg',
@@ -164,7 +166,7 @@ async function submitMessage() {
 
     } catch (err) {
         console.error('Submit gagal:', err);
-        alert('Terjadi kesalahan saat mengirim ucapan');
+        // alert('Terjadi kesalahan saat mengirim ucapan');
     }
 }
 
@@ -610,7 +612,7 @@ function toggleAudio() {
                 </motion.div>
 
                 <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="mt-4 overflow-y-auto h-48 w-full flex flex-col space-y-2">
-                    <template v-for="(message, index) in (messages?.messages || [])" :key="index">
+                    <template v-for="(message, index) in (messages?.results || []).sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())" :key="index">
                         <div class="flex gap-2 font-sans border-b border-b-gray-200 py-2">
                             <UIcon name="i-lucide-user-circle" class="size-8 shrink-0" />
                             <div class="text-left">

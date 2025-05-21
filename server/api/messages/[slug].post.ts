@@ -22,29 +22,25 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    const filePath = join(process.cwd(), 'public/client', `${slug}.json`);
-    const fileContent = await readFile(filePath, 'utf-8');
-    const jsonData = JSON.parse(fileContent);
-
-    const newMessage = {
-      name: body.name,
-      message: body.message,
-      confirmation: body.confirmation,
-      tamu: body.confirmation === 'Hadir' ? body.tamu : 0,
-      created_at: new Date().toISOString(),
-    };
-
-    // Tambahkan ke messages
-    jsonData.messages = jsonData.messages || [];
-    jsonData.messages.push(newMessage);
-
     // Simpan kembali ke file
-    await writeFile(filePath, JSON.stringify(jsonData, null, 2), 'utf-8');
+    const response = await $fetch('https://db.sekeco.work/api/database/rows/table/689/?user_field_names=true', {
+      method: "POST",
+      headers: {
+        Authorization: "Token zvrWD5DD2LbRjddJADoiKN2aIWIJLG7u",
+        "Content-Type": "application/json"
+      },
+      body: {
+        name: body.name,
+        message: body.message,
+        confirmation: body.confirmation,
+        tamu: body.confirmation === 'Hadir' ? body.tamu : 0,
+      }
+    })
 
     return {
       success: true,
       message: 'Ucapan berhasil dikirim!',
-      data: newMessage
+      data: response
     };
   } catch (err) {
     console.error('Gagal menulis file:', err);
