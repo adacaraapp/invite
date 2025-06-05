@@ -30,6 +30,7 @@ export default defineEventHandler(async (event) => {
         "Content-Type": "application/json"
       },
       body: {
+        key: slug,
         name: body.name,
         message: body.message,
         confirmation: body.confirmation,

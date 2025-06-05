@@ -1,6 +1,23 @@
 <script setup>
-import { ref } from 'vue'
 import { useClipboard } from '@vueuse/core'
+
+const route = useRoute()
+const { data } = await useLazyFetch(`/api/client/${route.params.slug}`)
+
+useHead({
+    title: data.value?.head.title,
+    link: [
+        { rel: 'icon', type: 'image/png', href: data.value?.head.logo }
+    ]
+})
+
+useSeoMeta({
+    title: data.value?.head.title,
+    description: data.value?.head.description,
+    ogTitle: data.value?.head.title,
+    ogDescription: data.value?.head.description,
+    ogImage: data.value?.head.cover
+})
 
 definePageMeta({
     colorMode: 'light',
@@ -27,9 +44,9 @@ Yth. ${guestName.value.trim()}
 
 Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami:
 
-_*Fitri Chairunnisa, S.T.P., M.Si. (Icha)*_
+_*${data.value.groom.full_name}*_
 _*&*_ 
-_*M Ridwan Dwi Astanto, S.T.P., M.T. (Ridwan)*_
+_*${data.value.bride.full_name}*_
 
 Berikut link undangan kami:
 ${generatedLink.value}
@@ -41,8 +58,8 @@ Terima kasih banyak atas perhatiannya.
 *Wassalamu'alaikum Wr. Wb.*
 
 Hormat kami,
-*Icha & Ridwan*
-*Keluarga Bapak Ir. H. Rahmadsyah & Bapak H. Tugimin, S.Pd.*`
+*${data.value.groom.short_name} & ${data.value.bride.short_name}*
+${data.value.families.map(family => `*${family}*`).join('\n')}`
 })
 
 const copyLink = () => {
@@ -55,7 +72,7 @@ const copyLink = () => {
 const shareToMedia = () => {
     if (navigator.share) {
         navigator.share({
-            title: 'Undangan Pernikahan Icha & Ridwan',
+            title: `Undangan Pernikahan ${data.value.groom.short_name} & ${data.value.bride.short_name}`,
             text: generatedShareText.value,
             url: generatedLink.value
         })
@@ -72,11 +89,11 @@ const shareToMedia = () => {
     <div class="absolute bg-white inset-0">
         <UContainer class="py-10 max-w-xl mx-auto text-center">
 
-            <div class="bg-primary p-4 size-36 rounded-full mx-auto mb-6">
-                <img src="/javanese/logo_emblem.svg" alt="" class="w-full h-full">
+            <div class="bg-amber-50 p-8 size-36 rounded-full mx-auto mb-6">
+                <img :src="data.head.logo" alt="" class="w-full h-full object-contain" />
             </div>
 
-            <h2 class="text-2xl font-bold text-primary mb-4">Icha & Ridwan</h2>
+            <h2 class="text-2xl font-bold text-primary mb-4">{{ data.head.title }}</h2>
 
             <UForm @submit.prevent="generateLink" :state="{}">
                 <UFormField label="Nama Tamu" class="mb-4">

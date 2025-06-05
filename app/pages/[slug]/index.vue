@@ -1,12 +1,18 @@
 <script lang="ts" setup>
 const route = useRoute()
 
-const { data, status } = await useFetch(`/api/client/${route.params.slug}`)
+const { data } = await useLazyFetch(`/api/client/${route.params.slug}`)
 
 const themes = {
     ethnic: resolveComponent('ThemeEthnic'),
     minimalist: resolveComponent('ThemeJavanese'),
-}
+} as const
+
+definePageMeta({
+    colorMode: 'light',
+})
+
+type ThemeKey = keyof typeof themes
 
 useHead({
     title: data.value?.head.title,
@@ -27,7 +33,7 @@ useSeoMeta({
 <template>
     <div>
         <UContainer v-if="data" class="h-screen max-w-lg">
-            <component :is="themes[data.theme]" :data="data" />
+            <component :is="themes[data.theme as ThemeKey]" :data="data" />
         </UContainer>
         <div v-else class="grid place-items-center h-screen">
             Loading
