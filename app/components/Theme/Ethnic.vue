@@ -290,8 +290,21 @@ onUnmounted(() => {
 
     <section
       id="prologue"
-      class="py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative justify-center"
+      class="py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative justify-center overflow-hidden"
     >
+
+    <!-- Decorative flowers -->
+      <img
+            src="/themes/ethnic/flower1.png"
+            alt="flower"
+            class="absolute top-1/2 scale-x-[-1] left-0 -translate-1/2 w-72 opacity-10 mix-blend-multiply"
+        >
+        <img
+            src="/themes/ethnic/flower1.png"
+            alt="flower"
+            class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-72 opacity-10 mix-blend-multiply"
+        >
+
       <h3 class="text-4xl mb-4 font-berkshire font-bold text-ethnic-secondary">
         With Love
       </h3>
@@ -429,11 +442,17 @@ onUnmounted(() => {
       id="held"
       class="h-screen py-16 px-3 border-t-8 border-ethnic-primary relative overflow-hidden"
     >
-        <img
-            src="/themes/ethnic/flower1.png"
-            alt="flower"
-            class="absolute top-1/2 left-1/2 -translate-1/2 w-96 opacity-10 mix-blend-multiply z-0"
-        >
+     <!-- Decorative flowers -->
+      <img
+        src="/themes/ethnic/flower1.png"
+        alt="flower"
+        class="absolute -bottom-20 -left-20 w-72 opacity-10 mix-blend-multiply"
+      >
+      <img
+        src="/themes/ethnic/flower2.png"
+        alt="flower"
+        class="absolute -top-20 -right-20 w-96 opacity-10 mix-blend-multiply scale-y-[-1]"
+      >
 
       <div class="relative z-10 w-full text-center flex flex-col items-center">
         <p class="text-sm mb-8">Diselenggarakan pada</p>
