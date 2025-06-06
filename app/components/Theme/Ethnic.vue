@@ -120,7 +120,7 @@ onUnmounted(() => {
 <template>
   <main
     :class="[
-      'bg-orange-50 font-libre',
+      'bg-orange-50 font-libre text-ethnic-primary',
       isOpen ? '' : 'h-screen overflow-hidden',
     ]"
   >
@@ -354,12 +354,36 @@ onUnmounted(() => {
         </button>
       </div>
     </section>
+
     <section
       id="held"
-      class="h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
+      class="h-screen py-16 px-3 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
     >
-      held
+      <p class="text-sm mb-8">Diselenggarakan pada</p>
+      <h3 class="text-2xl font-bold mb-1 font-berkshire tracking-[4px]">{{ data?.day }}, {{ data?.date }}</h3>
+      <p class="text-ethnic-secondary">{{ data?.date_hijri }}</p>
+
+      <div class="flex items-start mt-10 divide-x w-full">
+        <div class="px-3 w-full">
+            <h6 class="text-sm">{{data?.events[0].name}}</h6>
+            <p class="text-xl">{{data?.events[0].time}}</p>
+        </div>
+        <div class="px-3 w-full">
+            <h6 class="text-sm">{{data?.events[1].name}}</h6>
+            <p class="text-xl">{{data?.events[1].time}}</p>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col items-center px-3">
+        <p class="mb-4 text-sm">Bertempat di</p>
+        <h6 class="text-lg font-bold">{{ data?.venue.name }}</h6>
+        <p class="text-sm text-balance">{{ data?.venue.address }}</p>
+        <div class="mt-8 p-3 rounded-xl bg-white">
+            <img :src="data?.venue.qr_location" alt="qr location" class="w-32">
+        </div>
+      </div>
     </section>
+    
     <section
       id="gallery"
       class="h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
