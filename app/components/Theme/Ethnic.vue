@@ -384,29 +384,62 @@ onUnmounted(() => {
       </div>
     </section>
     
-    <section
+    <!-- <section
       id="gallery"
       class="h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
     >
-      <!--  -->
-    </section>
+    </section> -->
+
     <section
       id="gift"
-      class="h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
+      class="py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
     >
-      gift
+      <h4 class="text-2xl mb-2 font-bold">Wedding Gift</h4>
+      <p class="text-sm mb-4">
+        Doa restu Bapak/Ibu merupakan karunia yang sangat berarti bagi kami, dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless
+      </p>
+    <UModal title="Wedding Gift">
+        <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full">Amplop Digital</UButton>
+        <template #body>
+            <div class="flex items-center gap-8 mb-8">
+                <div class="w-24">
+                    <img class="block w-full aspect-auto" src="/logos/bca.png" alt="">
+                </div>
+                <div>
+                    <div class="text-lg font-semibold">{{ data?.bride?.full_name || "BRIDE NAME" }}</div>
+                    <div class="text-(--ui-text-muted)">Bank Central Asia (BCA)</div>
+                    <div class="font-semibold">123******</div>
+                    <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full" @click="copyToClipboard('123******')">Copy</UButton>
+                </div>
+            </div>
+            <div class="flex items-center gap-8">
+                <div class="w-24">
+                    <img class="block w-full aspect-auto" src="/logos/mandiri.png" alt="">
+                </div>
+                <div>
+                    <div class="text-lg font-semibold">{{ data?.groom?.full_name || "GROOM NAME" }}</div>
+                    <div class="text-(--ui-text-muted)">Bank Mandiri</div>
+                    <div class="font-semibold">123******</div>
+                    <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full" @click="copyToClipboard('123******')">Copy</UButton>
+                </div>
+            </div>
+        </template>
+    </UModal>
     </section>
+
     <section
       id="messages"
       class="h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
     >
       messages
     </section>
+
     <section
       id="epilogue"
       class="h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
     >
       epilogue
     </section>
+
   </main>
 </template>
