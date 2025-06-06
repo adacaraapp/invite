@@ -126,11 +126,7 @@ onUnmounted(() => {
   >
     <UButton
       class="fixed bottom-10 right-1/4"
-      @click="
-        () => {
-          isOpen = false;
-        }
-      "
+      @click="() => { isOpen = false; }"
     >
       reset
     </UButton>
@@ -279,20 +275,21 @@ onUnmounted(() => {
         </div>
       </div>
     </section>
+
     <section
       id="countdown"
-      class="min-h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative justify-center"
+      class="min-h-96 py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative justify-center overflow-hidden"
     >
       <!-- Decorative flowers -->
       <img
-        src="/themes/ethnic/flower1.png"
+        src='/themes/ethnic/flower1.png'
         alt="flower"
-        class="absolute top-0 left-0 w-32 opacity-30 mix-blend-multiply"
+        class="absolute -top-20 -left-20 w-72 opacity-30 mix-blend-multiply"
       >
       <img
         src="/themes/ethnic/flower2.png"
         alt="flower"
-        class="absolute bottom-0 right-0 w-32 opacity-30 mix-blend-multiply"
+        class="absolute -bottom-20 -right-20 w-96 opacity-30 mix-blend-multiply"
       >
 
       <div class="relative z-10">
@@ -307,7 +304,7 @@ onUnmounted(() => {
         <!-- Countdown Display -->
         <div class="flex justify-center gap-6 mb-8">
           <div
-            class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 min-w-[70px]"
+            class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]"
           >
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
               days
@@ -317,7 +314,7 @@ onUnmounted(() => {
             >
           </div>
           <div
-            class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 min-w-[70px]"
+            class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]"
           >
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
               hours
@@ -327,7 +324,7 @@ onUnmounted(() => {
             >
           </div>
           <div
-            class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 min-w-[70px]"
+            class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]"
           >
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
               minutes
@@ -337,7 +334,7 @@ onUnmounted(() => {
             >
           </div>
           <div
-            class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 min-w-[70px]"
+            class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]"
           >
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
               seconds
