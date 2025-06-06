@@ -177,7 +177,7 @@ onUnmounted(() => {
 <template>
   <main
     :class="[
-      'bg-orange-50 font-libre text-ethnic-primary',
+      'bg-[#FCF8EA] font-libre text-ethnic-primary',
       isOpen ? '' : 'h-screen overflow-hidden',
     ]"
   >
@@ -202,7 +202,7 @@ onUnmounted(() => {
         isOpen ? '-translate-y-full opacity-0' : 'opacity-100',
       ]"
     >
-      <div class="flex flex-col bg-orange-50 items-center h-full py-32 px-10">
+      <div class="flex flex-col bg-[#FCF8EA] items-center h-full py-32 px-10">
         <img
           src="/themes/ethnic/flower1.png"
           alt="flower"
