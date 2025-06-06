@@ -70,10 +70,10 @@ function updateCountdown() {
 }
 
 function playAudio() {
-  // You can add audio file here if needed
-  // audio.value = new Audio('/themes/ethnic/music.mp3')
-  // audio.value.loop = true;
-  // audio.value.play();
+    audio.value = new Audio('/javanese/music.mp3')
+    audio.value.loop = true;
+    audioPaused.value = false;
+    audio.value.play();
 }
 
 function toggleAudio() {
@@ -136,27 +136,11 @@ onUnmounted(() => {
     </UButton>
 
     <!-- Audio Toggle Button -->
-    <button
-      v-if="isOpen"
-      class="fixed z-40 right-4 bottom-4 bg-ethnic-primary text-white p-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all"
-      @click="toggleAudio"
-    >
-      <svg
-        v-if="!audioPaused"
-        class="w-5 h-5"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-      >
-        <path
-          d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.816L4 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2l4.383-3.184zm2.617 0a1 1 0 011.617.816v12a1 1 0 01-1.617.816L7.617 13H6a1 1 0 01-1-1V8a1 1 0 011-1h1.617L12 3.076z"
-        />
-      </svg>
-      <svg v-else class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-        <path
-          d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.816L4 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2l4.383-3.184zM15 8.5a1 1 0 01-2 0V8a1 1 0 112 0v.5zm0 4a1 1 0 01-2 0v-.5a1 1 0 112 0V12.5z"
-        />
-      </svg>
-    </button>
+     <UButton 
+        class="fixed z-40 right-4 bottom-4" 
+        :icon="!audioPaused ? 'i-lucide-volume-2' : 'i-lucide-volume-off'"
+        @click="toggleAudio" 
+    />
 
     <section
       id="cover"
