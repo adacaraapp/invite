@@ -11,12 +11,14 @@ export default defineEventHandler(async (event) => {
         groom: {
             picture: null,
             short_name: "Shidqi",
-            full_name: "M. Shidqi Wafa bin H. Badrudin Ilham",
+            full_name: "M. Shidqi Wafa",
+            father_name: "H. Badrudin Ilham",
         },
         bride: {
             picture: null,
             short_name: "Umu",
-            full_name: "Neng Umu Kulsum binti Asep Patah Taufik",
+            full_name: "Neng Umu Kulsum",
+            father_name: "Asep Patah Taufik",
         },
         recipient: {
             name: "Nama Tamu",
