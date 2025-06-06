@@ -127,7 +127,7 @@ function updateCountdown() {
 }
 
 function playAudio() {
-    audio.value = new Audio('/javanese/music.mp3')
+    audio.value = new Audio('/themes/ethnic/music.mp3')
     audio.value.loop = true;
     audioPaused.value = false;
     audio.value.play();
@@ -278,15 +278,11 @@ onUnmounted(() => {
         MENIKAH | {{ data?.date || "TBD" }}
       </motion.p>
 
-      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.7 }" class="text-sm mt-2">
-        {{ data?.venue?.address || "VENUE ADDRESS" }}
-      </motion.p>
-
       <motion.img
         :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 1, delay: 0.9 }"
         src="/client/umu-shidqi/logo.png"
         alt="logo"
-        class="relative mt-16 w-32"
+        class="relative mt-20 w-32"
       />
     </section>
 
@@ -487,9 +483,10 @@ onUnmounted(() => {
           <p class="mb-4 text-sm">Bertempat di</p>
           <h6 class="text-lg font-bold">{{ data?.venue.name }}</h6>
           <p class="text-sm text-balance">{{ data?.venue.address }}</p>
-          <div class="mt-8 p-3 rounded-xl bg-white">
+          <!-- <div class="mt-8 p-3 rounded-xl bg-white">
               <img :src="data?.venue.qr_location" alt="qr location" class="w-32">
-          </div>
+          </div> -->
+          <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full mt-8" :to="data?.venue?.google_maps" target="_blank">Open in Google Maps</UButton>
         </motion.div>
       </div>
     </section>

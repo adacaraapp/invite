@@ -28,6 +28,7 @@ export default defineEventHandler(async (event) => {
             name: "PP. Al-I’tishom Choblong",
             address: "Kp. Pasir Angin, Tegallega, Warungkondang, Cianjur, Jawa Barat.",
             qr_location: '/client/umu-shidqi/location.png',
+            google_maps: 'https://maps.app.goo.gl/PXgLUE71xL2fpdCF6'
         },
         date: "2025-06-25",
         date_hijri: "28 Dzulhijjah 1446 H",
