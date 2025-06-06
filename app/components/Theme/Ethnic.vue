@@ -71,9 +71,6 @@ async function submitMessage() {
         state.value.confirmation = '';
         state.value.tamu = 1;
 
-        // Tutup modal (jika ada)
-        isOpen.value = false;
-
         // Optional: bisa fetch ulang messages setelah submit
         // await refreshNuxtData() atau re-fetch manual
 
@@ -278,6 +275,13 @@ onUnmounted(() => {
         MENIKAH | {{ data?.date || "TBD" }}
       </motion.p>
 
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.7 }" class="text-pretty font-bold mt-4">
+        {{ data?.venue?.name || "VENUE NAME" }}
+      </motion.p> 
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.8 }" class="text-pretty text-sm">
+        {{ data?.venue?.address || "VENUE ADDRESS" }}
+      </motion.p>
+
       <motion.img
         :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 1, delay: 0.9 }"
         src="/client/umu-shidqi/logo.png"
@@ -314,6 +318,9 @@ onUnmounted(() => {
         dan hamba-hamba sahayamu yang perempuan. Jika mereka miskin, Allah akan
         memampukan mereka dengan karunia-Nya. dan Allah Maha Luas
         (pemberian-Nya) lagi Maha mengetahui."
+      </motion.p>
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.5 }" class="text-pretty text-sm mt-4">
+        Qs. An-Nur : 32
       </motion.p>
     </section>
 
@@ -528,26 +535,15 @@ onUnmounted(() => {
         <UModal title="Wedding Gift">
             <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full">Amplop Digital</UButton>
             <template #body>
-                <div class="flex items-center gap-8 mb-8">
+                <div v-for="(account, index) in data?.gift?.accounts" :key="index" class="flex items-center gap-8 mb-8">
                     <div class="w-24">
-                        <img class="block w-full aspect-auto" src="/logos/bca.png" alt="">
+                        <img class="block w-full aspect-auto" :src="account.bank_logo" alt="">
                     </div>
                     <div>
-                        <div class="text-lg font-semibold">{{ data?.bride?.full_name || "BRIDE NAME" }}</div>
-                        <div class="text-(--ui-text-muted)">Bank Central Asia (BCA)</div>
-                        <div class="font-semibold">123******</div>
-                        <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full" @click="copyToClipboard('123******')">Copy</UButton>
-                    </div>
-                </div>
-                <div class="flex items-center gap-8">
-                    <div class="w-24">
-                        <img class="block w-full aspect-auto" src="/logos/mandiri.png" alt="">
-                    </div>
-                    <div>
-                        <div class="text-lg font-semibold">{{ data?.groom?.full_name || "GROOM NAME" }}</div>
-                        <div class="text-(--ui-text-muted)">Bank Mandiri</div>
-                        <div class="font-semibold">123******</div>
-                        <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full" @click="copyToClipboard('123******')">Copy</UButton>
+                        <div class="text-lg font-semibold">{{ account.account_name }}</div>
+                        <div class="text-(--ui-text-muted)">{{ account.bank_name }}</div>
+                        <div class="font-semibold">{{ account.account_number }}</div>
+                        <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full" @click="copyToClipboard(account.account_number)">Copy</UButton>
                     </div>
                 </div>
             </template>

@@ -12,13 +12,13 @@ export default defineEventHandler(async (event) => {
         groom: {
             picture: null,
             short_name: "Shidqi",
-            full_name: "M. Shidqi Wafa",
+            full_name: "M. Shidqi Wafa, M.Ag.",
             father_name: "H. Badrudin Ilham",
         },
         bride: {
             picture: null,
             short_name: "Umu",
-            full_name: "Neng Umu Kulsum",
+            full_name: "Neng Umu Kulsum, S.M.",
             father_name: "Asep Patah Taufik",
         },
         recipient: {
@@ -47,5 +47,21 @@ export default defineEventHandler(async (event) => {
             "Keluarga Bpk. H. Badruddin Ilham & Ibu Hj. Iseu Aisyah",
             "Keluarga Bpk. Asep Patah Taufik & Ibu Siti Nuraidah",
         ],
+        gift: {
+            accounts: [
+                {
+                    bank_name: "Bank BRI",
+                    bank_logo: "/logos/bri.svg",
+                    account_name: "SHIDQI WAFA",
+                    account_number: "407801026086536"
+                },
+                {
+                    bank_name: "Bank BJB",
+                    bank_logo: "/logos/bjb.png",
+                    account_name: "NENG UMU KULSUM",
+                    account_number: "0141697056100"
+                }
+            ]
+        }
     };
 });
