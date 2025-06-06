@@ -14,7 +14,7 @@ const props = defineProps<{
  *
  * Tidak ada foto pengantin pria dan wanita, jadi gunakan font inisial saja
  */
-
+ 
 // Open invitation state
 const isOpen = ref(false);
 
@@ -486,52 +486,92 @@ onUnmounted(() => {
 
     <section
       id="messages"
-      class="h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
+      class="py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative overflow-hidden"
     >
-      <h3>Ucapan & rsvp</h3>
-      <p>Berikan ucapan terbaik untuk Kedua Mempelai & Konfirmasi Kehadiran</p>
-      <div>
-        <UFormField label="Nama" required :ui="{ label: '!text-white', root: 'w-full' }">
-            <UInput v-model="state.name" placeholder="Masukkan nama kamu" class="w-full" />
-        </UFormField>
+      <!-- Decorative flowers -->
+      <img
+        src="/themes/ethnic/flower1.png"
+        alt="flower"
+        class="absolute -top-20 -left-20 w-72 opacity-20 mix-blend-multiply"
+      >
+      <img
+        src="/themes/ethnic/flower2.png"
+        alt="flower"
+        class="absolute -bottom-20 -right-20 w-96 opacity-20 mix-blend-multiply"
+      >
 
-        <UFormField label="Ucapan & Doa" required :ui="{ label: '!text-white', root: 'w-full' }">
-            <UTextarea v-model="state.message" placeholder="Masukkan ucapan & kamu" class="w-full" />
-        </UFormField>
+      <div class="relative z-10 w-full max-w-md">
+        <h3 class="text-2xl font-bold mb-2 font-berkshire text-ethnic-primary">Ucapan & RSVP</h3>
+        <p class="text-sm mb-8 text-ethnic-secondary">
+          Berikan ucapan terbaik untuk Kedua Mempelai & Konfirmasi Kehadiran
+        </p>
+        
+        <div class="space-y-4">
+          <UFormField label="Nama" required :ui="{ label: 'text-ethnic-primary font-medium', root: 'w-full' }">
+              <UInput v-model="state.name" placeholder="Masukkan nama kamu" class="w-full" />
+          </UFormField>
 
-        <UFormField label="Konfirmasi Kehadiran" required :ui="{ label: '!text-white', root: 'w-full' }">
-            <URadioGroup v-model="state.confirmation" orientation="horizontal" indicator="hidden" variant="card" :items="items" :ui="{ label: '!text-white' }" />
-        </UFormField>
+          <UFormField label="Ucapan & Doa" required :ui="{ label: 'text-ethnic-primary font-medium', root: 'w-full' }">
+              <UTextarea v-model="state.message" placeholder="Masukkan ucapan & doa kamu" class="w-full" />
+          </UFormField>
 
-        <UFormField v-if="state.confirmation === 'Hadir'" required :ui="{ label: '!text-white', root: 'w-full' }">
-            <UButtonGroup class="w-full">
-                <USelect v-model="state.tamu" color="neutral" variant="subtle" :items="[1, 2, 3, 4, 5]" class="w-full" :ui="{ base: 'pl-[100px]', leading: 'pointer-events-none bg-gold rounded-l-md px-2' }" :default-value="1">
-                    <template #leading>
-                        <p class="text-sm">
-                            Jumlah Tamu
-                        </p>
-                    </template>
-                </USelect>
-            </UButtonGroup>
-        </UFormField>
+          <UFormField label="Konfirmasi Kehadiran" required :ui="{ label: 'text-ethnic-primary font-medium', root: 'w-full' }">
+              <URadioGroup v-model="state.confirmation" orientation="horizontal" indicator="hidden" variant="card" :items="items" />
+          </UFormField>
 
-         <UButton class="rounded-full w-full" block :loading="loading" @click="submitMessage">Kirim</UButton>
+          <UFormField v-if="state.confirmation === 'Hadir'" required :ui="{ label: 'text-ethnic-primary font-medium', root: 'w-full' }">
+              <UButtonGroup class="w-full">
+                  <USelect v-model="state.tamu" color="neutral" variant="subtle" :items="[1, 2, 3, 4, 5]" class="w-full" :ui="{ base: 'pl-[100px]', leading: 'pointer-events-none bg-ethnic-primary text-white rounded-l-md px-2' }" :default-value="1">
+                      <template #leading>
+                          <p class="text-sm">
+                              Jumlah Tamu
+                          </p>
+                      </template>
+                  </USelect>
+              </UButtonGroup>
+          </UFormField>
 
-         <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="mt-4 overflow-y-auto h-48 w-full flex flex-col space-y-2">
+          <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/90 rounded-full w-full font-semibold transition-colors" block :loading="loading" @click="submitMessage">
+            Kirim Ucapan
+          </UButton>
+        </div>
+
+        <!-- Messages Display -->
+        <div class="mt-8">
+          <h4 class="text-lg font-bold text-ethnic-primary mb-4 font-berkshire">Ucapan dari Tamu</h4>
+          <motion.div 
+            :initial="{ opacity: 0, y: 50 }" 
+            :while-in-view="{ opacity: 1, y: 0 }" 
+            :transition="{ duration: 1 }" 
+            class="overflow-y-auto max-h-64 w-full space-y-3 bg-white/50 backdrop-blur-sm rounded-lg p-4"
+          >
             <template v-for="(message, index) in (messages?.results || []).sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())" :key="index">
-                <div class="flex gap-2 font-sans border-b border-b-gray-200 py-2">
-                    <UIcon name="i-lucide-user-circle" class="size-8 shrink-0" />
-                    <div class="text-left">
-                        <h5 class="font-bold">{{ message.name }}</h5>
-                        <p class="text-xs">{{ new Date(message.created_at).toLocaleString('id-ID', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }) }}</p>
-                        <p class="text-sm">
+                <div class="flex gap-3 p-3 bg-white rounded-lg shadow-sm border border-ethnic-primary/10">
+                    <UIcon name="i-lucide-user-circle" class="size-8 shrink-0 text-ethnic-primary" />
+                    <div class="text-left flex-1">
+                        <h5 class="font-bold text-ethnic-primary">{{ message.name }}</h5>
+                        <p class="text-xs text-ethnic-secondary mb-1">
+                          {{ new Date(message.created_at).toLocaleString('id-ID', { 
+                            year: 'numeric', 
+                            month: '2-digit', 
+                            day: '2-digit', 
+                            hour: '2-digit', 
+                            minute: '2-digit' 
+                          }) }}
+                        </p>
+                        <p class="text-sm text-gray-700 leading-relaxed">
                             {{ message.message }}
                         </p>
                     </div>
                 </div>
             </template>
-        </motion.div>
-    </div>
+            
+            <div v-if="!messages?.results?.length" class="text-center py-8">
+              <p class="text-ethnic-secondary text-sm">Belum ada ucapan. Jadilah yang pertama!</p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
 
     <section
