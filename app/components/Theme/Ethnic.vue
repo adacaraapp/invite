@@ -181,12 +181,12 @@ onUnmounted(() => {
       isOpen ? '' : 'h-screen overflow-hidden',
     ]"
   >
-    <UButton
+    <!-- <UButton
       class="fixed bottom-10 right-1/4"
       @click="() => { isOpen = false; }"
     >
       reset
-    </UButton>
+    </UButton> -->
 
     <!-- Audio Toggle Button -->
      <UButton 
@@ -253,15 +253,16 @@ onUnmounted(() => {
       class="h-screen py-16 px-10 text-center flex flex-col items-center relative overflow-hidden"
     >
         <!-- decorative -->
-         <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 left-0 -translate-1/2 w-96 opacity-10 mix-blend-multiply">
-         <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 opacity-10 mix-blend-multiply scale-x-[-1]">
+         <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1 }" src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 left-0 -translate-1/2 w-96 mix-blend-multiply" />
+         <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1, delay: 0.2 }" src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 mix-blend-multiply scale-x-[-1]" />
 
-         <img src="/themes/ethnic/flower2.png" alt="" class="absolute -right-56 bottom-0 w-[420px] opacity-10 mix-blend-multiply rotate-90 scale-[-1]">
-            <img src="/themes/ethnic/flower2.png" alt="" class="absolute -left-56 bottom-0 w-[420px] opacity-10 mix-blend-multiply rotate-90 scale-x-[-1]">
+         <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1, delay: 0.4 }" src="/themes/ethnic/flower2.png" alt="" class="absolute -right-56 bottom-0 w-[420px] mix-blend-multiply rotate-90 scale-[-1]" />
+         <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1, delay: 0.6 }" src="/themes/ethnic/flower2.png" alt="" class="absolute -left-56 bottom-0 w-[420px] mix-blend-multiply rotate-90 scale-x-[-1]" />
 
-      <p>THE WEDDING OF</p>
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }">THE WEDDING OF</motion.p>
 
-      <h1
+      <motion.h1
+        :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.3 }"
         class="text-4xl font-bold font-berkshire flex flex-col items-center mt-8 tracking-[8px]"
       >
         <span>
@@ -271,21 +272,22 @@ onUnmounted(() => {
         <span>
           {{ data?.groom?.short_name || "GROOM NAME" }}
         </span>
-      </h1>
+      </motion.h1>
 
-      <p class="text-ethnic-secondary font-medium font-mono mt-8 text-lg">
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.5 }" class="text-ethnic-secondary font-medium font-mono mt-8 text-lg">
         MENIKAH | {{ data?.date || "TBD" }}
-      </p>
+      </motion.p>
 
-      <p class="text-sm mt-2">
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.7 }" class="text-sm mt-2">
         {{ data?.venue?.address || "VENUE ADDRESS" }}
-      </p>
+      </motion.p>
 
-      <img
+      <motion.img
+        :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 1, delay: 0.9 }"
         src="/client/umu-shidqi/logo.png"
         alt="logo"
         class="relative mt-16 w-32"
-      >
+      />
     </section>
 
     <section
@@ -294,68 +296,70 @@ onUnmounted(() => {
     >
 
     <!-- Decorative flowers -->
-      <img
-            src="/themes/ethnic/flower1.png"
-            alt="flower"
-            class="absolute top-1/2 scale-x-[-1] left-0 -translate-1/2 w-72 opacity-10 mix-blend-multiply"
-        >
-        <img
-            src="/themes/ethnic/flower1.png"
-            alt="flower"
-            class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-72 opacity-10 mix-blend-multiply"
-        >
+      <motion.img
+        :initial="{ opacity: 0, x: -50 }" :while-in-view="{ opacity: 0.1, x: 0 }" :transition="{ duration: 1 }"
+        src="/themes/ethnic/flower1.png"
+        alt="flower"
+        class="absolute top-1/2 scale-x-[-1] left-0 -translate-1/2 w-72 mix-blend-multiply"
+      />
+      <motion.img
+        :initial="{ opacity: 0, x: 50 }" :while-in-view="{ opacity: 0.1, x: 0 }" :transition="{ duration: 1 }"
+        src="/themes/ethnic/flower1.png"
+        alt="flower"
+        class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-72 mix-blend-multiply"
+      />
 
-      <h3 class="text-4xl mb-4 font-berkshire font-bold text-ethnic-secondary">
+      <motion.h3 :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="text-4xl mb-4 font-berkshire font-bold text-ethnic-secondary">
         With Love
-      </h3>
-      <p class="text-pretty text-sm leading-relaxed">
+      </motion.h3>
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.3 }" class="text-pretty text-sm leading-relaxed">
         "Dan nikahkanlah orang-orang yang sendirian di antara kamu, dan
         orang-orang yang layak (berkawin) dari hamba-hamba sahayamu yang lelaki
         dan hamba-hamba sahayamu yang perempuan. Jika mereka miskin, Allah akan
         memampukan mereka dengan karunia-Nya. dan Allah Maha Luas
         (pemberian-Nya) lagi Maha mengetahui."
-      </p>
+      </motion.p>
     </section>
 
     <section
       id="brides"
       class="h-screen py-20 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative overflow-hidden"
     >
-        <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 left-0 -translate-1/2 w-72 opacity-10 mix-blend-multiply">
-        <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-72 opacity-10 mix-blend-multiply scale-x-[-1]">
+        <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1 }" src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 left-0 -translate-1/2 w-72 mix-blend-multiply" />
+        <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1, delay: 0.2 }" src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-72 mix-blend-multiply scale-x-[-1]" />
 
-        <img src="/themes/ethnic/flower2.png" alt="" class="absolute -right-32 w-80 opacity-10 mix-blend-multiply bottom-28 rotate-90 scale-y-[-1]">
-        <img src="/themes/ethnic/flower2.png" alt="" class="absolute -left-32 w-80 opacity-10 mix-blend-multiply bottom-28 rotate-90">
+        <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1, delay: 0.4 }" src="/themes/ethnic/flower2.png" alt="" class="absolute -right-32 w-80 mix-blend-multiply bottom-28 rotate-90 scale-y-[-1]" />
+        <motion.img :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1, delay: 0.6 }" src="/themes/ethnic/flower2.png" alt="" class="absolute -left-32 w-80 mix-blend-multiply bottom-28 rotate-90" />
 
-      <p class="text-ethnic-secondary text-sm">Bismillahirrahmanirrahim</p>
-      <p class="text-lg font-semibold font-berkshire tracking-widest mb-8">
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="text-ethnic-secondary text-sm">Bismillahirrahmanirrahim</motion.p>
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.2 }" class="text-lg font-semibold font-berkshire tracking-widest mb-8">
         Assalamu'alaikum Warahmatullahi Wabarakatuh
-      </p>
-      <p class="text-pretty text-sm leading-loose">
+      </motion.p>
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.4 }" class="text-pretty text-sm leading-loose">
         Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud
         menyelenggarakan acara pernikahan putra-putri kami:
-      </p>
+      </motion.p>
 
       <div class="space-y-8 mt-8">
-        <div>
+        <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.6 }">
           <h3 class="text-3xl font-bold mt-8 mb-2">
             {{ data?.groom?.full_name || "GROOM FULL NAME" }}
           </h3>
           <p class="text-ethnic-secondary">
             bin {{ data?.groom?.father_name || "FATHER NAME" }}
           </p>
-        </div>
+        </motion.div>
 
-        <p>dengan</p>
+        <motion.p :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 1, delay: 0.8 }">dengan</motion.p>
 
-        <div>
+        <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 1 }">
           <h3 class="text-3xl font-bold mt-8 mb-2">
             {{ data?.bride?.full_name || "BRIDE FULL NAME" }}
           </h3>
           <p class="text-ethnic-secondary">
             binti. {{ data?.bride?.father_name || "FATHER NAME" }}
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
 
@@ -364,29 +368,32 @@ onUnmounted(() => {
       class="min-h-96 py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative justify-center overflow-hidden"
     >
       <!-- Decorative flowers -->
-      <img
+      <motion.img
+        :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1 }"
         src='/themes/ethnic/flower1.png'
         alt="flower"
-        class="absolute -top-20 -left-20 w-72 opacity-10 mix-blend-multiply"
-      >
-      <img
+        class="absolute -top-20 -left-20 w-72 mix-blend-multiply"
+      />
+      <motion.img
+        :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1, delay: 0.2 }"
         src="/themes/ethnic/flower2.png"
         alt="flower"
-        class="absolute -bottom-20 -right-20 w-96 opacity-10 mix-blend-multiply"
-      >
+        class="absolute -bottom-20 -right-20 w-96 mix-blend-multiply"
+      />
 
       <div class="relative z-10">
-        <h3 class="text-3xl font-bold font-berkshire text-ethnic-primary mb-2">
+        <motion.h3 :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="text-3xl font-bold font-berkshire text-ethnic-primary mb-2">
           Menuju Hari Bahagia
-        </h3>
+        </motion.h3>
 
-        <p class="text-ethnic-secondary mb-8 text-sm">
+        <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.2 }" class="text-ethnic-secondary mb-8 text-sm">
           {{ formattedDate }}
-        </p>
+        </motion.p>
 
         <!-- Countdown Display -->
-        <div class="flex justify-center gap-6 mb-8">
-          <div
+        <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.4 }" class="flex justify-center gap-6 mb-8">
+          <motion.div
+            :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 0.6, delay: 0.1 }"
             class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]"
           >
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
@@ -395,8 +402,9 @@ onUnmounted(() => {
             <span class="text-xs text-ethnic-secondary uppercase tracking-wide"
               >Hari</span
             >
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 0.6, delay: 0.2 }"
             class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]"
           >
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
@@ -405,8 +413,9 @@ onUnmounted(() => {
             <span class="text-xs text-ethnic-secondary uppercase tracking-wide"
               >Jam</span
             >
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 0.6, delay: 0.3 }"
             class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]"
           >
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
@@ -415,8 +424,9 @@ onUnmounted(() => {
             <span class="text-xs text-ethnic-secondary uppercase tracking-wide"
               >Menit</span
             >
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 0.6, delay: 0.4 }"
             class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]"
           >
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
@@ -425,16 +435,17 @@ onUnmounted(() => {
             <span class="text-xs text-ethnic-secondary uppercase tracking-wide"
               >Detik</span
             >
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         <!-- Save the Date Button -->
-        <button
+        <motion.button
+          :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.6 }"
           class="bg-ethnic-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-ethnic-primary/90 transition-colors shadow-lg"
           @click="addToCalendarAction"
         >
           Save The Date
-        </button>
+        </motion.button>
       </div>
     </section>
 
@@ -443,41 +454,43 @@ onUnmounted(() => {
       class="h-screen py-16 px-3 border-t-8 border-ethnic-primary relative overflow-hidden"
     >
      <!-- Decorative flowers -->
-      <img
+      <motion.img
+        :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1 }"
         src="/themes/ethnic/flower1.png"
         alt="flower"
-        class="absolute -bottom-20 -left-20 w-72 opacity-10 mix-blend-multiply"
-      >
-      <img
+        class="absolute -bottom-20 -left-20 w-72 mix-blend-multiply"
+      />
+      <motion.img
+        :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1, delay: 0.2 }"
         src="/themes/ethnic/flower2.png"
         alt="flower"
-        class="absolute -top-20 -right-20 w-96 opacity-10 mix-blend-multiply scale-y-[-1]"
-      >
+        class="absolute -top-20 -right-20 w-96 mix-blend-multiply scale-y-[-1]"
+      />
 
       <div class="relative z-10 w-full text-center flex flex-col items-center">
-        <p class="text-sm mb-8">Diselenggarakan pada</p>
-      <h3 class="text-2xl font-bold mb-1 font-berkshire tracking-[4px]">{{ data?.day }}, {{ data?.date }}</h3>
-      <p class="text-ethnic-secondary">{{ data?.date_hijri }}</p>
+        <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="text-sm mb-8">Diselenggarakan pada</motion.p>
+        <motion.h3 :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.2 }" class="text-2xl font-bold mb-1 font-berkshire tracking-[4px]">{{ data?.day }}, {{ data?.date }}</motion.h3>
+        <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.3 }" class="text-ethnic-secondary">{{ data?.date_hijri }}</motion.p>
 
-      <div class="flex items-start mt-10 divide-x w-full">
-        <div class="px-3 w-full">
-            <h6 class="text-sm">{{data?.events[0].name}}</h6>
-            <p class="text-xl">{{data?.events[0].time}}</p>
-        </div>
-        <div class="px-3 w-full">
-            <h6 class="text-sm">{{data?.events[1].name}}</h6>
-            <p class="text-xl">{{data?.events[1].time}}</p>
-        </div>
-      </div>
+        <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.4 }" class="flex items-start mt-10 divide-x w-full">
+          <div class="px-3 w-full">
+              <h6 class="text-sm">{{data?.events[0].name}}</h6>
+              <p class="text-xl">{{data?.events[0].time}}</p>
+          </div>
+          <div class="px-3 w-full">
+              <h6 class="text-sm">{{data?.events[1].name}}</h6>
+              <p class="text-xl">{{data?.events[1].time}}</p>
+          </div>
+        </motion.div>
 
-      <div class="mt-10 flex flex-col items-center px-3">
-        <p class="mb-4 text-sm">Bertempat di</p>
-        <h6 class="text-lg font-bold">{{ data?.venue.name }}</h6>
-        <p class="text-sm text-balance">{{ data?.venue.address }}</p>
-        <div class="mt-8 p-3 rounded-xl bg-white">
-            <img :src="data?.venue.qr_location" alt="qr location" class="w-32">
-        </div>
-      </div>
+        <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.5 }" class="mt-10 flex flex-col items-center px-3">
+          <p class="mb-4 text-sm">Bertempat di</p>
+          <h6 class="text-lg font-bold">{{ data?.venue.name }}</h6>
+          <p class="text-sm text-balance">{{ data?.venue.address }}</p>
+          <div class="mt-8 p-3 rounded-xl bg-white">
+              <img :src="data?.venue.qr_location" alt="qr location" class="w-32">
+          </div>
+        </motion.div>
       </div>
     </section>
     
@@ -491,49 +504,58 @@ onUnmounted(() => {
       id="gift"
       class="py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative overflow-hidden"
     >
-        <img
+        <motion.img
+            :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1 }"
             src="/themes/ethnic/flower1.png"
             alt="flower"
-            class="absolute top-1/2 scale-x-[-1] left-0 -translate-1/2 w-72 opacity-10 mix-blend-multiply"
-        >
-        <img
+            class="absolute top-1/2 scale-x-[-1] left-0 -translate-1/2 w-72 mix-blend-multiply"
+        />
+        <motion.img
+            :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1, delay: 0.2 }"
             src="/themes/ethnic/flower1.png"
             alt="flower"
-            class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-72 opacity-10 mix-blend-multiply"
-        >
+            class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-72 mix-blend-multiply"
+        />
 
-
-      <h4 class="text-2xl mb-2 font-bold">Wedding Gift</h4>
-      <p class="text-sm mb-4">
+      <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="flex items-center gap-2 justify-center mb-4">
+        <img src="/themes/ethnic/flower2.png" class="w-16 lg:w-20 rotate-180 mix-blend-multiply opacity-60" alt="">
+        <h4 class="text-2xl font-bold font-berkshire text-ethnic-primary">Wedding Gift</h4>
+        <img src="/themes/ethnic/flower2.png" class="w-16 lg:w-20 mix-blend-multiply opacity-60" alt="">
+      </motion.div>
+      
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.2 }" class="text-sm mb-6 text-pretty leading-relaxed">
         Doa restu Bapak/Ibu merupakan karunia yang sangat berarti bagi kami, dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless
-      </p>
-    <UModal title="Wedding Gift">
-        <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full">Amplop Digital</UButton>
-        <template #body>
-            <div class="flex items-center gap-8 mb-8">
-                <div class="w-24">
-                    <img class="block w-full aspect-auto" src="/logos/bca.png" alt="">
+      </motion.p>
+      
+      <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.3 }">
+        <UModal title="Wedding Gift">
+            <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full">Amplop Digital</UButton>
+            <template #body>
+                <div class="flex items-center gap-8 mb-8">
+                    <div class="w-24">
+                        <img class="block w-full aspect-auto" src="/logos/bca.png" alt="">
+                    </div>
+                    <div>
+                        <div class="text-lg font-semibold">{{ data?.bride?.full_name || "BRIDE NAME" }}</div>
+                        <div class="text-(--ui-text-muted)">Bank Central Asia (BCA)</div>
+                        <div class="font-semibold">123******</div>
+                        <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full" @click="copyToClipboard('123******')">Copy</UButton>
+                    </div>
                 </div>
-                <div>
-                    <div class="text-lg font-semibold">{{ data?.bride?.full_name || "BRIDE NAME" }}</div>
-                    <div class="text-(--ui-text-muted)">Bank Central Asia (BCA)</div>
-                    <div class="font-semibold">123******</div>
-                    <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full" @click="copyToClipboard('123******')">Copy</UButton>
+                <div class="flex items-center gap-8">
+                    <div class="w-24">
+                        <img class="block w-full aspect-auto" src="/logos/mandiri.png" alt="">
+                    </div>
+                    <div>
+                        <div class="text-lg font-semibold">{{ data?.groom?.full_name || "GROOM NAME" }}</div>
+                        <div class="text-(--ui-text-muted)">Bank Mandiri</div>
+                        <div class="font-semibold">123******</div>
+                        <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full" @click="copyToClipboard('123******')">Copy</UButton>
+                    </div>
                 </div>
-            </div>
-            <div class="flex items-center gap-8">
-                <div class="w-24">
-                    <img class="block w-full aspect-auto" src="/logos/mandiri.png" alt="">
-                </div>
-                <div>
-                    <div class="text-lg font-semibold">{{ data?.groom?.full_name || "GROOM NAME" }}</div>
-                    <div class="text-(--ui-text-muted)">Bank Mandiri</div>
-                    <div class="font-semibold">123******</div>
-                    <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/50 mx-auto rounded-full" @click="copyToClipboard('123******')">Copy</UButton>
-                </div>
-            </div>
-        </template>
-    </UModal>
+            </template>
+        </UModal>
+      </motion.div>
     </section>
 
     <section
@@ -541,24 +563,26 @@ onUnmounted(() => {
       class="py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative overflow-hidden"
     >
       <!-- Decorative flowers -->
-      <img
+      <motion.img
+        :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1 }"
         src="/themes/ethnic/flower1.png"
         alt="flower"
-        class="absolute -top-20 -left-20 w-72 opacity-10 mix-blend-multiply"
-      >
-      <img
+        class="absolute -top-20 -left-20 w-72 mix-blend-multiply"
+      />
+      <motion.img
+        :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1, delay: 0.2 }"
         src="/themes/ethnic/flower2.png"
         alt="flower"
-        class="absolute -bottom-20 -right-20 w-96 opacity-10 mix-blend-multiply"
-      >
+        class="absolute -bottom-20 -right-20 w-96 mix-blend-multiply"
+      />
 
       <div class="relative z-10 w-full max-w-md">
-        <h3 class="text-2xl font-bold mb-2 font-berkshire text-ethnic-primary">Ucapan & RSVP</h3>
-        <p class="text-sm mb-8 text-ethnic-secondary">
+        <motion.h3 :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="text-2xl font-bold mb-2 font-berkshire text-ethnic-primary">Ucapan & RSVP</motion.h3>
+        <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.2 }" class="text-sm mb-8 text-ethnic-secondary">
           Berikan ucapan terbaik untuk Kedua Mempelai & Konfirmasi Kehadiran
-        </p>
+        </motion.p>
         
-        <div class="space-y-4">
+        <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.3 }" class="space-y-4">
           <UFormField label="Nama" required :ui="{ label: 'text-ethnic-primary font-medium', root: 'w-full' }">
               <UInput v-model="state.name" placeholder="Masukkan nama kamu" class="w-full" />
           </UFormField>
@@ -586,15 +610,15 @@ onUnmounted(() => {
           <UButton class="bg-ethnic-primary hover:bg-ethnic-primary/90 rounded-full w-full font-semibold transition-colors" block :loading="loading" @click="submitMessage">
             Kirim Ucapan
           </UButton>
-        </div>
+        </motion.div>
 
         <!-- Messages Display -->
-        <div class="mt-8">
+        <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.4 }" class="mt-8">
           <h4 class="text-lg font-bold text-ethnic-primary mb-4 font-berkshire">Ucapan dari Tamu</h4>
           <motion.div 
             :initial="{ opacity: 0, y: 50 }" 
             :while-in-view="{ opacity: 1, y: 0 }" 
-            :transition="{ duration: 1 }" 
+            :transition="{ duration: 1, delay: 0.5 }" 
             class="overflow-y-auto max-h-64 w-full space-y-3 bg-white/50 backdrop-blur-sm rounded-lg p-4"
           >
             <template v-for="(message, index) in (messages?.results || []).sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())" :key="index">
@@ -622,7 +646,7 @@ onUnmounted(() => {
               <p class="text-ethnic-secondary text-sm">Belum ada ucapan. Jadilah yang pertama!</p>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
 
@@ -631,16 +655,18 @@ onUnmounted(() => {
       class="min-h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative overflow-hidden"
     >
       <!-- Decorative flowers -->
-      <img
+      <motion.img
+        :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1 }"
         src="/themes/ethnic/flower1.png"
         alt="flower"
-        class="absolute -top-20 -left-20 w-72 opacity-10 mix-blend-multiply"
-      >
-      <img
+        class="absolute -top-20 -left-20 w-72 mix-blend-multiply"
+      />
+      <motion.img
+        :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 0.1, scale: 1 }" :transition="{ duration: 1, delay: 0.2 }"
         src="/themes/ethnic/flower2.png"
         alt="flower"
-        class="absolute -bottom-20 -right-20 w-96 opacity-10 mix-blend-multiply"
-      >
+        class="absolute -bottom-20 -right-20 w-96 mix-blend-multiply"
+      />
 
       <div class="relative z-10 max-w-lg mx-auto">
         <motion.div 
@@ -649,55 +675,57 @@ onUnmounted(() => {
           :transition="{ duration: 1 }" 
           class="mb-16"
         >
-        <img
+          <motion.img
+            :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 1, delay: 0.3 }"
             src="/client/umu-shidqi/logo.png"
             alt="logo"
             class="w-24 mx-auto mb-8"
-        >
+          />
           
-          <p class="text-pretty text-sm leading-relaxed mb-4 text-gray-700">
+          <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.4 }" class="text-pretty text-sm leading-relaxed mb-4 text-gray-700">
             Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada putra-putri kami.
-          </p>
+          </motion.p>
           
-          <p class="font-bold text-lg text-ethnic-primary font-berkshire">
+          <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.5 }" class="font-bold text-lg text-ethnic-primary font-berkshire">
             Wassalamu'alaikum Warahmatullahi Wabarakatuh
-          </p>
+          </motion.p>
         </motion.div>
 
         <motion.div 
           :initial="{ opacity: 0, y: 50 }" 
           :while-in-view="{ opacity: 1, y: 0 }" 
-          :transition="{ duration: 1, delay: 0.3 }" 
+          :transition="{ duration: 1, delay: 0.6 }" 
           class="space-y-8"
         >
-          <p class="text-ethnic-secondary text-sm font-medium">Kami yang berbahagia</p>
+          <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.7 }" class="text-ethnic-secondary text-sm font-medium">Kami yang berbahagia</motion.p>
 
-          <div v-if="data?.families?.length" class="space-y-6">
-            <div 
+          <motion.div v-if="data?.families?.length" :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.8 }" class="space-y-6">
+            <motion.div 
               v-for="(family, index) in data.families" 
               :key="index"
+              :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.9 + (index * 0.1) }"
               class="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-ethnic-primary/20 shadow-sm"
             >
               <p class="text-xs text-ethnic-secondary mb-1">Keluarga Besar</p>
               <p class="font-semibold text-ethnic-primary text-sm">{{ family }}</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
           
           <!-- Fallback if no families data -->
-          <div v-else class="grid grid-cols-1 gap-4">
-            <div class="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-ethnic-primary/20 shadow-sm">
+          <motion.div v-else :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.8 }" class="grid grid-cols-1 gap-4">
+            <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.9 }" class="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-ethnic-primary/20 shadow-sm">
               <p class="text-xs text-ethnic-secondary mb-1">Keluarga Besar</p>
               <p class="font-semibold text-ethnic-primary text-sm">
                 {{ data?.groom?.father_name || "Keluarga Mempelai Pria" }}
               </p>
-            </div>
-            <div class="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-ethnic-primary/20 shadow-sm">
+            </motion.div>
+            <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 1.0 }" class="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-ethnic-primary/20 shadow-sm">
               <p class="text-xs text-ethnic-secondary mb-1">Keluarga Besar</p>
               <p class="font-semibold text-ethnic-primary text-sm">
                 {{ data?.bride?.father_name || "Keluarga Mempelai Wanita" }}
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
