@@ -199,7 +199,7 @@ onUnmounted(() => {
       id="cover"
       :class="[
         'h-screen absolute w-full mx-auto sm:px-6 lg:px-8 max-w-lg left-1/2 -translate-x-1/2 transition-all duration-[2000ms] z-50',
-        isOpen ? '-translate-y-full opacity-0' : 'opacity-100',
+        isOpen ? '-translate-y-full opacity-0' : 'opacity-150',
       ]"
     >
       <div class="flex flex-col bg-orange-50 items-center h-full py-32 px-10">
@@ -299,8 +299,14 @@ onUnmounted(() => {
 
     <section
       id="brides"
-      class="h-screen py-20 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
+      class="h-screen py-20 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative overflow-hidden"
     >
+        <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 left-0 -translate-1/2 w-72 opacity-15 mix-blend-multiply">
+        <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-72 opacity-15 mix-blend-multiply scale-x-[-1]">
+
+        <img src="/themes/ethnic/flower2.png" alt="" class="absolute -right-32 w-80 opacity-15 mix-blend-multiply bottom-28 rotate-90 scale-y-[-1]">
+        <img src="/themes/ethnic/flower2.png" alt="" class="absolute -left-32 w-80 opacity-15 mix-blend-multiply bottom-28 rotate-90">
+
       <p class="text-ethnic-secondary text-sm">Bismillahirrahmanirrahim</p>
       <p class="text-lg font-semibold font-berkshire tracking-widest mb-8">
         Assalamu'alaikum Warahmatullahi Wabarakatuh
@@ -341,12 +347,12 @@ onUnmounted(() => {
       <img
         src='/themes/ethnic/flower1.png'
         alt="flower"
-        class="absolute -top-20 -left-20 w-72 opacity-30 mix-blend-multiply"
+        class="absolute -top-20 -left-20 w-72 opacity-15 mix-blend-multiply"
       >
       <img
         src="/themes/ethnic/flower2.png"
         alt="flower"
-        class="absolute -bottom-20 -right-20 w-96 opacity-30 mix-blend-multiply"
+        class="absolute -bottom-20 -right-20 w-96 opacity-15 mix-blend-multiply"
       >
 
       <div class="relative z-10">
@@ -449,8 +455,20 @@ onUnmounted(() => {
 
     <section
       id="gift"
-      class="py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
+      class="py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative overflow-hidden"
     >
+        <img
+            src="/themes/ethnic/flower1.png"
+            alt="flower"
+            class="absolute top-1/2 scale-x-[-1] left-0 -translate-1/2 w-72 opacity-15 mix-blend-multiply"
+        >
+        <img
+            src="/themes/ethnic/flower1.png"
+            alt="flower"
+            class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-72 opacity-15 mix-blend-multiply"
+        >
+
+
       <h4 class="text-2xl mb-2 font-bold">Wedding Gift</h4>
       <p class="text-sm mb-4">
         Doa restu Bapak/Ibu merupakan karunia yang sangat berarti bagi kami, dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi kado secara cashless
@@ -492,12 +510,12 @@ onUnmounted(() => {
       <img
         src="/themes/ethnic/flower1.png"
         alt="flower"
-        class="absolute -top-20 -left-20 w-72 opacity-20 mix-blend-multiply"
+        class="absolute -top-20 -left-20 w-72 opacity-15 mix-blend-multiply"
       >
       <img
         src="/themes/ethnic/flower2.png"
         alt="flower"
-        class="absolute -bottom-20 -right-20 w-96 opacity-20 mix-blend-multiply"
+        class="absolute -bottom-20 -right-20 w-96 opacity-15 mix-blend-multiply"
       >
 
       <div class="relative z-10 w-full max-w-md">
@@ -576,9 +594,78 @@ onUnmounted(() => {
 
     <section
       id="epilogue"
-      class="h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
+      class="min-h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative overflow-hidden"
     >
-      epilogue
+      <!-- Decorative flowers -->
+      <img
+        src="/themes/ethnic/flower1.png"
+        alt="flower"
+        class="absolute -top-20 -left-20 w-72 opacity-15 mix-blend-multiply"
+      >
+      <img
+        src="/themes/ethnic/flower2.png"
+        alt="flower"
+        class="absolute -bottom-20 -right-20 w-96 opacity-15 mix-blend-multiply"
+      >
+
+      <div class="relative z-10 max-w-lg mx-auto">
+        <motion.div 
+          :initial="{ opacity: 0, y: 50 }" 
+          :while-in-view="{ opacity: 1, y: 0 }" 
+          :transition="{ duration: 1 }" 
+          class="mb-16"
+        >
+        <img
+            src="/client/umu-shidqi/logo.png"
+            alt="logo"
+            class="w-24 mx-auto mb-8"
+        >
+          
+          <p class="text-pretty text-sm leading-relaxed mb-4 text-gray-700">
+            Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada putra-putri kami.
+          </p>
+          
+          <p class="font-bold text-lg text-ethnic-primary font-berkshire">
+            Wassalamu'alaikum Warahmatullahi Wabarakatuh
+          </p>
+        </motion.div>
+
+        <motion.div 
+          :initial="{ opacity: 0, y: 50 }" 
+          :while-in-view="{ opacity: 1, y: 0 }" 
+          :transition="{ duration: 1, delay: 0.3 }" 
+          class="space-y-8"
+        >
+          <p class="text-ethnic-secondary text-sm font-medium">Kami yang berbahagia</p>
+
+          <div v-if="data?.families?.length" class="space-y-6">
+            <div 
+              v-for="(family, index) in data.families" 
+              :key="index"
+              class="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-ethnic-primary/20 shadow-sm"
+            >
+              <p class="text-xs text-ethnic-secondary mb-1">Keluarga Besar</p>
+              <p class="font-semibold text-ethnic-primary text-sm">{{ family }}</p>
+            </div>
+          </div>
+          
+          <!-- Fallback if no families data -->
+          <div v-else class="grid grid-cols-1 gap-4">
+            <div class="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-ethnic-primary/20 shadow-sm">
+              <p class="text-xs text-ethnic-secondary mb-1">Keluarga Besar</p>
+              <p class="font-semibold text-ethnic-primary text-sm">
+                {{ data?.groom?.father_name || "Keluarga Mempelai Pria" }}
+              </p>
+            </div>
+            <div class="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-ethnic-primary/20 shadow-sm">
+              <p class="text-xs text-ethnic-secondary mb-1">Keluarga Besar</p>
+              <p class="font-semibold text-ethnic-primary text-sm">
+                {{ data?.bride?.father_name || "Keluarga Mempelai Wanita" }}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
 
   </main>
