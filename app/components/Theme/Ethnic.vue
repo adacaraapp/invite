@@ -199,7 +199,7 @@ onUnmounted(() => {
       id="cover"
       :class="[
         'h-screen absolute w-full mx-auto sm:px-6 lg:px-8 max-w-lg left-1/2 -translate-x-1/2 transition-all duration-[2000ms] z-50',
-        isOpen ? '-translate-y-full opacity-0' : 'opacity-150',
+        isOpen ? '-translate-y-full opacity-0' : 'opacity-100',
       ]"
     >
       <div class="flex flex-col bg-orange-50 items-center h-full py-32 px-10">
@@ -250,8 +250,15 @@ onUnmounted(() => {
 
     <section
       id="title"
-      class="h-screen py-16 px-10 text-center flex flex-col items-center relative"
+      class="h-screen py-16 px-10 text-center flex flex-col items-center relative overflow-hidden"
     >
+        <!-- decorative -->
+         <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 left-0 -translate-1/2 w-96 opacity-10 mix-blend-multiply">
+         <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 opacity-10 mix-blend-multiply scale-x-[-1]">
+
+         <img src="/themes/ethnic/flower2.png" alt="" class="absolute -right-56 bottom-0 w-[420px] opacity-10 mix-blend-multiply rotate-90 scale-[-1]">
+            <img src="/themes/ethnic/flower2.png" alt="" class="absolute -left-56 bottom-0 w-[420px] opacity-10 mix-blend-multiply rotate-90 scale-x-[-1]">
+
       <p>THE WEDDING OF</p>
 
       <h1
@@ -283,7 +290,7 @@ onUnmounted(() => {
 
     <section
       id="prologue"
-      class="h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative justify-center"
+      class="py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative justify-center"
     >
       <h3 class="text-4xl mb-4 font-berkshire font-bold text-ethnic-secondary">
         With Love
@@ -301,11 +308,11 @@ onUnmounted(() => {
       id="brides"
       class="h-screen py-20 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative overflow-hidden"
     >
-        <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 left-0 -translate-1/2 w-72 opacity-15 mix-blend-multiply">
-        <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-72 opacity-15 mix-blend-multiply scale-x-[-1]">
+        <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 left-0 -translate-1/2 w-72 opacity-10 mix-blend-multiply">
+        <img src="/themes/ethnic/flower1.png" alt="" class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-72 opacity-10 mix-blend-multiply scale-x-[-1]">
 
-        <img src="/themes/ethnic/flower2.png" alt="" class="absolute -right-32 w-80 opacity-15 mix-blend-multiply bottom-28 rotate-90 scale-y-[-1]">
-        <img src="/themes/ethnic/flower2.png" alt="" class="absolute -left-32 w-80 opacity-15 mix-blend-multiply bottom-28 rotate-90">
+        <img src="/themes/ethnic/flower2.png" alt="" class="absolute -right-32 w-80 opacity-10 mix-blend-multiply bottom-28 rotate-90 scale-y-[-1]">
+        <img src="/themes/ethnic/flower2.png" alt="" class="absolute -left-32 w-80 opacity-10 mix-blend-multiply bottom-28 rotate-90">
 
       <p class="text-ethnic-secondary text-sm">Bismillahirrahmanirrahim</p>
       <p class="text-lg font-semibold font-berkshire tracking-widest mb-8">
@@ -347,12 +354,12 @@ onUnmounted(() => {
       <img
         src='/themes/ethnic/flower1.png'
         alt="flower"
-        class="absolute -top-20 -left-20 w-72 opacity-15 mix-blend-multiply"
+        class="absolute -top-20 -left-20 w-72 opacity-10 mix-blend-multiply"
       >
       <img
         src="/themes/ethnic/flower2.png"
         alt="flower"
-        class="absolute -bottom-20 -right-20 w-96 opacity-15 mix-blend-multiply"
+        class="absolute -bottom-20 -right-20 w-96 opacity-10 mix-blend-multiply"
       >
 
       <div class="relative z-10">
@@ -420,9 +427,16 @@ onUnmounted(() => {
 
     <section
       id="held"
-      class="h-screen py-16 px-3 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
+      class="h-screen py-16 px-3 border-t-8 border-ethnic-primary relative overflow-hidden"
     >
-      <p class="text-sm mb-8">Diselenggarakan pada</p>
+        <img
+            src="/themes/ethnic/flower1.png"
+            alt="flower"
+            class="absolute top-1/2 left-1/2 -translate-1/2 w-96 opacity-10 mix-blend-multiply z-0"
+        >
+
+      <div class="relative z-10 w-full text-center flex flex-col items-center">
+        <p class="text-sm mb-8">Diselenggarakan pada</p>
       <h3 class="text-2xl font-bold mb-1 font-berkshire tracking-[4px]">{{ data?.day }}, {{ data?.date }}</h3>
       <p class="text-ethnic-secondary">{{ data?.date_hijri }}</p>
 
@@ -445,6 +459,7 @@ onUnmounted(() => {
             <img :src="data?.venue.qr_location" alt="qr location" class="w-32">
         </div>
       </div>
+      </div>
     </section>
     
     <!-- <section
@@ -460,12 +475,12 @@ onUnmounted(() => {
         <img
             src="/themes/ethnic/flower1.png"
             alt="flower"
-            class="absolute top-1/2 scale-x-[-1] left-0 -translate-1/2 w-72 opacity-15 mix-blend-multiply"
+            class="absolute top-1/2 scale-x-[-1] left-0 -translate-1/2 w-72 opacity-10 mix-blend-multiply"
         >
         <img
             src="/themes/ethnic/flower1.png"
             alt="flower"
-            class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-72 opacity-15 mix-blend-multiply"
+            class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-72 opacity-10 mix-blend-multiply"
         >
 
 
@@ -510,12 +525,12 @@ onUnmounted(() => {
       <img
         src="/themes/ethnic/flower1.png"
         alt="flower"
-        class="absolute -top-20 -left-20 w-72 opacity-15 mix-blend-multiply"
+        class="absolute -top-20 -left-20 w-72 opacity-10 mix-blend-multiply"
       >
       <img
         src="/themes/ethnic/flower2.png"
         alt="flower"
-        class="absolute -bottom-20 -right-20 w-96 opacity-15 mix-blend-multiply"
+        class="absolute -bottom-20 -right-20 w-96 opacity-10 mix-blend-multiply"
       >
 
       <div class="relative z-10 w-full max-w-md">
@@ -600,12 +615,12 @@ onUnmounted(() => {
       <img
         src="/themes/ethnic/flower1.png"
         alt="flower"
-        class="absolute -top-20 -left-20 w-72 opacity-15 mix-blend-multiply"
+        class="absolute -top-20 -left-20 w-72 opacity-10 mix-blend-multiply"
       >
       <img
         src="/themes/ethnic/flower2.png"
         alt="flower"
-        class="absolute -bottom-20 -right-20 w-96 opacity-15 mix-blend-multiply"
+        class="absolute -bottom-20 -right-20 w-96 opacity-10 mix-blend-multiply"
       >
 
       <div class="relative z-10 max-w-lg mx-auto">
