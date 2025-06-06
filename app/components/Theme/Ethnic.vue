@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { motion } from "motion-v"
+
 const props = defineProps<{
   data?: any;
 }>();
@@ -25,6 +27,61 @@ const days = ref("00");
 const hours = ref("00");
 const minutes = ref("00");
 const seconds = ref("00");
+
+// rsvp state
+const { data: messages, refresh } = await useFetch('https://db.sekeco.work/api/database/rows/table/689/?user_field_names=true', {
+    headers: {
+        Authorization: `Token zvrWD5DD2LbRjddJADoiKN2aIWIJLG7u`
+    }
+})
+const loading = ref(false)
+const state = ref({
+    code: props.data?.code,
+    name: '',
+    message: '',
+    confirmation: '',
+    tamu: 1,
+})
+const items = ref(['Hadir', 'Tidak Hadir'])
+async function submitMessage() {
+    try {
+        const payload = {
+            name: state.value.name,
+            message: state.value.message,
+            confirmation: state.value.confirmation,
+            tamu: state.value.confirmation === 'Hadir' ? state.value.tamu : 0,
+        };
+
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { data, error } = await useFetch(`/api/messages/${state.value.code}`, {
+            method: 'POST',
+            body: payload,
+        });
+
+        if (error.value) {
+            throw new Error(error.value.message || 'Gagal mengirim ucapan');
+        }
+
+        alert('Ucapan berhasil dikirim! 🎉');
+        await refresh();
+
+        // Reset form
+        state.value.name = '';
+        state.value.message = '';
+        state.value.confirmation = '';
+        state.value.tamu = 1;
+
+        // Tutup modal (jika ada)
+        isOpen.value = false;
+
+        // Optional: bisa fetch ulang messages setelah submit
+        // await refreshNuxtData() atau re-fetch manual
+
+    } catch (err) {
+        console.error('Submit gagal:', err);
+        // alert('Terjadi kesalahan saat mengirim ucapan');
+    }
+}
 
 // Format date for display
 const formattedDate = computed(() => {
@@ -431,7 +488,50 @@ onUnmounted(() => {
       id="messages"
       class="h-screen py-16 px-10 border-t-8 border-ethnic-primary text-center flex flex-col items-center relative"
     >
-      messages
+      <h3>Ucapan & rsvp</h3>
+      <p>Berikan ucapan terbaik untuk Kedua Mempelai & Konfirmasi Kehadiran</p>
+      <div>
+        <UFormField label="Nama" required :ui="{ label: '!text-white', root: 'w-full' }">
+            <UInput v-model="state.name" placeholder="Masukkan nama kamu" class="w-full" />
+        </UFormField>
+
+        <UFormField label="Ucapan & Doa" required :ui="{ label: '!text-white', root: 'w-full' }">
+            <UTextarea v-model="state.message" placeholder="Masukkan ucapan & kamu" class="w-full" />
+        </UFormField>
+
+        <UFormField label="Konfirmasi Kehadiran" required :ui="{ label: '!text-white', root: 'w-full' }">
+            <URadioGroup v-model="state.confirmation" orientation="horizontal" indicator="hidden" variant="card" :items="items" :ui="{ label: '!text-white' }" />
+        </UFormField>
+
+        <UFormField v-if="state.confirmation === 'Hadir'" required :ui="{ label: '!text-white', root: 'w-full' }">
+            <UButtonGroup class="w-full">
+                <USelect v-model="state.tamu" color="neutral" variant="subtle" :items="[1, 2, 3, 4, 5]" class="w-full" :ui="{ base: 'pl-[100px]', leading: 'pointer-events-none bg-gold rounded-l-md px-2' }" :default-value="1">
+                    <template #leading>
+                        <p class="text-sm">
+                            Jumlah Tamu
+                        </p>
+                    </template>
+                </USelect>
+            </UButtonGroup>
+        </UFormField>
+
+         <UButton class="rounded-full w-full" block :loading="loading" @click="submitMessage">Kirim</UButton>
+
+         <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="mt-4 overflow-y-auto h-48 w-full flex flex-col space-y-2">
+            <template v-for="(message, index) in (messages?.results || []).sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())" :key="index">
+                <div class="flex gap-2 font-sans border-b border-b-gray-200 py-2">
+                    <UIcon name="i-lucide-user-circle" class="size-8 shrink-0" />
+                    <div class="text-left">
+                        <h5 class="font-bold">{{ message.name }}</h5>
+                        <p class="text-xs">{{ new Date(message.created_at).toLocaleString('id-ID', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }) }}</p>
+                        <p class="text-sm">
+                            {{ message.message }}
+                        </p>
+                    </div>
+                </div>
+            </template>
+        </motion.div>
+    </div>
     </section>
 
     <section

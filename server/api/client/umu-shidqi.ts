@@ -1,6 +1,7 @@
 export default defineEventHandler(async (event) => {
     return {
         theme: "ethnic",
+        code: "umu-shidqi",
         head: {
             title: "Pernikahan M. Shidqi Wafa & Neng Umu Kulsum",
             description:
