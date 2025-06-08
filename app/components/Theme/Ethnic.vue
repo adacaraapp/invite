@@ -5,16 +5,6 @@ const props = defineProps<{
   data?: any;
 }>();
 
-/**
- * Hanya gunakan asset:
- * - /themes/ethnic/flower1.png
- * - /themes/ethnic/flower2.png
- *
- * Untuk gambar lainnya, gunakan asset dari folder `public` atau `assets`.
- *
- * Tidak ada foto pengantin pria dan wanita, jadi gunakan font inisial saja
- */
-
 // Open invitation state
 const isOpen = ref(false);
 
@@ -27,6 +17,8 @@ const days = ref("00");
 const hours = ref("00");
 const minutes = ref("00");
 const seconds = ref("00");
+
+const route = useRoute()
 
 // rsvp state
 const { data: messages, refresh } = await useFetch('https://db.sekeco.work/api/database/rows/table/689/?user_field_names=true', {
@@ -212,7 +204,7 @@ onUnmounted(() => {
         <div class="mt-auto text-center">
           <p class="text-sm mb-3">Kepada Yth. Bapak/Ibu/Saudara/i</p>
           <p class="font-bold text-2xl">
-            {{ data?.recipient?.name || "Tamu Undangan" }}
+            {{ route.query?.kepada || "Tamu Undangan" }}
           </p>
         </div>
 
@@ -338,25 +330,25 @@ onUnmounted(() => {
           <motion.div :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 0.6, delay: 0.1 }" class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]">
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
               days
-            }}</span>
+              }}</span>
             <span class="text-xs text-ethnic-secondary uppercase tracking-wide">Hari</span>
           </motion.div>
           <motion.div :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 0.6, delay: 0.2 }" class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]">
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
               hours
-            }}</span>
+              }}</span>
             <span class="text-xs text-ethnic-secondary uppercase tracking-wide">Jam</span>
           </motion.div>
           <motion.div :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 0.6, delay: 0.3 }" class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]">
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
               minutes
-            }}</span>
+              }}</span>
             <span class="text-xs text-ethnic-secondary uppercase tracking-wide">Menit</span>
           </motion.div>
           <motion.div :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 0.6, delay: 0.4 }" class="flex flex-col items-center bg-white rounded-lg shadow-md p-4 w-[80px]">
             <span class="text-3xl font-bold text-ethnic-primary font-mono">{{
               seconds
-            }}</span>
+              }}</span>
             <span class="text-xs text-ethnic-secondary uppercase tracking-wide">Detik</span>
           </motion.div>
         </motion.div>

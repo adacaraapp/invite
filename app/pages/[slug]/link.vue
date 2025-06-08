@@ -24,7 +24,7 @@ definePageMeta({
 })
 
 const guestName = ref('')
-const baseLink = `https://${window?.location?.hostname}?kepada=`
+const baseLink = `https://${window?.location?.hostname}/${route.params.slug}?kepada=`
 
 const generatedLink = ref('')
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  title: 'Ourwedding',
+  title: 'Adacara Invitation',
 })
 </script>
 

@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
             title: "Pernikahan M. Shidqi Wafa & Neng Umu Kulsum",
             description:
                 "Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra-putri kami.",
-            cover: "/client/umu-shidqi/cover.jpg",
+            cover: "/client/umu-shidqi/cover.png",
             logo: "/client/umu-shidqi/logo.png",
         },
         groom: {
