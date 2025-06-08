@@ -32,7 +32,7 @@ useSeoMeta({
 
 <template>
     <div>
-        <UContainer v-if="data" class="h-screen max-w-lg">
+        <UContainer v-if="data" class="h-screen max-w-lg !px-0">
             <component :is="themes[data.theme as ThemeKey]" :data="data" />
         </UContainer>
         <div v-else class="grid place-items-center h-screen">
