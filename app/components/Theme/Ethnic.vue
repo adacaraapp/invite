@@ -260,7 +260,7 @@ onUnmounted(() => {
       <motion.h3 :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="text-4xl mb-4 font-berkshire font-bold text-ethnic-secondary">
         With Love
       </motion.h3>
-      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.3 }" class="text-pretty text-sm leading-relaxed">
+      <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.3 }" class="text-pretty text-sm leading-relaxed italic">
         "Dan nikahkanlah orang-orang yang sendirian di antara kamu, dan
         orang-orang yang layak (berkawin) dari hamba-hamba sahayamu yang lelaki
         dan hamba-hamba sahayamu yang perempuan. Jika mereka miskin, Allah akan
@@ -290,10 +290,10 @@ onUnmounted(() => {
 
       <div class="space-y-8 mt-8">
         <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.6 }">
-          <h3 class="text-3xl font-bold mt-8 mb-2">
+          <h3 class="text-xl font-bold mt-8 mb-2 text-nowrap">
             {{ data?.groom?.full_name || "GROOM FULL NAME" }}
           </h3>
-          <p class="text-ethnic-secondary">
+          <p class="text-ethnic-secondary text-sm">
             bin {{ data?.groom?.father_name || "FATHER NAME" }}
           </p>
         </motion.div>
@@ -301,11 +301,11 @@ onUnmounted(() => {
         <motion.p :initial="{ opacity: 0, scale: 0.8 }" :while-in-view="{ opacity: 1, scale: 1 }" :transition="{ duration: 1, delay: 0.8 }">dengan</motion.p>
 
         <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 1 }">
-          <h3 class="text-3xl font-bold mt-8 mb-2">
+          <h3 class="text-xl font-bold mt-8 mb-2 text-nowrap">
             {{ data?.bride?.full_name || "BRIDE FULL NAME" }}
           </h3>
-          <p class="text-ethnic-secondary">
-            binti. {{ data?.bride?.father_name || "FATHER NAME" }}
+          <p class="text-ethnic-secondary text-sm">
+            binti {{ data?.bride?.father_name || "FATHER NAME" }}
           </p>
         </motion.div>
       </div>
@@ -367,7 +367,7 @@ onUnmounted(() => {
 
       <div class="relative z-10 w-full text-center flex flex-col items-center">
         <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1 }" class="text-sm mb-8">Diselenggarakan pada</motion.p>
-        <motion.h3 :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.2 }" class="text-2xl font-bold mb-1 font-berkshire tracking-[4px]">{{ data?.day }}, {{ data?.date }}</motion.h3>
+        <motion.h3 :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.2 }" class="text-2xl font-bold mb-1 font-berkshire">{{ data?.day }}, {{ data?.date_long }}</motion.h3>
         <motion.p :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.3 }" class="text-ethnic-secondary">{{ data?.date_hijri }}</motion.p>
 
         <motion.div :initial="{ opacity: 0, y: 50 }" :while-in-view="{ opacity: 1, y: 0 }" :transition="{ duration: 1, delay: 0.4 }" class="flex items-start mt-10 divide-x w-full">

@@ -8,6 +8,7 @@ export default defineEventHandler(async (event) => {
                 "Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra-putri kami.",
             cover: "/client/umu-shidqi/cover.png",
             logo: "/client/umu-shidqi/logo.png",
+            favicon: "/client/umu-shidqi/favicon.png",
         },
         groom: {
             picture: null,
@@ -31,7 +32,8 @@ export default defineEventHandler(async (event) => {
             google_maps: 'https://maps.app.goo.gl/PXgLUE71xL2fpdCF6'
         },
         date: "2025-06-25",
-        date_hijri: "28 Dzulhijjah 1446 H",
+        date_long: "25 Juni 2025 M.",
+        date_hijri: "28 Dzulhijjah 1446 H.",
         day: "Rabu",
         events: [
             {

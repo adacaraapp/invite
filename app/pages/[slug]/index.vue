@@ -17,7 +17,7 @@ type ThemeKey = keyof typeof themes
 useHead({
     title: data.value?.head.title,
     link: [
-        { rel: 'icon', type: 'image/png', href: data.value?.head.logo }
+        { rel: 'icon', type: 'image/png', href: data.value?.head.favicon || data.value?.head.logo }
     ]
 })
 
